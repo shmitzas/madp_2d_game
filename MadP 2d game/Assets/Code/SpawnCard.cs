@@ -12,14 +12,21 @@ public class SpawnCard : MonoBehaviour
     public ManaRefil manaRefil;
     public entities_data entity;
     public float spawnCost { get; private set; }
+    public GameObject defaultPos;
+    private bool cardMoved;
     private void Start()
     {
         SpawnZone.gameObject.GetComponent<SpriteRenderer>().enabled = false;
         CardSelection();
     }
+    private void Awake()
+    {
+        defaultPos.transform.position = this.gameObject.transform.position;
+    }
 
     private void CardSelection()
     {
+
         selectCard = this.GetComponent<Button>();
         selectCard.onClick.AddListener(CardCheck);
     }
@@ -29,9 +36,21 @@ public class SpawnCard : MonoBehaviour
         {
             SpawnZone.gameObject.GetComponent<SpriteRenderer>().enabled = true;
             enableSpawn = true;
+            if (cardMoved == true)
+            {
+                this.gameObject.transform.position = new Vector2(this.gameObject.transform.position.x, this.gameObject.transform.position.y - 10);
+                enableSpawn = false;
+                cardMoved = false;
+            }
+            else
+            {
+                this.gameObject.transform.position = new Vector2(this.gameObject.transform.position.x, this.gameObject.transform.position.y + 10);
+                cardMoved = true;
+            }
         }
         else
         {
+            enableSpawn = false;
             Debug.Log("Not enough mana to spawn selected character");
         }
     }
@@ -55,6 +74,8 @@ public class SpawnCard : MonoBehaviour
                 manaRefil.mana -= this.entity.cost;
                 SpawnZone.gameObject.GetComponent<SpriteRenderer>().enabled = false;
                 enableSpawn = false;
+                cardMoved = false;
+                this.gameObject.transform.position = new Vector2(this.gameObject.transform.position.x, this.gameObject.transform.position.y - 10);
             }
         }
     }

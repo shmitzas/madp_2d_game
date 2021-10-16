@@ -27,7 +27,6 @@ public class UsableCards : MonoBehaviour
         }
         else
         {
-            Debug.Log(selectCard.gameObject.name);
             selectCard.image.material = deafultMaterial;
             cardImage.material = deafultMaterial;
         }

@@ -181,6 +181,7 @@ MonoBehaviour:
   SpawnZone: {fileID: 618443014}
   manaRefil: {fileID: 1846764168}
   entity: {fileID: 1858400848}
+  defaultPos: {fileID: 9069000}
 --- !u!114 &9069004
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4132,6 +4133,7 @@ MonoBehaviour:
   SpawnZone: {fileID: 618443014}
   manaRefil: {fileID: 1846764168}
   entity: {fileID: 25482116}
+  defaultPos: {fileID: 892295994}
 --- !u!1 &916144456
 GameObject:
   m_ObjectHideFlags: 0
@@ -4608,6 +4610,7 @@ MonoBehaviour:
   SpawnZone: {fileID: 618443014}
   manaRefil: {fileID: 1846764168}
   entity: {fileID: 1929026091}
+  defaultPos: {fileID: 1425575984}
 --- !u!114 &1425575988
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4842,6 +4845,7 @@ MonoBehaviour:
   SpawnZone: {fileID: 618443014}
   manaRefil: {fileID: 1846764168}
   entity: {fileID: 334246033}
+  defaultPos: {fileID: 1629952375}
 --- !u!114 &1629952379
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -11140,7 +11144,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 2be3aa42d69990947b346bd97f535cfc, type: 3}
+  m_Sprite: {fileID: 21300000, guid: e7d806b14d2c07548b38f9d9d3409076, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
