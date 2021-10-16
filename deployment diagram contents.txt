@@ -1,0 +1,8 @@
+
+exec environment (pc)
+    inside:
+        Unity stuff
+        our stuff:
+            Sprite assets
+            tilemaps
+            scripts
