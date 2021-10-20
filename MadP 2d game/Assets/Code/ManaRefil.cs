@@ -75,7 +75,7 @@ public class ManaRefil : MonoBehaviour
     {
         while (true)
         {
-            yield return new WaitForSeconds((regenTime%1000)*Time.deltaTime);
+            yield return new WaitForSeconds((regenTime%100)*Time.deltaTime);
             if (mana <= 10.0f)
             {
                 UpdateMana();
