@@ -412,7 +412,7 @@ MonoBehaviour:
   entityName: archer
   type: ground
   health: 30
-  speed: 3
+  speed: 1.8
   attackDamage: 5
   attackRange: 2
   cost: 3

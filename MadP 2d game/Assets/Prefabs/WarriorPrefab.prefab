@@ -371,7 +371,7 @@ MonoBehaviour:
   entityName: warrior
   type: ground
   health: 40
-  speed: 4
+  speed: 2
   attackDamage: 6
   attackRange: 1
   cost: 2

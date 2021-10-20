@@ -162,7 +162,7 @@ MonoBehaviour:
   entityName: dragon
   type: air
   health: 200
-  speed: 2
+  speed: 1.5
   attackDamage: 15
   attackRange: 2
   cost: 6

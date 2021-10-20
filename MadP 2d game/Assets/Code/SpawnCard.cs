@@ -11,9 +11,9 @@ public class SpawnCard : MonoBehaviour
     public PolygonCollider2D SpawnZone;
     public ManaRefil manaRefil;
     public entities_data entity;
-    public float spawnCost { get; private set; }
     public GameObject defaultPos;
     private bool cardMoved;
+    private GameObject a;
     private void Start()
     {
         SpawnZone.gameObject.GetComponent<SpriteRenderer>().enabled = false;
@@ -32,21 +32,23 @@ public class SpawnCard : MonoBehaviour
     }
     private void CardCheck()
     {
-        if (manaRefil.setManaCounter >= this.entity.cost)
+
+        if (cardMoved == true)
         {
-            SpawnZone.gameObject.GetComponent<SpriteRenderer>().enabled = true;
+            this.gameObject.transform.position = new Vector2(this.gameObject.transform.position.x, this.gameObject.transform.position.y - 10);
+            enableSpawn = false;
+            cardMoved = false;
+            manaRefil.mana += this.entity.cost;
+            SpawnZone.gameObject.GetComponent<SpriteRenderer>().enabled = false;
+        }
+        else if (manaRefil.setManaCounter >= this.entity.cost)
+        {
+            this.gameObject.transform.position = new Vector2(this.gameObject.transform.position.x, this.gameObject.transform.position.y + 10);
+            cardMoved = true;
             enableSpawn = true;
-            if (cardMoved == true)
-            {
-                this.gameObject.transform.position = new Vector2(this.gameObject.transform.position.x, this.gameObject.transform.position.y - 10);
-                enableSpawn = false;
-                cardMoved = false;
-            }
-            else
-            {
-                this.gameObject.transform.position = new Vector2(this.gameObject.transform.position.x, this.gameObject.transform.position.y + 10);
-                cardMoved = true;
-            }
+            manaRefil.mana -= this.entity.cost;
+            SpawnZone.gameObject.GetComponent<SpriteRenderer>().enabled = true;
+
         }
         else
         {
@@ -69,9 +71,8 @@ public class SpawnCard : MonoBehaviour
             // If it hits a collider with a tag SpawnZone it will allow to spawn entities
             if (hit.collider != null && hit.collider.gameObject.tag == "SpawnZone" && enableSpawn == true)
             {
-                GameObject a = Instantiate(entityPrefab) as GameObject;
+                a = Instantiate(entityPrefab) as GameObject;
                 a.transform.position = new Vector2(mousePos.x, mousePos.y);
-                manaRefil.mana -= this.entity.cost;
                 SpawnZone.gameObject.GetComponent<SpriteRenderer>().enabled = false;
                 enableSpawn = false;
                 cardMoved = false;
