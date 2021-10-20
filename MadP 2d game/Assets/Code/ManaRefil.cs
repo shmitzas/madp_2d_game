@@ -9,14 +9,11 @@ public class ManaRefil : MonoBehaviour
     public Text manaCounter;
     public float mana { get; set; }
     public float addMana;
-    public float regenTime;
     public int setManaCounter { get; private set; }
     private SpawnCard entity;
     public bool allowSpawnWarrior { get; private set; }
-    void Start()
-    {
-        // allowSpawnWarrior = false;
-        StartCoroutine(ManaGen());
+    private void FixedUpdate() {
+        UpdateMana();
     }
 
     private void UpdateMana()
@@ -71,15 +68,34 @@ public class ManaRefil : MonoBehaviour
         }
     }
 
-    private IEnumerator ManaGen()
-    {
-        while (true)
-        {
-            yield return new WaitForSeconds((regenTime%100)*Time.deltaTime);
-            if (mana <= 10.0f)
-            {
-                UpdateMana();
-            }
-        }
-    }
+//     private void ManaGen()
+//     {
+//         const float waitTime = 0.0001f;
+//         float counter = 0f;
+//         while (counter < waitTime)
+//         {
+//             counter += Time.deltaTime;
+//         }
+//         counter = 0f;
+//         if (mana <= 10.0f)
+//         {
+//             UpdateMana();
+//         }
+//     }
+// }
+//     IEnumerator ManaGen()
+//     {
+//         const float waitTime = 0.0001f;
+//         float counter = 0f;
+//         while (counter < waitTime)
+//         {
+//             counter += Time.deltaTime;
+//             yield return null; //Don't freeze Unity
+//         }
+//         counter = 0f;
+//         if (mana <= 10.0f)
+//         {
+//             UpdateMana();
+//         }
+//     }
 }
