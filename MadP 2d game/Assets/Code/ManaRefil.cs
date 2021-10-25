@@ -10,8 +10,6 @@ public class ManaRefil : MonoBehaviour
     public float mana { get; set; }
     public float addMana;
     public int setManaCounter { get; private set; }
-    private SpawnCard entity;
-    public bool allowSpawnWarrior { get; private set; }
     private void FixedUpdate() {
         UpdateMana();
     }

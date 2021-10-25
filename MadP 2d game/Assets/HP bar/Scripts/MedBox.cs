@@ -1,22 +1,24 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
-public class MedBox : MonoBehaviour
+namespace MADP
 {
-    private int improve = 15;
-
-    private void OnCollisionEnter2D(Collision2D other)
+    public class MedBox : MonoBehaviour
     {
-        GiveHealth(other);
-        Debug.Log("MedBoxTriggered");
-    }
+        private int improve = 15;
 
-    public void GiveHealth(Collision2D other)
-    {
-        if (other.transform.tag == "Player")
+        private void OnCollisionEnter2D(Collision2D other)
         {
-            other.transform.GetComponent<PlayerHealth>().TakeHealth(improve);
+            GiveHealth(other);
+            Debug.Log("MedBoxTriggered");
+        }
+
+        public void GiveHealth(Collision2D other)
+        {
+            if (other.transform.tag == "Player")
+            {
+                other.transform.GetComponent<PlayerHealth>().TakeHealth(improve);
+            }
         }
     }
 }

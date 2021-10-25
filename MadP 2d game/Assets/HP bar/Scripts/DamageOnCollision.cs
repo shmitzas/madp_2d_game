@@ -2,21 +2,24 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class DamageOnCollision : MonoBehaviour
+namespace MADP
 {
-    private int damage = 10;
-
-    private void OnCollisionEnter2D(Collision2D other)
+    public class DamageOnCollision : MonoBehaviour
     {
-        DamageEnemyPL(other);
-        Debug.Log("TrapsTriggered");
-    }
+        private int damage = 10;
 
-    public void DamageEnemyPL(Collision2D other)
-    {
-        if(other.transform.tag == "Player")
+        private void OnCollisionEnter2D(Collision2D other)
         {
-            other.transform.GetComponent<PlayerHealth>().TakeDamage(damage);
+            DamageEnemyPL(other);
+            Debug.Log("TrapsTriggered");
+        }
+
+        public void DamageEnemyPL(Collision2D other)
+        {
+            if (other.transform.tag == "Player")
+            {
+                other.transform.GetComponent<PlayerHealth>().TakeDamage(damage);
+            }
         }
     }
 }
