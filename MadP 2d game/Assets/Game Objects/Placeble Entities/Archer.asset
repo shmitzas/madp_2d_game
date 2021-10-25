@@ -1,0 +1,28 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 0}
+  m_Name: Archer
+  m_EditorClassIdentifier: Assembly-CSharp:MADP:PlaceableEntities
+  EntityType: 0
+  playerPrefab: {fileID: 5439693028118651042, guid: 17da20f9c423b754f9aeedee4bfbe0ea, type: 3}
+  enemyPrefab: {fileID: 5439693028118651042, guid: 17da20f9c423b754f9aeedee4bfbe0ea, type: 3}
+  attackType: 1
+  targetType: 1
+  attackRatio: 1
+  damagePerAttack: 2
+  attackRange: 1
+  hitPoints: 200
+  attackClip: {fileID: 0}
+  dieClip: {fileID: 0}
+  speed: 5
+  lifeTime: 5
+  damagePerSecond: 1

@@ -262,8 +262,6 @@ GameObject:
   - component: {fileID: 7144488188818101649}
   - component: {fileID: 8682128445172529699}
   - component: {fileID: 9057973553766741582}
-  - component: {fileID: 3000874223848622976}
-  - component: {fileID: 4091939646966847174}
   m_Layer: 0
   m_Name: ArcherPrefab
   m_TagString: Untagged
@@ -384,38 +382,6 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.24078369, y: 0.29268646}
   m_EdgeRadius: 0
---- !u!114 &3000874223848622976
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5439693028118651042}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 326a1b86f4215e64fa415d6fcdf5c44a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  entity: {fileID: 4091939646966847174}
---- !u!114 &4091939646966847174
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5439693028118651042}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6d1c814f24d89ae498041af7e61e7c65, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  entityName: archer
-  type: ground
-  health: 30
-  speed: 1.8
-  attackDamage: 5
-  attackRange: 2
-  cost: 3
 --- !u!1 &7009284211550628513
 GameObject:
   m_ObjectHideFlags: 0
@@ -519,7 +485,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   slider: {fileID: 4050161078951791119}
-  entity: {fileID: 4091939646966847174}
+  entity: {fileID: 0}
   gradient:
     serializedVersion: 2
     key0: {r: 0.745283, g: 0.0035154943, b: 0.0035154943, a: 1}
