@@ -12157,7 +12157,7 @@ PrefabInstance:
     - target: {fileID: 4263110526881145561, guid: 3cb913e8c61a81a43a7acbb4ebc7a20d, type: 3}
       propertyPath: entity
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 11400000, guid: 681f20b3e1b187145ad1704d9e1a0608, type: 2}
     - target: {fileID: 4263110526881145561, guid: 3cb913e8c61a81a43a7acbb4ebc7a20d, type: 3}
       propertyPath: SpawnZone
       value: 
@@ -12172,7 +12172,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4263110526881145563, guid: 3cb913e8c61a81a43a7acbb4ebc7a20d, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4263110526881145566, guid: 3cb913e8c61a81a43a7acbb4ebc7a20d, type: 3}
       propertyPath: m_Sprite
@@ -12189,7 +12189,7 @@ PrefabInstance:
     - target: {fileID: 4263110527085076313, guid: 3cb913e8c61a81a43a7acbb4ebc7a20d, type: 3}
       propertyPath: entity
       value: 
-      objectReference: {fileID: 11400000, guid: af174bfef2ee21a44bed921906fb6021, type: 2}
+      objectReference: {fileID: 11400000, guid: 681f20b3e1b187145ad1704d9e1a0608, type: 2}
     - target: {fileID: 4263110527085076315, guid: 3cb913e8c61a81a43a7acbb4ebc7a20d, type: 3}
       propertyPath: m_Sprite
       value: 

@@ -11,9 +11,10 @@ namespace MADP
         public PlacableEntities entity;
         public Gradient gradient; //set a color
         public Image fill;
+        public int health;
         private void LateUpdate()
         {
-            SetHealth(entity.health);
+            SetHealth(health);
         }
         private void Start()
         {
@@ -27,13 +28,6 @@ namespace MADP
             slider.value = health;
 
             fill.color = gradient.Evaluate(slider.normalizedValue); //color and value depends, so we use normalized(ussualy from zero to 1)
-        }
-
-        private void Update() {
-            if (Input.GetKeyDown(KeyCode.Space))
-            {
-                this.entity.health -= 5;
-            }
         }
     }
 }

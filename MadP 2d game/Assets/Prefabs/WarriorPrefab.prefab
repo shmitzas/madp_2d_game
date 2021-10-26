@@ -134,6 +134,7 @@ MonoBehaviour:
     m_NumColorKeys: 3
     m_NumAlphaKeys: 2
   fill: {fileID: 6111909890680747714}
+  health: 40
 --- !u!1 &361498317633407302
 GameObject:
   m_ObjectHideFlags: 0
@@ -222,6 +223,7 @@ GameObject:
   - component: {fileID: 8216311707190487702}
   - component: {fileID: 568938206780700778}
   - component: {fileID: 2420040895408657569}
+  - component: {fileID: 7764544304364169771}
   m_Layer: 0
   m_Name: WarriorPrefab
   m_TagString: Untagged
@@ -355,6 +357,26 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   entity: {fileID: 11400000, guid: af174bfef2ee21a44bed921906fb6021, type: 2}
+--- !u!114 &7764544304364169771
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4417234784500471922}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4329d7fc8355bc448979fdec172017e8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  eType: 0
+  target: {fileID: 0}
+  healthBar: {fileID: 0}
+  health: 0
+  attackRange: 0
+  attackRatio: 0
+  lastBlowTime: -1000
+  damage: 0
 --- !u!1 &5210378699735917355
 GameObject:
   m_ObjectHideFlags: 0
