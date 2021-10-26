@@ -12034,6 +12034,18 @@ PrefabInstance:
       propertyPath: m_Sprite
       value: 
       objectReference: {fileID: 21300000, guid: 2d5c8cb377b68894d9ab20402e1ec397, type: 3}
+    - target: {fileID: 4263110525297718177, guid: 3cb913e8c61a81a43a7acbb4ebc7a20d, type: 3}
+      propertyPath: m_MatchWidthOrHeight
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4263110525297718177, guid: 3cb913e8c61a81a43a7acbb4ebc7a20d, type: 3}
+      propertyPath: m_ReferenceResolution.x
+      value: 1920
+      objectReference: {fileID: 0}
+    - target: {fileID: 4263110525297718177, guid: 3cb913e8c61a81a43a7acbb4ebc7a20d, type: 3}
+      propertyPath: m_ReferenceResolution.y
+      value: 1080
+      objectReference: {fileID: 0}
     - target: {fileID: 4263110525578766152, guid: 3cb913e8c61a81a43a7acbb4ebc7a20d, type: 3}
       propertyPath: m_SizeDelta.x
       value: 60
