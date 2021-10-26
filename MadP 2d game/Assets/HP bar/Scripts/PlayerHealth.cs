@@ -6,10 +6,10 @@ namespace MADP
 {
     public class PlayerHealth : MonoBehaviour
     {
-        private PlacableEntities entity;
+        public PlacableEntities entity;
 
-        public int maxHealth;
-        public int currentHealth;
+        private int maxHealth;
+        private int currentHealth;
 
 
         public HealthBar healthBar;
@@ -23,7 +23,9 @@ namespace MADP
 
         void Update() //a function to take damage at every space.button press
         {
-            if (Input.GetKeyDown(KeyCode.Space))
+            this.entity.health = currentHealth;
+            Debug.Log("player health");
+            if (Input.GetKeyDown(KeyCode.A))
             {
                 TakeDamage(20);
             }
@@ -44,7 +46,7 @@ namespace MADP
         public void TakeDamage(int amount)
         {
             currentHealth -= amount;
-            // Debug.Log("Damage Taken");
+            Debug.Log("Damage Taken");
 
             if (currentHealth <= 0)
             {

@@ -6,12 +6,11 @@ namespace MADP
 {
     public class SpawnCard : MonoBehaviour
     {
-        private PlacableEntities entityPrefab;
         public bool enableSpawn { get; private set; }
         private Button selectCard;
         public PolygonCollider2D SpawnZone;
         public ManaRefil manaRefil;
-        private PlacableEntities entity;
+        public PlacableEntities entity;
         private bool cardMoved;
         private void Start()
         {
@@ -68,7 +67,11 @@ namespace MADP
                 {
                     //spawn entity
                     Debug.Log("Spawned " + entity.name);
-                    // entity.transform.position = new Vector2(mousePos.x, mousePos.y);
+
+                    //----- This creates a copy (not independent object) of entity prefab ----- NOT GOOD!
+                    GameObject character = Instantiate<GameObject>(entity.playerPrefab, mousePos, Quaternion.identity);
+                    //-----------------------------------------------------------------------------------
+
                     SpawnZone.gameObject.GetComponent<SpriteRenderer>().enabled = false;
                     enableSpawn = false;
                     cardMoved = false;

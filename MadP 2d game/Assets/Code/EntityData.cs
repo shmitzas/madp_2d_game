@@ -3,7 +3,7 @@ using UnityEngine.Events;
 
 namespace MADP
 {
-    public class EntityData:MonoBehaviour
+    public class EntityData : MonoBehaviour
     {
         public enum Type
         {

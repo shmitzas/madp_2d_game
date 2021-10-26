@@ -10,7 +10,7 @@ namespace MADP
 
         private float horizontal;
         private float vertical;
-        private PlacableEntities entity;
+        public PlacableEntities entity;
 
         private float runSpeed;
 
@@ -31,5 +31,4 @@ namespace MADP
             body.velocity = new Vector2(horizontal * runSpeed, vertical * runSpeed);
         }
     }
-
 }

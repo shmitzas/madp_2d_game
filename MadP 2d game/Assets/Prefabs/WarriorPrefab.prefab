@@ -103,7 +103,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   slider: {fileID: 7706535044801753842}
-  entity: {fileID: 3213655626213950386}
+  entity: {fileID: 11400000, guid: af174bfef2ee21a44bed921906fb6021, type: 2}
   gradient:
     serializedVersion: 2
     key0: {r: 0.745283, g: 0.0035154943, b: 0.0035154943, a: 1}
@@ -222,7 +222,6 @@ GameObject:
   - component: {fileID: 8216311707190487702}
   - component: {fileID: 568938206780700778}
   - component: {fileID: 2420040895408657569}
-  - component: {fileID: 3213655626213950386}
   m_Layer: 0
   m_Name: WarriorPrefab
   m_TagString: Untagged
@@ -355,26 +354,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 326a1b86f4215e64fa415d6fcdf5c44a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  entity: {fileID: 3213655626213950386}
---- !u!114 &3213655626213950386
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4417234784500471922}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6d1c814f24d89ae498041af7e61e7c65, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  entityName: warrior
-  type: ground
-  health: 40
-  speed: 2
-  attackDamage: 6
-  attackRange: 1
-  cost: 2
+  entity: {fileID: 11400000, guid: af174bfef2ee21a44bed921906fb6021, type: 2}
 --- !u!1 &5210378699735917355
 GameObject:
   m_ObjectHideFlags: 0

@@ -12021,7 +12021,7 @@ PrefabInstance:
     - target: {fileID: 4263110525273860564, guid: 3cb913e8c61a81a43a7acbb4ebc7a20d, type: 3}
       propertyPath: entity
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 11400000, guid: af174bfef2ee21a44bed921906fb6021, type: 2}
     - target: {fileID: 4263110525273860564, guid: 3cb913e8c61a81a43a7acbb4ebc7a20d, type: 3}
       propertyPath: SpawnZone
       value: 
@@ -12065,6 +12065,10 @@ PrefabInstance:
     - target: {fileID: 4263110525598585635, guid: 3cb913e8c61a81a43a7acbb4ebc7a20d, type: 3}
       propertyPath: m_Name
       value: SpawnableCharacter 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 4263110525598585635, guid: 3cb913e8c61a81a43a7acbb4ebc7a20d, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4263110525598585638, guid: 3cb913e8c61a81a43a7acbb4ebc7a20d, type: 3}
       propertyPath: m_Sprite
@@ -12114,6 +12118,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: SpawnableCharacter 3
       objectReference: {fileID: 0}
+    - target: {fileID: 4263110526145735580, guid: 3cb913e8c61a81a43a7acbb4ebc7a20d, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4263110526228320355, guid: 3cb913e8c61a81a43a7acbb4ebc7a20d, type: 3}
       propertyPath: addMana
       value: 0.015
@@ -12161,6 +12169,10 @@ PrefabInstance:
     - target: {fileID: 4263110526881145563, guid: 3cb913e8c61a81a43a7acbb4ebc7a20d, type: 3}
       propertyPath: m_Name
       value: SpawnableCharacter 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4263110526881145563, guid: 3cb913e8c61a81a43a7acbb4ebc7a20d, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4263110526881145566, guid: 3cb913e8c61a81a43a7acbb4ebc7a20d, type: 3}
       propertyPath: m_Sprite
