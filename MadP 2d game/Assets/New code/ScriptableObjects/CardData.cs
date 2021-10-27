@@ -2,17 +2,16 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class CardData : MonoBehaviour
+namespace RushNDestroy
 {
-    // Start is called before the first frame update
-    void Start()
+    [CreateAssetMenu(fileName = "New Card", menuName = "RushNDestroy/Card Data")]
+    public class CardData : ScriptableObject
     {
-        
-    }
+        [Header("Card graphics")]
+        public Sprite cardImage;
 
-    // Update is called once per frame
-    void Update()
-    {
-        
+        [Header("List of Placeables")]
+        public PlaceablesData[] placeablesData; //link to all the Placeables that this card spawns
+        public Vector3[] relativeOffsets; //the relative offsets (from cursor) where the placeables will be dropped
     }
 }
