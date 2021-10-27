@@ -30,5 +30,4 @@ namespace RushNDestroy
             Destroy(this);
         }
     }
-
 }

@@ -10,13 +10,13 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 5e34710069d57604fa2f71866b80db06, type: 3}
-  m_Name: Warrior
+  m_Name: Zeppelin
   m_EditorClassIdentifier: 
   pType: 0
-  associatedPrefab: {fileID: 4417234784500471922, guid: 435f84f5c37f75f4ea5fed11d3a5cdbe, type: 3}
-  alternatePrefab: {fileID: 4417234784500471922, guid: 435f84f5c37f75f4ea5fed11d3a5cdbe, type: 3}
-  attackType: 0
-  targetType: 1
+  associatedPrefab: {fileID: 9187763448752479213, guid: ba848ed39ac0a1346b7ced7ae9acd747, type: 3}
+  alternatePrefab: {fileID: 9187763448752479213, guid: ba848ed39ac0a1346b7ced7ae9acd747, type: 3}
+  attackType: 1
+  targetType: 0
   attackRatio: 1
   damagePerAttack: 2
   attackRange: 1

@@ -10,19 +10,19 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 5e34710069d57604fa2f71866b80db06, type: 3}
-  m_Name: Warrior
+  m_Name: Castle
   m_EditorClassIdentifier: 
-  pType: 0
-  associatedPrefab: {fileID: 4417234784500471922, guid: 435f84f5c37f75f4ea5fed11d3a5cdbe, type: 3}
-  alternatePrefab: {fileID: 4417234784500471922, guid: 435f84f5c37f75f4ea5fed11d3a5cdbe, type: 3}
-  attackType: 0
+  pType: 4
+  associatedPrefab: {fileID: 9145269761586026712, guid: a0810fc6216e8164cb460657b7b86d3c, type: 3}
+  alternatePrefab: {fileID: 9145269761586026712, guid: a0810fc6216e8164cb460657b7b86d3c, type: 3}
+  attackType: 1
   targetType: 1
   attackRatio: 1
-  damagePerAttack: 2
-  attackRange: 1
+  damagePerAttack: 5
+  attackRange: 3
   hitPoints: 200
   attackClip: {fileID: 0}
   dieClip: {fileID: 0}
-  speed: 5
+  speed: 0
   lifeTime: 5
-  damagePerSecond: 1
+  damagePerSecond: 0

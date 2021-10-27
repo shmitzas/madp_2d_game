@@ -1,0 +1,41 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bbb281ee3bf0b054c82ac2347e9e782c, type: 3}
+  m_Name: Default Local Group
+  m_EditorClassIdentifier: 
+  m_GroupName: Default Local Group
+  m_Data:
+    m_SerializedData: []
+  m_GUID: 7e06ca81e3ab1964ca2039303daa49b5
+  m_SerializeEntries:
+  - m_GUID: b98613dcd3dccc14ea61089d7dd5b9b1
+    m_Address: Assets/Game Objects/Cards/Zeppelin.asset
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 8d94899a943d73f41a4d8ac991c82f9f
+    m_Address: Assets/Game Objects/Cards/Warrior.asset
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 43fd7c79e14ed99428933edecbbcce87
+    m_Address: Assets/Game Objects/Cards/Dragon.asset
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: a32d2f28d444b8f48af31a8d946432fb
+    m_Address: Assets/Game Objects/Cards/Archer.asset
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  m_ReadOnly: 0
+  m_Settings: {fileID: 11400000, guid: b9cf26c431a80604ab0a108e0900ed15, type: 2}
+  m_SchemaSet:
+    m_Schemas:
+    - {fileID: 11400000, guid: 3f1a8649af6769c47963619255555b69, type: 2}
+    - {fileID: 11400000, guid: 2b549e54527794c4caba0a9614197a8a, type: 2}

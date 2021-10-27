@@ -26,7 +26,7 @@ namespace RushNDestroy
 			dieAudioClip = pData.dieClip;
             //TODO: add more as necessary
 
-			constructionTimeline.Play();
+			//constructionTimeline.Play();
         }
 
         protected override void Die()
@@ -35,7 +35,7 @@ namespace RushNDestroy
 			//audioSource.PlayOneShot(dieAudioClip, 1f);
 
             //Debug.Log("Building is dead", gameObject);
-			destructionTimeline.Play();
+			//destructionTimeline.Play();
         }
     }
 }
