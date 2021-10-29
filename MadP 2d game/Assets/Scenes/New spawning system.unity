@@ -1734,9 +1734,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 897453671}
-  - component: {fileID: 897453670}
-  - component: {fileID: 897453669}
-  - component: {fileID: 897453668}
   m_Layer: 0
   m_Name: Managers
   m_TagString: Untagged
@@ -1744,56 +1741,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &897453668
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 897453667}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6b8346eb7bcabec45b55e33b142986c4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &897453669
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 897453667}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 48e232af6ef23924a802db7f667005fd, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  mainCamera: {fileID: 1535535137}
-  playingFieldMask:
-    serializedVersion: 2
-    m_Bits: 0
-  cardPrefab: {fileID: 354331265473919809, guid: 88b7e9d00e8a5414bb527fa27ce4dbc9, type: 3}
-  playersDeck: {fileID: 11400000, guid: a7dabc74b29d3475291fbb95a8ab8b70, type: 2}
-  forbiddenAreaRenderer: {fileID: 0}
-  backupCardTransform: {fileID: 0}
-  cardsDashboard: {fileID: 514523768}
-  cardsPanel: {fileID: 199175661}
---- !u!114 &897453670
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 897453667}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1c17e2a62691e754d9f7ed5ba06bbf22, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  playersCastle: {fileID: 3993056436689911877}
-  opponentCastle: {fileID: 1656065694}
-  castlePData: {fileID: 11400000, guid: dadd2cb1dc9c4e24e8704d7199432ef1, type: 2}
-  appearEffectPool: {fileID: 1885227377}
 --- !u!4 &897453671
 Transform:
   m_ObjectHideFlags: 0
@@ -2559,7 +2506,8 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 5091007008425532377, guid: 88b7e9d00e8a5414bb527fa27ce4dbc9, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 88b7e9d00e8a5414bb527fa27ce4dbc9, type: 3}
 --- !u!224 &1416492808 stripped
 RectTransform:
@@ -2944,11 +2892,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 09f751c17f2b49248ac43c2ecbefec07, type: 3}
---- !u!1 &1656065694 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 6448662461594074941, guid: 09f751c17f2b49248ac43c2ecbefec07, type: 3}
-  m_PrefabInstance: {fileID: 1656065693}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1676995811
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -13073,13 +13016,9 @@ PrefabInstance:
       propertyPath: m_Name
       value: Castle(test)
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 9111718654780633800, guid: 09f751c17f2b49248ac43c2ecbefec07, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 09f751c17f2b49248ac43c2ecbefec07, type: 3}
---- !u!1 &3993056436689911877 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 6448662461594074941, guid: 09f751c17f2b49248ac43c2ecbefec07, type: 3}
-  m_PrefabInstance: {fileID: 3993056436689911876}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &4107473129676883785
 PrefabInstance:
   m_ObjectHideFlags: 0

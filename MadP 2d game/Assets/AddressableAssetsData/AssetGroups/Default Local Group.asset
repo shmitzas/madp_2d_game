@@ -16,23 +16,7 @@ MonoBehaviour:
   m_Data:
     m_SerializedData: []
   m_GUID: 7e06ca81e3ab1964ca2039303daa49b5
-  m_SerializeEntries:
-  - m_GUID: b98613dcd3dccc14ea61089d7dd5b9b1
-    m_Address: Assets/Game Objects/Cards/Zeppelin.asset
-    m_ReadOnly: 0
-    m_SerializedLabels: []
-  - m_GUID: 8d94899a943d73f41a4d8ac991c82f9f
-    m_Address: Assets/Game Objects/Cards/Warrior.asset
-    m_ReadOnly: 0
-    m_SerializedLabels: []
-  - m_GUID: 43fd7c79e14ed99428933edecbbcce87
-    m_Address: Assets/Game Objects/Cards/Dragon.asset
-    m_ReadOnly: 0
-    m_SerializedLabels: []
-  - m_GUID: a32d2f28d444b8f48af31a8d946432fb
-    m_Address: Assets/Game Objects/Cards/Archer.asset
-    m_ReadOnly: 0
-    m_SerializedLabels: []
+  m_SerializeEntries: []
   m_ReadOnly: 0
   m_Settings: {fileID: 11400000, guid: b9cf26c431a80604ab0a108e0900ed15, type: 2}
   m_SchemaSet:

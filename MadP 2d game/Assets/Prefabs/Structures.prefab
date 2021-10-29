@@ -11,7 +11,6 @@ GameObject:
   - component: {fileID: 6375110293242964248}
   - component: {fileID: 7594113275222168726}
   - component: {fileID: 487441777062925325}
-  - component: {fileID: 2086818612172712920}
   m_Layer: 0
   m_Name: Castle
   m_TagString: Untagged
@@ -317,37 +316,6 @@ PolygonCollider2D:
       - {x: -1.8449999, y: -5.515}
       - {x: -1.7249999, y: -5.4849997}
       - {x: -1.605, y: -5.4449997}
---- !u!114 &2086818612172712920
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 964481510227590590}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ed187ba6f06848a4e9e78e135aa4e85d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  pType: 0
-  faction: 0
-  targetType: 0
-  dieAudioClip: {fileID: 0}
-  state: 0
-  attackType: 0
-  target: {fileID: 0}
-  healthBar: {fileID: 0}
-  hitPoints: 0
-  attackRange: 0
-  attackRatio: 0
-  lastBlowTime: -1000
-  damage: 0
-  attackAudioClip: {fileID: 0}
-  timeToActNext: 0
-  projectilePrefab: {fileID: 0}
-  projectileSpawnPoint: {fileID: 0}
-  constructionTimeline: {fileID: 0}
-  destructionTimeline: {fileID: 0}
 --- !u!1 &5070294625864686051
 GameObject:
   m_ObjectHideFlags: 0
@@ -359,7 +327,6 @@ GameObject:
   - component: {fileID: 3856666710171587954}
   - component: {fileID: 5826445667417835791}
   - component: {fileID: 8334869071293171247}
-  - component: {fileID: 1745468471542251047}
   m_Layer: 0
   m_Name: Tower
   m_TagString: Untagged
@@ -458,37 +425,6 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1.0442333, y: 1.5086637}
   m_EdgeRadius: 0
---- !u!114 &1745468471542251047
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5070294625864686051}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ed187ba6f06848a4e9e78e135aa4e85d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  pType: 0
-  faction: 0
-  targetType: 0
-  dieAudioClip: {fileID: 0}
-  state: 0
-  attackType: 0
-  target: {fileID: 0}
-  healthBar: {fileID: 0}
-  hitPoints: 0
-  attackRange: 0
-  attackRatio: 0
-  lastBlowTime: -1000
-  damage: 0
-  attackAudioClip: {fileID: 0}
-  timeToActNext: 0
-  projectilePrefab: {fileID: 0}
-  projectileSpawnPoint: {fileID: 0}
-  constructionTimeline: {fileID: 0}
-  destructionTimeline: {fileID: 0}
 --- !u!1 &7863140291698660667
 GameObject:
   m_ObjectHideFlags: 0
@@ -500,7 +436,6 @@ GameObject:
   - component: {fileID: 5485327671212745033}
   - component: {fileID: 4731967960876678537}
   - component: {fileID: 4589273162917951268}
-  - component: {fileID: 3438359463682590370}
   m_Layer: 0
   m_Name: Tower (1)
   m_TagString: Untagged
@@ -599,37 +534,6 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.9499254, y: 1.5382566}
   m_EdgeRadius: 0
---- !u!114 &3438359463682590370
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7863140291698660667}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ed187ba6f06848a4e9e78e135aa4e85d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  pType: 0
-  faction: 0
-  targetType: 0
-  dieAudioClip: {fileID: 0}
-  state: 0
-  attackType: 0
-  target: {fileID: 0}
-  healthBar: {fileID: 0}
-  hitPoints: 0
-  attackRange: 0
-  attackRatio: 0
-  lastBlowTime: -1000
-  damage: 0
-  attackAudioClip: {fileID: 0}
-  timeToActNext: 0
-  projectilePrefab: {fileID: 0}
-  projectileSpawnPoint: {fileID: 0}
-  constructionTimeline: {fileID: 0}
-  destructionTimeline: {fileID: 0}
 --- !u!1 &9145269761586026712
 GameObject:
   m_ObjectHideFlags: 0

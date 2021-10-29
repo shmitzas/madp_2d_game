@@ -118,7 +118,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5649175202512971466}
-  - component: {fileID: 9111718654780633800}
   m_Layer: 0
   m_Name: Castle(test)
   m_TagString: Untagged
@@ -141,34 +140,3 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &9111718654780633800
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6448662461594074941}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ed187ba6f06848a4e9e78e135aa4e85d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  pType: 4
-  faction: 0
-  targetType: 0
-  dieAudioClip: {fileID: 0}
-  state: 0
-  attackType: 0
-  target: {fileID: 0}
-  healthBar: {fileID: 0}
-  hitPoints: 0
-  attackRange: 0
-  attackRatio: 0
-  lastBlowTime: -1000
-  damage: 0
-  attackAudioClip: {fileID: 0}
-  timeToActNext: 0
-  projectilePrefab: {fileID: 0}
-  projectileSpawnPoint: {fileID: 0}
-  constructionTimeline: {fileID: 0}
-  destructionTimeline: {fileID: 0}

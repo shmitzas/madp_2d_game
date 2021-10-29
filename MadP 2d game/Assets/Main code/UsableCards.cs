@@ -3,7 +3,7 @@
 // using UnityEngine;
 // using UnityEngine.UI;
 
-// namespace MADP
+// namespace RushNDestroy
 // {
 //     public class UsableCards : MonoBehaviour
 //     {

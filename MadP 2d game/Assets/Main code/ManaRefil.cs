@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-namespace MADP
+namespace RushNDestroy
 {
     public class ManaRefil : MonoBehaviour
     {
