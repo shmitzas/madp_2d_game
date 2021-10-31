@@ -103,7 +103,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   slider: {fileID: 7706535044801753842}
-  entity: {fileID: 11400000, guid: af174bfef2ee21a44bed921906fb6021, type: 2}
   gradient:
     serializedVersion: 2
     key0: {r: 0.745283, g: 0.0035154943, b: 0.0035154943, a: 1}
@@ -222,8 +221,7 @@ GameObject:
   - component: {fileID: 6511218861038164479}
   - component: {fileID: 8216311707190487702}
   - component: {fileID: 568938206780700778}
-  - component: {fileID: 2420040895408657569}
-  - component: {fileID: 7764544304364169771}
+  - component: {fileID: 1801835981715246555}
   m_Layer: 0
   m_Name: WarriorPrefab
   m_TagString: Untagged
@@ -285,7 +283,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 1000
+  m_SortingOrder: 10
   m_Sprite: {fileID: 21300000, guid: 3eda543a2423783498fe922cf7dd996d, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -344,7 +342,7 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.40323925, y: 0.34492767}
   m_EdgeRadius: 0
---- !u!114 &2420040895408657569
+--- !u!114 &1801835981715246555
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -353,30 +351,17 @@ MonoBehaviour:
   m_GameObject: {fileID: 4417234784500471922}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 326a1b86f4215e64fa415d6fcdf5c44a, type: 3}
+  m_Script: {fileID: 11500000, guid: e876c4666a1ec7d4b9bdb9d742ee1142, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  entity: {fileID: 11400000, guid: af174bfef2ee21a44bed921906fb6021, type: 2}
---- !u!114 &7764544304364169771
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4417234784500471922}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4329d7fc8355bc448979fdec172017e8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  eType: 0
+  type: 0
   target: {fileID: 0}
   healthBar: {fileID: 0}
-  health: 0
-  attackRange: 0
-  attackRatio: 0
-  lastBlowTime: -1000
+  healthRemaining: 0
   damage: 0
+  attackRatio: 0
+  attackRange: 0
+  attackType: 0
 --- !u!1 &5210378699735917355
 GameObject:
   m_ObjectHideFlags: 0

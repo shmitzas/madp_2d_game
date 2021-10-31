@@ -10,22 +10,17 @@ namespace RushNDestroy
         public Slider slider;
         public Gradient gradient; //set a color
         public Image fill;
-        public float health;
-        private void LateUpdate()
-        {
-            SetHealth(health);
-        }
+        public int health;
+
         private void Start()
         {
             slider.maxValue = health;
             slider.value = health;
             fill.color = gradient.Evaluate(1f); //set this color at max
         }
-
         public void SetHealth(float health)
         {
             slider.value = health;
-
             fill.color = gradient.Evaluate(slider.normalizedValue); //color and value depends, so we use normalized(ussualy from zero to 1)
         }
     }
