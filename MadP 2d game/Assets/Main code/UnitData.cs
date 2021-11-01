@@ -16,8 +16,10 @@ namespace RushNDestroy
             speed = entity.speed;
             damage = entity.attackDamage;
         }
-        private void Update() {
-            if(Input.GetKeyDown(KeyCode.Space)) SufferDamage(5);
+        private void Update()
+        {
+            if (Input.GetKeyDown(KeyCode.Space))
+                SufferDamage(5);
         }
     }
 }

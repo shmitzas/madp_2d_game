@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace RushNDestroy
 {
-    [CreateAssetMenu(fileName = "New Entity", menuName = "Entity")]
+    [CreateAssetMenu(fileName = "New Entity", menuName = "Rush N Destroy/Entity")]
     public class EntityData : ScriptableObject
     {
         [Header("Prefab, artwork")]

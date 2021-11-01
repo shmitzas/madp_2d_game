@@ -14,7 +14,7 @@ namespace RushNDestroy
         }
         public enum TargetType
         {
-            Character,
+            Ground,
             Structure,
             Any
         }

@@ -27,6 +27,13 @@ namespace RushNDestroy
         {
             healthRemaining -= damage;
             healthBar.SetHealth(healthRemaining);
+
+            if (healthRemaining <= 0)
+                Die();
+        }
+        public void Die()
+        {
+            Destroy(this.gameObject);
         }
     }
 }

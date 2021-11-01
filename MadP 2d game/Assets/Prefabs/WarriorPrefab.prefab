@@ -222,6 +222,7 @@ GameObject:
   - component: {fileID: 8216311707190487702}
   - component: {fileID: 568938206780700778}
   - component: {fileID: 1801835981715246555}
+  - component: {fileID: 1096973137453930626}
   m_Layer: 0
   m_Name: WarriorPrefab
   m_TagString: Untagged
@@ -362,6 +363,19 @@ MonoBehaviour:
   attackRatio: 0
   attackRange: 0
   attackType: 0
+--- !u!114 &1096973137453930626
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4417234784500471922}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 326a1b86f4215e64fa415d6fcdf5c44a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  entity: {fileID: 11400000, guid: 668d9599ae456014ebc35248843274da, type: 2}
 --- !u!1 &5210378699735917355
 GameObject:
   m_ObjectHideFlags: 0

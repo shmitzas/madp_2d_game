@@ -37,14 +37,8 @@ namespace RushNDestroy
                 // If it hits a collider with a tag SpawnZone it will allow to spawn entities
                 if (hit.collider != null && hit.collider.gameObject.tag == "SpawnZone"/* && enableSpawn == true*/)
                 {
-                    //spawn entity
-
-
-                    //Debug.Log("Spawned " + entity.name);
-                    //----- This creates a linked copy (not independent object) of entity prefab ----- NOT GOOD!
                     GameObject character = Instantiate<GameObject>(entityPrefab, mousePos, Quaternion.identity);
                     SetupEntity(character, entity);
-                    //-----------------------------------------------------------------------------------
 
                     //SpawnZone.gameObject.GetComponent<SpriteRenderer>().enabled = false;
                     //enableSpawn = false;
