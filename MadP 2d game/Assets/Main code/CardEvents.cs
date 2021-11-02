@@ -14,19 +14,28 @@ namespace RushNDestroy
 
         [HideInInspector] public int cardId;
         [HideInInspector] public CardData cardData;
-        public Image portraitImage; //Inspector-set reference
         private CanvasGroup canvasGroup;
 
+        public Text manaCost;
+        public Image cardImage;
+        public void UpdateCardUI(float cost, Sprite newImage)
+        {
+            manaCost.text = cost.ToString();
+            cardImage.sprite = newImage;
+            this.gameObject.SetActive(true);
+        }
          private void Awake()
         {
             canvasGroup = GetComponent<CanvasGroup>();
         }
 
         //called by CardManager, it feeds CardData so this card can display the placeable's portrait
-        public void InitialiseWithData(CardData cData)
+        public void InitialiseWithData(CardData cData, int index)
         {
             cardData = cData;
-            portraitImage.sprite = cardData.cardImage;
+            manaCost.text = cData.entityData[index].cost.ToString();
+            cardImage.sprite = cData.cardImage;
+            this.gameObject.SetActive(true);
         }
 
         public void OnPointerDown(PointerEventData pointerEvent)

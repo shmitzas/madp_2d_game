@@ -10,7 +10,7 @@ namespace RushNDestroy
         public Slider slider;
         public Gradient gradient; //set a color
         public Image fill;
-        public int health;
+        private float health;
 
         private void Start()
         {

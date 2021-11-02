@@ -1,18 +1,15 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
-public class CardManager : MonoBehaviour
+namespace RushNDestroy
 {
-    // Start is called before the first frame update
-    void Start()
+    public class CardManager : MonoBehaviour
     {
-        
-    }
+        [Header("List of all card UI's in the scene")]
+        public CardEvents[] cardEvents;
 
-    // Update is called once per frame
-    void Update()
-    {
         
     }
 }

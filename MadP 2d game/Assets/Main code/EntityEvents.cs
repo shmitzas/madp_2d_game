@@ -8,7 +8,7 @@ namespace RushNDestroy
     {
         [HideInInspector] public EntityEvents target;
         [HideInInspector] public HealthBar healthBar;
-        [HideInInspector] public int healthRemaining;
+        [HideInInspector] public float healthRemaining;
         [HideInInspector] public int damage;
         [HideInInspector] public float attackRatio;
         [HideInInspector] public float attackRange;

@@ -8,6 +8,7 @@ TagManager:
   - SpawnCard
   - CardImage
   - spawn-card-image
+  - PlayableCard
   layers:
   - Default
   - TransparentFX

@@ -10,17 +10,17 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 7ea40b30522901a4fa042bebf3b6f7f4, type: 3}
-  m_Name: Warrior
+  m_Name: Archer
   m_EditorClassIdentifier: 
-  playerPrefab: {fileID: 4417234784500471922, guid: 435f84f5c37f75f4ea5fed11d3a5cdbe, type: 3}
-  enemyPrefab: {fileID: 4417234784500471922, guid: 435f84f5c37f75f4ea5fed11d3a5cdbe, type: 3}
-  artwork: {fileID: 21300000, guid: 3eda543a2423783498fe922cf7dd996d, type: 3}
+  playerPrefab: {fileID: 5439693028118651042, guid: 17da20f9c423b754f9aeedee4bfbe0ea, type: 3}
+  enemyPrefab: {fileID: 5439693028118651042, guid: 17da20f9c423b754f9aeedee4bfbe0ea, type: 3}
+  artwork: {fileID: 21300000, guid: 9395477cf62f6684fa427f66178c9988, type: 3}
   entityType: 0
-  attackType: 0
+  attackType: 1
   targetType: 2
   attackRatio: 1
-  attackDamage: 2
-  attackRange: 1
-  health: 40
-  cost: 2
-  speed: 2
+  attackDamage: 3
+  attackRange: 5
+  health: 30
+  cost: 3
+  speed: 1.8

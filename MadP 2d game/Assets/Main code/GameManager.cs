@@ -10,9 +10,13 @@ namespace RushNDestroy
         private List<EntityEvents> playerStructures, aiStructures;
         private List<EntityEvents> allEntities;
         public EntityData entityData;
+        private DeckManager deckManager;
+        public ManaRefil mana;
 
         private void Awake()
         {
+            deckManager = GetComponent<DeckManager>();
+            deckManager.activeDeckIndex = 0;
             playerUnits = new List<EntityEvents>();
             playerStructures = new List<EntityEvents>();
             allEntities = new List<EntityEvents>();
@@ -35,10 +39,11 @@ namespace RushNDestroy
                 RaycastHit2D hit = Physics2D.GetRayIntersection(ray);
 
                 // If it hits a collider with a tag SpawnZone it will allow to spawn entities
-                if (hit.collider != null && hit.collider.gameObject.tag == "SpawnZone"/* && enableSpawn == true*/)
+                if (hit.collider != null && hit.collider.gameObject.tag == "SpawnZone" && mana.mana >= entity.cost)
                 {
-                    GameObject character = Instantiate<GameObject>(entityPrefab, mousePos, Quaternion.identity);
+                    GameObject character = Instantiate<GameObject>(entity.playerPrefab, mousePos, Quaternion.identity);
                     SetupEntity(character, entity);
+                    mana.mana -= entity.cost;
 
                     //SpawnZone.gameObject.GetComponent<SpriteRenderer>().enabled = false;
                     //enableSpawn = false;

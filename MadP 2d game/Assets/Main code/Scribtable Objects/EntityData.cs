@@ -19,8 +19,8 @@ namespace RushNDestroy
         public float attackRatio = 1f; //time between attacks
         public int attackDamage = 2; //damage each attack deals
         public float attackRange = 1f;
-        public int health = 200; //when units or buildings suffer damage, they lose hitpoints
-        public int cost = 0;
+        public float health = 200; //when units or buildings suffer damage, they lose hitpoints
+        public float cost = 0;
         public float speed = 2f; //movement speed
 
         /* ---- Spells (if we decide to add them)
