@@ -11,6 +11,6 @@ namespace RushNDestroy
         public Sprite cardImage;
 
         [Header("List of Placeables")]
-        public EntityData[] entityData;
+        public EntityData entityData;
     }
 }

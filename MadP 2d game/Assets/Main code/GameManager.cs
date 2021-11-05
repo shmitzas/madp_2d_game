@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 namespace RushNDestroy
 {
     public class GameManager : MonoBehaviour
@@ -10,16 +11,18 @@ namespace RushNDestroy
         private List<EntityEvents> playerStructures, aiStructures;
         private List<EntityEvents> allEntities;
         public EntityData entityData;
-        private DeckManager deckManager;
+        private CardManager cardManager;
         public ManaRefil mana;
 
         private void Awake()
         {
-            deckManager = GetComponent<DeckManager>();
-            deckManager.activeDeckIndex = 0;
+            cardManager = GetComponent<CardManager>();
+            //cardManager.activeDeckIndex = 0;
             playerUnits = new List<EntityEvents>();
             playerStructures = new List<EntityEvents>();
             allEntities = new List<EntityEvents>();
+
+            //cardManager.OnCardUsed += SpawnEntity;
         }
 
         private void Update()
@@ -27,7 +30,7 @@ namespace RushNDestroy
             //SpawnEntity(entityData);
         }
 
-        public void SpawnEntity(EntityData entity)
+        public void SpawnEntity(EntityData entity, Vector2 position)
         {
                 Vector2 mousePos;
                 mousePos = Input.mousePosition;
@@ -39,6 +42,7 @@ namespace RushNDestroy
                 // If it hits a collider with a tag SpawnZone it will allow to spawn entities
                 if (hit.collider != null && hit.collider.gameObject.tag == "SpawnZone" && mana.mana >= entity.cost)
                 {
+                    //mousePos.y += 1;
                     GameObject character = Instantiate<GameObject>(entity.playerPrefab, mousePos, Quaternion.identity);
                     SetupEntity(character, entity);
                     mana.mana -= entity.cost;

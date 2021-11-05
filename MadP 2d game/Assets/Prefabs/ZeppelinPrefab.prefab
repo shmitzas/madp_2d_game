@@ -278,7 +278,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   slider: {fileID: 8565048828865664207}
-  entity: {fileID: 4693643295968221426}
   gradient:
     serializedVersion: 2
     key0: {r: 0.745283, g: 0.0035154943, b: 0.0035154943, a: 1}
@@ -397,7 +396,7 @@ GameObject:
   - component: {fileID: 4784911887812155211}
   - component: {fileID: 1517547330258226457}
   - component: {fileID: 6060758623316347420}
-  - component: {fileID: 4693643295968221426}
+  - component: {fileID: 1267630864066417305}
   m_Layer: 0
   m_Name: ZeppelinPrefab
   m_TagString: Untagged
@@ -530,8 +529,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 326a1b86f4215e64fa415d6fcdf5c44a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  entity: {fileID: 4693643295968221426}
---- !u!114 &4693643295968221426
+  entity: {fileID: 11400000, guid: da7d71d79e0dd1f41a7518b75ccef0a7, type: 2}
+--- !u!114 &1267630864066417305
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -540,13 +539,14 @@ MonoBehaviour:
   m_GameObject: {fileID: 9187763448752479213}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6d1c814f24d89ae498041af7e61e7c65, type: 3}
+  m_Script: {fileID: 11500000, guid: e876c4666a1ec7d4b9bdb9d742ee1142, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  entityName: zeppelin
-  type: air
-  health: 80
-  speed: 1
-  attackDamage: 20
-  attackRange: 1
-  cost: 5
+  type: 0
+  target: {fileID: 0}
+  healthBar: {fileID: 0}
+  healthRemaining: 0
+  damage: 0
+  attackRatio: 0
+  attackRange: 0
+  attackType: 0

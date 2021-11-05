@@ -9,8 +9,8 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3e0361bf0bd161e448eb98e51817f497, type: 3}
-  m_Name: SecondDeck
+  m_Script: {fileID: 11500000, guid: ab8410234c997f941a3345297a04e37a, type: 3}
+  m_Name: Dragon
   m_EditorClassIdentifier: 
-  cardData:
-  - {fileID: 11400000, guid: 84c2c1d351c99584496c5d04691bc509, type: 2}
+  cardImage: {fileID: 21300000, guid: 569fe4b707e881f448c59f50ba520934, type: 3}
+  entityData: {fileID: 11400000, guid: 7365e0b16bb7ba2479abb4106104d438, type: 2}

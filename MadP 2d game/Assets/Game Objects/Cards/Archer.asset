@@ -13,5 +13,4 @@ MonoBehaviour:
   m_Name: Archer
   m_EditorClassIdentifier: 
   cardImage: {fileID: 21300000, guid: 9395477cf62f6684fa427f66178c9988, type: 3}
-  entityData:
-  - {fileID: 11400000, guid: 5e7dd417ed6d0a3419a595ed3226a983, type: 2}
+  entityData: {fileID: 11400000, guid: 5e7dd417ed6d0a3419a595ed3226a983, type: 2}

@@ -10,16 +10,18 @@ namespace RushNDestroy
     public class CardEvents : MonoBehaviour, IPointerDownHandler, IBeginDragHandler, IEndDragHandler, IDragHandler
     {
         [HideInInspector] public int cardId;
+        public UnityAction<int> OnCardRelease;
         public GameObject managers;
         [HideInInspector] public Vector2 defaultCardPosition;
         [HideInInspector] public CardData cardData;
-        [SerializeField] private Canvas canvas;
+        private Canvas canvas;
         private RectTransform rectTransform;
         public Text manaCost;
         public Image cardImage;
 
         private void Awake() {
             rectTransform = GetComponent<RectTransform>();
+            canvas = GetComponentInParent<Canvas>();
         }
         public void UpdateCardUI(float cost, Sprite newImage)
         {
@@ -31,14 +33,13 @@ namespace RushNDestroy
         public void InitialiseWithData(CardData cData, int index)
         {
             cardData = cData;
-            manaCost.text = cData.entityData[index].cost.ToString();
+            manaCost.text = cData.entityData.cost.ToString();
             cardImage.sprite = cData.cardImage;
             this.gameObject.SetActive(true);
         }
         
         private void Start() {
             defaultCardPosition = rectTransform.anchoredPosition;
-            //Debug.Log("Card pos: " + defaultCardPosition);
         }
 
         public void OnPointerDown(PointerEventData eventData)
@@ -51,8 +52,8 @@ namespace RushNDestroy
         }
         public void OnEndDrag(PointerEventData eventData)
         {
-            GameManager gameManager = managers.GetComponent<GameManager>();
-            gameManager.SpawnEntity(cardData.entityData[0]);
+            if(OnCardRelease != null)
+            OnCardRelease(cardId);
             rectTransform.anchoredPosition = defaultCardPosition;
         }
         public void OnDrag(PointerEventData eventData)

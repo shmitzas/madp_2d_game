@@ -10,7 +10,10 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 3e0361bf0bd161e448eb98e51817f497, type: 3}
-  m_Name: ThirdDeck
+  m_Name: Deck_A_1
   m_EditorClassIdentifier: 
   cardData:
   - {fileID: 11400000, guid: 08eee536fd5132f49a8b5867ff188667, type: 2}
+  - {fileID: 11400000, guid: 84c2c1d351c99584496c5d04691bc509, type: 2}
+  - {fileID: 11400000, guid: dc8d4699d0612b94581711122f90330e, type: 2}
+  - {fileID: 11400000, guid: a7f223e2f22e05f47993a83b6888753a, type: 2}

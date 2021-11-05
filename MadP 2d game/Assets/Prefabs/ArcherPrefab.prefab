@@ -262,8 +262,8 @@ GameObject:
   - component: {fileID: 7144488188818101649}
   - component: {fileID: 8682128445172529699}
   - component: {fileID: 9057973553766741582}
-  - component: {fileID: 5402567035079584664}
   - component: {fileID: -8737217860230332439}
+  - component: {fileID: 8834322627964100946}
   m_Layer: 0
   m_Name: ArcherPrefab
   m_TagString: Untagged
@@ -384,26 +384,6 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.24078369, y: 0.29268646}
   m_EdgeRadius: 0
---- !u!114 &5402567035079584664
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5439693028118651042}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4329d7fc8355bc448979fdec172017e8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  eType: 0
-  target: {fileID: 0}
-  healthBar: {fileID: 0}
-  health: 0
-  attackRange: 0
-  attackRatio: 0
-  lastBlowTime: -1000
-  damage: 0
 --- !u!114 &-8737217860230332439
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -416,7 +396,27 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 326a1b86f4215e64fa415d6fcdf5c44a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  entity: {fileID: 11400000, guid: 681f20b3e1b187145ad1704d9e1a0608, type: 2}
+  entity: {fileID: 11400000, guid: 5e7dd417ed6d0a3419a595ed3226a983, type: 2}
+--- !u!114 &8834322627964100946
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5439693028118651042}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e876c4666a1ec7d4b9bdb9d742ee1142, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  type: 0
+  target: {fileID: 0}
+  healthBar: {fileID: 0}
+  healthRemaining: 0
+  damage: 0
+  attackRatio: 0
+  attackRange: 0
+  attackType: 0
 --- !u!1 &7009284211550628513
 GameObject:
   m_ObjectHideFlags: 0
@@ -520,7 +520,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   slider: {fileID: 4050161078951791119}
-  entity: {fileID: 11400000, guid: 681f20b3e1b187145ad1704d9e1a0608, type: 2}
   gradient:
     serializedVersion: 2
     key0: {r: 0.745283, g: 0.0035154943, b: 0.0035154943, a: 1}
@@ -551,4 +550,3 @@ MonoBehaviour:
     m_NumColorKeys: 3
     m_NumAlphaKeys: 2
   fill: {fileID: 6962221420786570717}
-  health: 0

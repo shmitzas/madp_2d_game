@@ -74,7 +74,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cardId: 0
+  managers: {fileID: 7981764106809223640, guid: 68ed4ad8f9520164db9c37d0f53d465d, type: 3}
+  defaultCardPosition: {x: 0, y: 0}
   cardData: {fileID: 0}
+  canvas: {fileID: 0}
   manaCost: {fileID: 4730551692941396703}
   cardImage: {fileID: 6441632856954807609}
 --- !u!1 &578411064720774147
