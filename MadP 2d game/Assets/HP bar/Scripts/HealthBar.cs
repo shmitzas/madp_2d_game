@@ -12,7 +12,7 @@ namespace RushNDestroy
         public Image fill;
         private float health;
 
-        private void Start()
+        public void StartHealthBar(float health)
         {
             slider.maxValue = health;
             slider.value = health;

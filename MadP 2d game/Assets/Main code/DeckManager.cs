@@ -11,6 +11,7 @@ namespace RushNDestroy
         public int activeDeckIndex { get; set; }
         private CardManager cardManager;
         private GameObject findCard;
+        private List<Vector2> defaultCardPos = new List<Vector2>();
         // public CardEvents cardEvents;
 
         private void Awake()
@@ -22,17 +23,19 @@ namespace RushNDestroy
             LoadDeck();
             Print();
             cardManager.cardEvents[0].InitialiseWithData(deckData[0], 0);
-            
-            // cardChanger.UpdateCardUI(deckData[0].entityData[0].cost, deckData[0].cardImage);
         }
         public void Print()
         {
-            // Debug.Log("Cards in deck: " + deckData.Count);
+
         }
         private void LoadDeck()
         {
             for (int i = 0; i < targetDeck[activeDeckIndex].cardData.Length; i++)
+            {
                 deckData.Add(targetDeck[activeDeckIndex].cardData[i]);
+                defaultCardPos.Add(cardManager.cardEvents[0].defaultCardPosition);
+                Debug.Log(defaultCardPos[0]);
+            }
         }
 
         private void UpdateCard(List<CardData> deckData)

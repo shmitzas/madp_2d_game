@@ -2532,6 +2532,10 @@ PrefabInstance:
       propertyPath: m_TagString
       value: Untagged
       objectReference: {fileID: 0}
+    - target: {fileID: 1319727825601465176, guid: 88b7e9d00e8a5414bb527fa27ce4dbc9, type: 3}
+      propertyPath: canvas
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 5365481438126167103, guid: 88b7e9d00e8a5414bb527fa27ce4dbc9, type: 3}
       propertyPath: m_Alpha
       value: 1

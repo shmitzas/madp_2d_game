@@ -24,13 +24,11 @@ namespace RushNDestroy
 
         private void Update()
         {
-            SpawnEntity(entityData);
+            //SpawnEntity(entityData);
         }
 
-        private void SpawnEntity(EntityData entity)
+        public void SpawnEntity(EntityData entity)
         {
-            if (Input.GetMouseButtonDown(0))
-            {
                 Vector2 mousePos;
                 mousePos = Input.mousePosition;
                 mousePos = Camera.main.ScreenToWorldPoint(mousePos);
@@ -50,7 +48,6 @@ namespace RushNDestroy
                     //cardMoved = false;
                     //this.gameObject.transform.position = new Vector2(this.gameObject.transform.position.x, this.gameObject.transform.position.y - 10);
                 }
-            }
         }
         private void SetupEntity(GameObject gameObject, EntityData entity)
         {
@@ -60,6 +57,8 @@ namespace RushNDestroy
                     UnitData unitData = gameObject.GetComponent<UnitData>();
                     unitData.Activate(entity);
                     AddEntityToList(unitData);
+                    HealthBar healthBar = gameObject.GetComponentInChildren<HealthBar>();
+                    healthBar.StartHealthBar(entity.health);
                     break;
             }
         }
