@@ -30,7 +30,7 @@ namespace RushNDestroy
             this.gameObject.SetActive(true);
         }
 
-        public void InitialiseWithData(CardData cData, int index)
+        public void InitialiseWithData(CardData cData)
         {
             cardData = cData;
             manaCost.text = cData.entityData.cost.ToString();

@@ -25,6 +25,10 @@ namespace RushNDestroy
         private List<CardData> deckData = new List<CardData>();
         public GameObject cardPrefab;
 
+        private void Awake()
+        {
+            cardEvents = GetComponentInChildren<CardEvents>();
+        }
         private void Start()
         {
             LoadDeck();
@@ -40,39 +44,45 @@ namespace RushNDestroy
         }
         private void GenerateCardsOnDeck()
         {
+            StartCoroutine(GenerateCards(0.4f));
             for (int i = 0; i < 5; i++)
             {
-                StartCoroutine(GenerateCards(deckData, 0.2f + i, i));
+                StartCoroutine(GenerateCards(0.4f+i));
             }
         }
-        private IEnumerator GenerateCards(List<CardData> deckData, float delay, int i)
+        private IEnumerator GenerateCards(float delay)
         {
             yield return new WaitForSeconds(delay);
 
             newCard = defCardPositions[0];
             newCard = Instantiate<GameObject>(cardPrefab, activeCards).GetComponent<RectTransform>();
 
-            if (i < 4)
-            {
-                newCard.SetParent(activeCards, true); //once card is created, it is set as child to ActiveCards GameObject in Canvas
-                Vector2 newStartPos = new Vector2(-257.3f, -15.3f);
-                Vector2 newDestinationPos = new Vector2(defCardPositions[i + 1].anchoredPosition.x, defCardPositions[i + 1].anchoredPosition.y);
-                StartCoroutine(CardGenerationAnimation(newCard, newStartPos, newDestinationPos, 0.5f));
-                newCard.localScale = defCardPositions[i + 1].localScale;
-            }
-            else
-            {
-                newCard.SetParent(cardsDeck, true); //once card is created, it is set as child to ActiveCards GameObject in Canvas
-                newCard.anchoredPosition = defCardPositions[0].anchoredPosition;
-                newCard.localScale = defCardPositions[0].localScale;
-            }
-            SetupNewCard(newCard);
-        }
-        private void SetupNewCard(RectTransform newCard){
-            int cardIndex = Random.Range(0, deckData.Count);
-            CardData cardData = deckData[cardIndex];
+            newCard.SetParent(cardsDeck, true); //once card is created, it is set as child to CardDeck GameObject in Canvas
+
+            Vector2 newStartPos = new Vector2(defCardPositions[0].anchoredPosition.x, defCardPositions[0].anchoredPosition.y-300f);
+            Vector2 newDestinationPos = new Vector2(defCardPositions[0].anchoredPosition.x, defCardPositions[0].anchoredPosition.y);
+            StartCoroutine(CardGenerationAnimation(newCard, newStartPos, newDestinationPos, 0.2f));
+            newCard.localScale = defCardPositions[0].localScale;
+
+            Random.Range(0, deckData.Count);
             CardEvents cEvents = newCard.GetComponent<CardEvents>();
-            cEvents.UpdateCardUI(cardData.entityData.cost ,cardData.cardImage);
+            int cardIndex = Random.Range(0, deckData.Count);
+            cEvents.InitialiseWithData(deckData[cardIndex]);
+        }
+        private IEnumerator BringCardToDeck(float delay)
+        {
+            yield return new WaitForSeconds(delay);
+            newCard.SetParent(activeCards, true); //once card is brought to deck, it is set as child to ActiveCards GameObject in Canvas
+            Vector2 newStartPos = new Vector2(-257.3f, -15.3f);
+            Vector2 newDestinationPos = new Vector2(defCardPositions[0 + 1].anchoredPosition.x, defCardPositions[0 + 1].anchoredPosition.y);
+            StartCoroutine(CardGenerationAnimation(newCard, newStartPos, newDestinationPos, 0.5f));
+            newCard.localScale = defCardPositions[0 + 1].localScale;
+
+            cardEvents.OnCardRelease += CardReleased;
+        }
+        private void CardReleased(int cardId)
+        {
+
         }
         IEnumerator CardGenerationAnimation(RectTransform obj, Vector2 start, Vector2 destination, float duration)
         {
