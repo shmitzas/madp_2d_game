@@ -262,8 +262,8 @@ GameObject:
   - component: {fileID: 7144488188818101649}
   - component: {fileID: 8682128445172529699}
   - component: {fileID: 9057973553766741582}
-  - component: {fileID: -8737217860230332439}
   - component: {fileID: 8834322627964100946}
+  - component: {fileID: -8737217860230332439}
   m_Layer: 0
   m_Name: ArcherPrefab
   m_TagString: Untagged
@@ -325,7 +325,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 4
+  m_SortingOrder: 10
   m_Sprite: {fileID: 21300000, guid: 9395477cf62f6684fa427f66178c9988, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -384,19 +384,6 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.24078369, y: 0.29268646}
   m_EdgeRadius: 0
---- !u!114 &-8737217860230332439
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5439693028118651042}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 326a1b86f4215e64fa415d6fcdf5c44a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  entity: {fileID: 11400000, guid: 5e7dd417ed6d0a3419a595ed3226a983, type: 2}
 --- !u!114 &8834322627964100946
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -417,6 +404,19 @@ MonoBehaviour:
   attackRatio: 0
   attackRange: 0
   attackType: 0
+--- !u!114 &-8737217860230332439
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5439693028118651042}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 326a1b86f4215e64fa415d6fcdf5c44a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  entity: {fileID: 11400000, guid: 5e7dd417ed6d0a3419a595ed3226a983, type: 2}
 --- !u!1 &7009284211550628513
 GameObject:
   m_ObjectHideFlags: 0

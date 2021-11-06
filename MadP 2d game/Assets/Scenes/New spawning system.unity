@@ -708,7 +708,7 @@ SpriteRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 780310074}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 0
   m_ReceiveShadows: 0
   m_DynamicOccludee: 1
@@ -13202,6 +13202,18 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7981764106809223645, guid: 68ed4ad8f9520164db9c37d0f53d465d, type: 3}
+      propertyPath: mana
+      value: 
+      objectReference: {fileID: 1641714361}
+    - target: {fileID: 7981764106809223645, guid: 68ed4ad8f9520164db9c37d0f53d465d, type: 3}
+      propertyPath: canvas
+      value: 
+      objectReference: {fileID: 942906046}
+    - target: {fileID: 7981764106809223645, guid: 68ed4ad8f9520164db9c37d0f53d465d, type: 3}
+      propertyPath: SpawnZone
+      value: 
+      objectReference: {fileID: 780310074}
     - target: {fileID: 7981764106809223645, guid: 68ed4ad8f9520164db9c37d0f53d465d, type: 3}
       propertyPath: cardsDeck
       value: 

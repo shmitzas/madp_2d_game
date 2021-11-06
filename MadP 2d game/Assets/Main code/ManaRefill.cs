@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 namespace RushNDestroy
 {
-    public class ManaRefil : MonoBehaviour
+    public class ManaRefill : MonoBehaviour
     {
         public Slider slider;
         public Text manaCounter;

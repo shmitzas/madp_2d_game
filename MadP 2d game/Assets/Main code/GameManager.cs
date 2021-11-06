@@ -12,46 +12,23 @@ namespace RushNDestroy
         private List<EntityEvents> allEntities;
         public EntityData entityData;
         private CardManager cardManager;
-        public ManaRefil mana;
+        public ManaRefill mana;
 
         private void Awake()
         {
             cardManager = GetComponent<CardManager>();
-            //cardManager.activeDeckIndex = 0;
             playerUnits = new List<EntityEvents>();
             playerStructures = new List<EntityEvents>();
             allEntities = new List<EntityEvents>();
 
-            //cardManager.OnCardUsed += SpawnEntity;
+            //Setup all necessary listeners
+            cardManager.OnCardUsed += SpawnEntity;
         }
-
-        private void Update()
-        {
-            //SpawnEntity(entityData);
-        }
-
         public void SpawnEntity(EntityData entity, Vector2 position)
         {
-                Vector2 mousePos;
-                mousePos = Input.mousePosition;
-                mousePos = Camera.main.ScreenToWorldPoint(mousePos);
-                // Cast a ray through colliders
-                Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-                RaycastHit2D hit = Physics2D.GetRayIntersection(ray);
-
-                // If it hits a collider with a tag SpawnZone it will allow to spawn entities
-                if (hit.collider != null && hit.collider.gameObject.tag == "SpawnZone" && mana.mana >= entity.cost)
-                {
-                    //mousePos.y += 1;
-                    GameObject character = Instantiate<GameObject>(entity.playerPrefab, mousePos, Quaternion.identity);
-                    SetupEntity(character, entity);
-                    mana.mana -= entity.cost;
-
-                    //SpawnZone.gameObject.GetComponent<SpriteRenderer>().enabled = false;
-                    //enableSpawn = false;
-                    //cardMoved = false;
-                    //this.gameObject.transform.position = new Vector2(this.gameObject.transform.position.x, this.gameObject.transform.position.y - 10);
-                }
+            GameObject character = Instantiate<GameObject>(entity.playerPrefab, position, Quaternion.identity);
+            SetupEntity(character, entity);
+            mana.mana -= entity.cost;
         }
         private void SetupEntity(GameObject gameObject, EntityData entity)
         {

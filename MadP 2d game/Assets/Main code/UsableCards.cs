@@ -35,7 +35,7 @@
 //         }
 //         private void GrayscaleCards()
 //         {
-//             if (manaRefil.setManaCounter < entity.cost)
+//             if (manaRefill.setManaCounter < entity.cost)
 //             {
 //                 enableGrayscale = true;
 //             }

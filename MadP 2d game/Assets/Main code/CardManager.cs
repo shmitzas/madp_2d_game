@@ -17,22 +17,24 @@ namespace RushNDestroy
         //public RectTransform newCardPosRefference; //Position refference for new cards that have to end up on the deck
         public RectTransform activeCards; //the UI panel that contains the actual playable cards
         public RectTransform cardsDeck; //the UI panel that contains all cards, the deck, and the dashboard (center aligned)
-        private CardEvents cardEvents;
+        private CardEvents[] cards;
         public DeckData playersDeck;
+        public GameObject SpawnZone;
+        public ManaRefill mana;
         private int cardsOnDeckCounter;
         //public UnityAction<EntityData, Vector2> OnCardUsed;
         //private List<Vector2> defaultCardPos = new List<Vector2>();
         private List<CardData> deckData = new List<CardData>();
+        public UnityAction<EntityData, Vector2> OnCardUsed;
         public GameObject cardPrefab;
 
         private void Awake()
         {
-            cardEvents = GetComponentInChildren<CardEvents>();
+            cards = new CardEvents[4];
         }
         private void Start()
         {
             LoadDeck();
-            //cardEvents = new CardEvents[4]; //this is the amount of cards in active deck
         }
         private void LoadDeck()
         {
@@ -44,10 +46,11 @@ namespace RushNDestroy
         }
         private void GenerateCardsOnDeck()
         {
-            StartCoroutine(GenerateCards(0.4f));
-            for (int i = 0; i < 5; i++)
+            StartCoroutine(GenerateCards(0f));
+            for (int i = 0; i < cards.Length; i++)
             {
-                StartCoroutine(GenerateCards(0.4f+i));
+                StartCoroutine(BringCardToDeck(i, 0f));
+                StartCoroutine(GenerateCards(0f));
             }
         }
         private IEnumerator GenerateCards(float delay)
@@ -55,13 +58,13 @@ namespace RushNDestroy
             yield return new WaitForSeconds(delay);
 
             newCard = defCardPositions[0];
-            newCard = Instantiate<GameObject>(cardPrefab, activeCards).GetComponent<RectTransform>();
+            newCard = Instantiate<GameObject>(cardPrefab, cardsDeck).GetComponent<RectTransform>();
 
-            newCard.SetParent(cardsDeck, true); //once card is created, it is set as child to CardDeck GameObject in Canvas
+            // newCard.SetParent(cardsDeck, true); //once card is created, it is set as child to CardDeck GameObject in Canvas
 
-            Vector2 newStartPos = new Vector2(defCardPositions[0].anchoredPosition.x, defCardPositions[0].anchoredPosition.y-300f);
+            Vector2 newStartPos = new Vector2(defCardPositions[0].anchoredPosition.x, defCardPositions[0].anchoredPosition.y - 300f);
             Vector2 newDestinationPos = new Vector2(defCardPositions[0].anchoredPosition.x, defCardPositions[0].anchoredPosition.y);
-            StartCoroutine(CardGenerationAnimation(newCard, newStartPos, newDestinationPos, 0.2f));
+            StartCoroutine(CardGenerationAnimation(newCard, newStartPos, newDestinationPos, 0.4f));
             newCard.localScale = defCardPositions[0].localScale;
 
             Random.Range(0, deckData.Count);
@@ -69,20 +72,52 @@ namespace RushNDestroy
             int cardIndex = Random.Range(0, deckData.Count);
             cEvents.InitialiseWithData(deckData[cardIndex]);
         }
-        private IEnumerator BringCardToDeck(float delay)
+        private IEnumerator BringCardToDeck(int position, float delay)
         {
             yield return new WaitForSeconds(delay);
             newCard.SetParent(activeCards, true); //once card is brought to deck, it is set as child to ActiveCards GameObject in Canvas
+
             Vector2 newStartPos = new Vector2(-257.3f, -15.3f);
-            Vector2 newDestinationPos = new Vector2(defCardPositions[0 + 1].anchoredPosition.x, defCardPositions[0 + 1].anchoredPosition.y);
-            StartCoroutine(CardGenerationAnimation(newCard, newStartPos, newDestinationPos, 0.5f));
-            newCard.localScale = defCardPositions[0 + 1].localScale;
+            Vector2 newDestinationPos = new Vector2(defCardPositions[position + 1].anchoredPosition.x, defCardPositions[position + 1].anchoredPosition.y);
+            StartCoroutine(CardGenerationAnimation(newCard, newStartPos, newDestinationPos, 0.4f));
+            newCard.localScale = defCardPositions[position + 1].localScale;
+
+            //store a reference to the CardEvents script in the array
+            CardEvents cardEvents = newCard.GetComponent<CardEvents>();
+            cardEvents.cardId = position;
+            cards[position] = cardEvents;
 
             cardEvents.OnCardRelease += CardReleased;
+            cardEvents.OnCardDrag += CardDragged;
+        }
+        private void CardDragged(int cardId, Vector2 dragAmount)
+        {
+            SpawnZone.gameObject.GetComponent<SpriteRenderer>().enabled = true;
+            cards[cardId].transform.Translate(dragAmount);
         }
         private void CardReleased(int cardId)
         {
+            Vector2 mousePos;
+            EntityData entity = cards[cardId].cardData.entityData;
+            mousePos = Input.mousePosition;
+            mousePos = Camera.main.ScreenToWorldPoint(mousePos);
+            // Cast a ray through colliders
+            Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+            RaycastHit2D hit = Physics2D.GetRayIntersection(ray);
 
+            // If it hits a collider with a tag SpawnZone it will allow to spawn entities
+            if (hit.collider != null && hit.collider.gameObject.tag == "SpawnZone" && mana.mana >= entity.cost)
+            {
+                OnCardUsed(cards[cardId].cardData.entityData, mousePos);
+                Destroy(cards[cardId].gameObject);
+                StartCoroutine(BringCardToDeck(cardId, 0f));
+                StartCoroutine(GenerateCards(0f));
+            }
+            else
+            {
+                cards[cardId].GetComponent<RectTransform>().anchoredPosition = defCardPositions[cardId + 1].anchoredPosition3D;
+            }
+            SpawnZone.gameObject.GetComponent<SpriteRenderer>().enabled = false;
         }
         IEnumerator CardGenerationAnimation(RectTransform obj, Vector2 start, Vector2 destination, float duration)
         {
