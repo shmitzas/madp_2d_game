@@ -6,7 +6,6 @@ namespace RushNDestroy
 {
     public class EntityEvents : EntityEnums
     {
-        [HideInInspector] public EntityEvents target;
         [HideInInspector] public HealthBar healthBar;
         [HideInInspector] public float healthRemaining;
         [HideInInspector] public int damage;

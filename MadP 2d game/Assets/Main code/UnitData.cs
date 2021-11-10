@@ -6,11 +6,11 @@ namespace RushNDestroy
     public class UnitData : EntityEvents
     {
         private float speed;
-        public void Activate(EntityData entity)
+        public void Activate(Faction pFaction, EntityData entity)
         {
-            // faction = pFaction;  //for AI to know if this entity is friendly or enemy
+            faction = pFaction;  //for AI to know if this entity is friendly or enemy
             healthRemaining = entity.health;
-            //target = entity.targetType; //for AI to know what type of entity it can attack
+            target = entity.targetType; //for AI to know what type of entity it can attack
             attackRange = entity.attackRange;
             attackRatio = entity.attackRatio;
             speed = entity.speed;

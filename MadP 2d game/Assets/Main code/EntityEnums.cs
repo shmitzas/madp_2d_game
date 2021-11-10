@@ -6,6 +6,8 @@ namespace RushNDestroy
 {
     public class EntityEnums : MonoBehaviour
     {
+        [HideInInspector] public Faction faction;
+        [HideInInspector] public TargetType target;
         public Type type;
         public enum Type
         {
@@ -17,6 +19,10 @@ namespace RushNDestroy
             Ground,
             Structure,
             Any
+        }
+        public enum Faction{
+            Player,
+            Enemy
         }
     }
 }

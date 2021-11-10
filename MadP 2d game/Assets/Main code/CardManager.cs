@@ -14,7 +14,6 @@ namespace RushNDestroy
         [Header("List of all card UI's in the scene")]
         public RectTransform[] defCardPositions; //default positions of all cards (used to create new cards or place unused card back to it's place)
         private RectTransform newCard;
-        //public RectTransform newCardPosRefference; //Position refference for new cards that have to end up on the deck
         public RectTransform activeCards; //the UI panel that contains the actual playable cards
         public RectTransform cardsDeck; //the UI panel that contains all cards, the deck, and the dashboard (center aligned)
         private CardEvents[] cards;
@@ -22,18 +21,13 @@ namespace RushNDestroy
         public GameObject SpawnZone;
         public ManaRefill mana;
         private int cardsOnDeckCounter;
-        //public UnityAction<EntityData, Vector2> OnCardUsed;
-        //private List<Vector2> defaultCardPos = new List<Vector2>();
         private List<CardData> deckData = new List<CardData>();
-        public UnityAction<EntityData, Vector2> OnCardUsed;
+        public UnityAction<EntityData, Vector2, EntityEnums.Faction> OnCardUsed;
         public GameObject cardPrefab;
 
         private void Awake()
         {
             cards = new CardEvents[4];
-        }
-        private void Start()
-        {
             LoadDeck();
         }
         private void LoadDeck()
@@ -108,7 +102,7 @@ namespace RushNDestroy
             // If it hits a collider with a tag SpawnZone it will allow to spawn entities
             if (hit.collider != null && hit.collider.gameObject.tag == "SpawnZone" && mana.mana >= entity.cost)
             {
-                OnCardUsed(cards[cardId].cardData.entityData, mousePos);
+                OnCardUsed(cards[cardId].cardData.entityData, mousePos, EntityEnums.Faction.Player);
                 Destroy(cards[cardId].gameObject);
                 StartCoroutine(BringCardToDeck(cardId, 0f));
                 StartCoroutine(GenerateCards(0f));
