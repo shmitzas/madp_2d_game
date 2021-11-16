@@ -14,6 +14,7 @@ namespace RushNDestroy
         public EntityData entityData;
         private CardManager cardManager;
         public ManaRefill mana;
+        public UpdateRewards rewards;
 
         private void Awake()
         {
@@ -36,6 +37,7 @@ namespace RushNDestroy
             GameObject character = Instantiate<GameObject>(entity.playerPrefab, position, Quaternion.identity);
             SetupEntity(character, entity, pFaction);
             mana.mana -= entity.cost;
+            rewards.UpdateRewardsAmount(2, 4);
             //updateAllPlaceables = true;
         }
         private void SetupEntity(GameObject gameObject, EntityData entity, EntityEnums.Faction faction)
