@@ -23,6 +23,10 @@ namespace RushNDestroy
         public float cost = 0;
         public float speed = 2f; //movement speed
 
+        [Header("Upgrades")]
+        public int upgradeLevel = 0;
+        public int upgradeCost = 10;
+
         /* ---- Spells (if we decide to add them)
         [Header("Obstacles and Spells")]
         public float lifeTime = 5f; //the maximum lifetime of the Placeable. Especially important for obstacle types, so they are removed after a while

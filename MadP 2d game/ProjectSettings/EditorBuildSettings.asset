@@ -6,16 +6,13 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Game UI/Main menu.unity
-    guid: f0fa1fb471f580142a3b663c9363c82a
+    path: Assets/Game UI/Scenes/MainMenu.unity
+    guid: 62319b4d0eb1ff24e99798c79b577cc6
   - enabled: 1
     path: Assets/Scenes/New spawning system.unity
     guid: 4b588455463c7f24fb4f0cd0f7939d78
-  - enabled: 0
-    path: Assets/Scenes/Introduction.unity
-    guid: 2cda990e2423bbf4892e6590ba056729
   - enabled: 1
-    path: Assets/Game UI/Game menu.unity
-    guid: 73fefaea0bbde6a42a87276812611a0a
+    path: Assets/Game UI/Scenes/GameMenu.unity
+    guid: c581f81e99d7dd7428878257330bff56
   m_configObjects:
     com.unity.addressableassets: {fileID: 11400000, guid: fb89e42ce3d2ba846a327ca0a6dcc8fe, type: 2}

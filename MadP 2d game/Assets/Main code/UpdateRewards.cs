@@ -12,8 +12,9 @@ namespace RushNDestroy
         public Text trophiesAmount;
         public Image coinsImage;
         public Text coinsAmount;
-        
-        private void Awake() {
+
+        private void Awake()
+        {
             trophiesImage.sprite = rewards.trophiesArtwork;
             coinsImage.sprite = rewards.coinsArtwork;
             UpdateRewardsText();
@@ -25,7 +26,8 @@ namespace RushNDestroy
             UpdateRewardsText();
         }
 
-        private void UpdateRewardsText(){
+        public void UpdateRewardsText()
+        {
             trophiesAmount.text = rewards.trophies.ToString();
             coinsAmount.text = rewards.coins.ToString();
         }

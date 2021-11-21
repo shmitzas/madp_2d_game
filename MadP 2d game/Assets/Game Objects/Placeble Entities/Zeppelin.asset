@@ -19,8 +19,10 @@ MonoBehaviour:
   attackType: 0
   targetType: 1
   attackRatio: 1
-  attackDamage: 20
+  attackDamage: 25
   attackRange: 1
-  health: 200
+  health: 212.5
   cost: 4
-  speed: 1
+  speed: 2.0000002
+  upgradeLevel: 0
+  upgradeCost: 50
