@@ -27,7 +27,7 @@ namespace RushNDestroy
         {
             cardData = cData;
             manaCost.text = cData.entityData.cost.ToString();
-            cardImage.sprite = cData.cardImage;
+            cardImage.sprite = cData.entityData.artwork;
             this.gameObject.SetActive(true);
         }
         public void OnPointerDown(PointerEventData eventData){}
