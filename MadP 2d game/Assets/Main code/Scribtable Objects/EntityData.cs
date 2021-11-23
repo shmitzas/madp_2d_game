@@ -27,6 +27,7 @@ namespace RushNDestroy
         public int upgradeLevel = 0;
         public int upgradeCost = 10;
         public bool owned = false;
+        public int buyCost = 0;
 
         /* ---- Spells (if we decide to add them)
         [Header("Obstacles and Spells")]

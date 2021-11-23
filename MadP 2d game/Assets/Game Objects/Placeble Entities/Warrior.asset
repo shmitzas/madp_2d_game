@@ -27,3 +27,4 @@ MonoBehaviour:
   upgradeLevel: 4
   upgradeCost: 1200
   owned: 1
+  buyCost: 30
