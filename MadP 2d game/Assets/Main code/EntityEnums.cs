@@ -7,20 +7,28 @@ namespace RushNDestroy
     public class EntityEnums : MonoBehaviour
     {
         [HideInInspector] public Faction faction;
-        [HideInInspector] public TargetType target;
-        public Type type;
+        [HideInInspector] public TargetType targetType;
+        public Type entityType;
+
+        public UnityAction<EntityEnums> OnDie; //HOW DOES THIS WORK (Brackeys Discord)
+
         public enum Type
         {
             Unit,
-            Structure
+            Structure,
+            Castle
         }
+
         public enum TargetType
         {
+            OnlyBuildings,
+            All,
             Ground,
-            Structure,
-            Any
+            None
         }
-        public enum Faction{
+
+        public enum Faction
+        {
             Player,
             Enemy
         }

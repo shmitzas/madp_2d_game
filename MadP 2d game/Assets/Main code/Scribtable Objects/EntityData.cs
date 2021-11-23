@@ -15,7 +15,7 @@ namespace RushNDestroy
         [Header("Data")]
         public EntityEnums.Type entityType;
         public EntityEvents.AttackType attackType = EntityEvents.AttackType.Close;
-        public EntityEnums.TargetType targetType = EntityEnums.TargetType.Any;
+        public EntityEnums.TargetType targetType = EntityEnums.TargetType.All;
         public float attackRatio = 1f; //time between attacks
         public int attackDamage = 2; //damage each attack deals
         public float attackRange = 1f;

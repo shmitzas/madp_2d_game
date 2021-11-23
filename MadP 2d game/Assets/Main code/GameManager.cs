@@ -30,6 +30,10 @@ namespace RushNDestroy
             //Setup all necessary listeners
             cardManager.OnCardUsed += SpawnEntity;
         }
+
+        private void Update() {
+            
+        }
         public void SpawnEntity(EntityData entity, Vector2 position, EntityEnums.Faction pFaction)
         {
             //Prefab to spawn is the associatedPrefab if it's the Player faction, otherwise it's alternatePrefab. But if alternatePrefab is null, then first one is taken
@@ -59,7 +63,7 @@ namespace RushNDestroy
             if (entity.faction == EntityEnums.Faction.Player)
             {
                 allPlayers.Add(entity);
-                if (entity.type == EntityEnums.Type.Unit)
+                if (entity.entityType == EntityEnums.Type.Unit)
                     playerUnits.Add(entity);
                 else
                     playerStructures.Add(entity);
@@ -67,7 +71,7 @@ namespace RushNDestroy
             else if (entity.faction == EntityEnums.Faction.Enemy)
             {
                 allEnemies.Add(entity);
-                if (entity.type == EntityEnums.Type.Unit)
+                if (entity.entityType == EntityEnums.Type.Unit)
                     enemyUnits.Add(entity);
                 else
                     playerStructures.Add(entity);
@@ -81,7 +85,7 @@ namespace RushNDestroy
             if (entity.faction == EntityEnums.Faction.Player)
             {
                 allPlayers.Remove(entity);
-                if (entity.type == EntityEnums.Type.Unit)
+                if (entity.entityType == EntityEnums.Type.Unit)
                     playerUnits.Remove(entity);
                 else
                     playerStructures.Remove(entity);
@@ -89,7 +93,7 @@ namespace RushNDestroy
             else if (entity.faction == EntityEnums.Faction.Enemy)
             {
                 allEnemies.Remove(entity);
-                if (entity.type == EntityEnums.Type.Unit)
+                if (entity.entityType == EntityEnums.Type.Unit)
                     enemyUnits.Remove(entity);
                 else
                     playerStructures.Remove(entity);

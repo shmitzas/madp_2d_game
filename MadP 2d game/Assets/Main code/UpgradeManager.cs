@@ -14,6 +14,7 @@ namespace RushNDestroy
         public Text upgradeCounter;
         public Text upgradeCost;
         public Button upgradeButton;
+        public int maxUpgradeLevel = 4;
 
         private void Start()
         {
@@ -24,7 +25,7 @@ namespace RushNDestroy
         }
         private void Upgrade()
         {
-            if (entity.upgradeLevel < 5 && rewards.coins >= entity.upgradeCost)
+            if (entity.upgradeLevel < maxUpgradeLevel && rewards.coins >= entity.upgradeCost)
             {
                 entity.attackDamage += 1;
                 entity.health += 2.5f;
@@ -38,7 +39,7 @@ namespace RushNDestroy
             }
         }
         private void Update() {
-            if(entity.upgradeLevel == 4)
+            if(entity.upgradeLevel == maxUpgradeLevel)
             {
                 upgradeButton.gameObject.SetActive(false);
                 upgradeCost.gameObject.SetActive(false);
