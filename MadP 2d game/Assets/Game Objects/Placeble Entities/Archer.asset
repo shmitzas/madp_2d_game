@@ -26,3 +26,4 @@ MonoBehaviour:
   speed: 4
   upgradeLevel: 0
   upgradeCost: 10
+  owned: 1

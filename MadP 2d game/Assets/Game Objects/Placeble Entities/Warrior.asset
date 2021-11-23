@@ -26,3 +26,4 @@ MonoBehaviour:
   speed: 4.799999
   upgradeLevel: 4
   upgradeCost: 1200
+  owned: 1

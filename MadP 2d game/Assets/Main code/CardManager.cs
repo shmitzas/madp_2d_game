@@ -34,7 +34,8 @@ namespace RushNDestroy
         {
             for (int i = 0; i < playersDeck.cardData.Length; i++) //loads all cards from deck into a deckData List
             {
-                deckData.Add(playersDeck.cardData[i]);
+                if(playersDeck.cardData[i].entityData.owned)
+                    deckData.Add(playersDeck.cardData[i]);
             }
             GenerateCardsOnDeck();
         }
@@ -61,7 +62,6 @@ namespace RushNDestroy
             StartCoroutine(CardGenerationAnimation(newCard, newStartPos, newDestinationPos, 0.4f));
             newCard.localScale = defCardPositions[0].localScale;
 
-            Random.Range(0, deckData.Count);
             CardEvents cEvents = newCard.GetComponent<CardEvents>();
             int cardIndex = Random.Range(0, deckData.Count);
             cEvents.InitialiseWithData(deckData[cardIndex]);
@@ -75,6 +75,7 @@ namespace RushNDestroy
             Vector2 newDestinationPos = new Vector2(defCardPositions[position + 1].anchoredPosition.x, defCardPositions[position + 1].anchoredPosition.y);
             StartCoroutine(CardGenerationAnimation(newCard, newStartPos, newDestinationPos, 0.4f));
             newCard.localScale = defCardPositions[position + 1].localScale;
+            newCard.anchoredPosition3D = newDestinationPos;
 
             //store a reference to the CardEvents script in the array
             CardEvents cardEvents = newCard.GetComponent<CardEvents>();
@@ -109,6 +110,7 @@ namespace RushNDestroy
             }
             else
             {
+                //Returns unused card back to it's place
                 cards[cardId].GetComponent<RectTransform>().anchoredPosition = defCardPositions[cardId + 1].anchoredPosition3D;
             }
             SpawnZone.gameObject.GetComponent<SpriteRenderer>().enabled = false;

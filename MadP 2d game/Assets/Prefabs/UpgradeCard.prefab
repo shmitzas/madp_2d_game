@@ -120,7 +120,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5126218712113596081}
-  - component: {fileID: 5126218712113596086}
   m_Layer: 0
   m_Name: UpgradeCard
   m_TagString: Untagged
@@ -147,25 +146,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &5126218712113596086
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5126218712113596080}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d026c3339f55df5499e6efde91459104, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  updateRewards: {fileID: 0}
-  rewards: {fileID: 11400000, guid: a1b099e48242b764ca4ef5162a7da3f1, type: 2}
-  entity: {fileID: 11400000, guid: 5e7dd417ed6d0a3419a595ed3226a983, type: 2}
-  artowrk: {fileID: 5126218712262491632}
-  upgradeCounter: {fileID: 5126218711184382216}
-  upgradeCost: {fileID: 5126218713113707238}
-  upgradeButton: {fileID: 5126218712997313660}
 --- !u!1 &5126218712208750806
 GameObject:
   m_ObjectHideFlags: 0
