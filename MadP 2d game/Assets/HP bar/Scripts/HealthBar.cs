@@ -10,10 +10,15 @@ namespace RushNDestroy
         public Slider slider;
         public Gradient gradient; //set a color
         public Image fill;
-        private float health;
         private Transform transformToFollow;
 
-        public void StartHealthBar(EntityEvents entity)
+        public void StartHealthBar(float health)
+        {
+            slider.maxValue = health;
+            slider.value = health;
+            fill.color = gradient.Evaluate(1f); //set this color at max
+        }
+        public void StartHealthBarUI(EntityEvents entity)
         {
             slider.maxValue = entity.healthRemaining;
             slider.value = entity.healthRemaining;

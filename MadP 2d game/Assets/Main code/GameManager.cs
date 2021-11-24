@@ -30,10 +30,6 @@ namespace RushNDestroy
             //Setup all necessary listeners
             cardManager.OnCardUsed += SpawnEntity;
         }
-
-        private void Update() {
-            
-        }
         public void SpawnEntity(EntityData entity, Vector2 position, EntityEnums.Faction pFaction)
         {
             //Prefab to spawn is the associatedPrefab if it's the Player faction, otherwise it's alternatePrefab. But if alternatePrefab is null, then first one is taken
@@ -52,7 +48,8 @@ namespace RushNDestroy
                     UnitData unitData = gameObject.GetComponent<UnitData>();
                     unitData.Activate(faction, entity);
                     AddEntityToList(unitData);
-                    uiManager.AddHealthUI(unitData);
+                    HealthBar healthBar = gameObject.GetComponentInChildren<HealthBar>();
+                    healthBar.StartHealthBar(entity.health);
                     break;
             }
         }

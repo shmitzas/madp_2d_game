@@ -7,7 +7,6 @@ namespace RushNDestroy
 {
     public class EntityEvents : EntityEnums
     {
-
         [HideInInspector] public States state = States.Dragged;
         public enum States
         {
@@ -17,7 +16,6 @@ namespace RushNDestroy
             Fighting,
             Dead
         }
-
 
         [HideInInspector] public EntityEvents target;
 
@@ -34,12 +32,10 @@ namespace RushNDestroy
             Close,
             Ranged
         }
-        private void Awake()
+        private void Start()
         {
-            healthBar = this.gameObject.GetComponentInChildren<HealthBar>();
-            if(healthBar == null) Debug.Log("healtbar null");
+            healthBar = GetComponentInChildren<HealthBar>();
         }
-
         public virtual void SetTarget(EntityEvents t)
         {
             target = t;
@@ -70,7 +66,10 @@ namespace RushNDestroy
             healthBar.SetHealth(healthRemaining);
 
             if (healthRemaining <= 0)
+            {
+                Destroy(this.gameObject);
                 Die();
+            }
         }
 
         public virtual void Stop()
