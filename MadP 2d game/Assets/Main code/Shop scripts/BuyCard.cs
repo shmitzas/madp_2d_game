@@ -2,11 +2,14 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.EventSystems;
+using UnityEngine.Events;
 
 namespace RushNDestroy
 {
     public class BuyCard : MonoBehaviour
     {
+        public UnityAction<bool> OnBuy;
         public RewardsData rewards;
         public Image artowrk;
         public Text buyCost;
@@ -24,7 +27,10 @@ namespace RushNDestroy
                 rewards.coins -= entity.buyCost;
                 entity.owned = true;
                 card.gameObject.SetActive(false);
+                if(OnBuy != null)
+                    OnBuy(true);
             }
+
         }
     }
 }

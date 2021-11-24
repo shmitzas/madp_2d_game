@@ -2063,19 +2063,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 435545404}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 1778372768}
-        m_TargetAssemblyTypeName: RushNDestroy.ShopManager, Assembly-CSharp
-        m_MethodName: LoadArenaDeck
-        m_Mode: 3
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 3
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
 --- !u!114 &435545404
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5599,19 +5587,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1665946506}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 1778372768}
-        m_TargetAssemblyTypeName: RushNDestroy.ShopManager, Assembly-CSharp
-        m_MethodName: LoadArenaDeck
-        m_Mode: 3
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 2
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
 --- !u!114 &1665946506
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5797,6 +5773,12 @@ MonoBehaviour:
   buyMenu: {fileID: 1561636037}
   arenaSelectionContainer: {fileID: 1577348781}
   backToArenaDeckMenu: {fileID: 12112147}
+  arenaSelectionButtons:
+  - {fileID: 1840892760}
+  - {fileID: 1665946505}
+  - {fileID: 435545403}
+  gameMenuArenaButton: {fileID: 32549652}
+  gameMenuDecksButton: {fileID: 264082789}
   upgradeCard: {fileID: 4940988172737563216, guid: 22e0b068811aa7e4a96c1adaa89cf312, type: 3}
   buyCard: {fileID: 1530121708825737324, guid: 9e0eb9f3650d70f45a005cc8401fc9c4, type: 3}
   decksList: {fileID: 11400000, guid: f4a585a7ed61096418ac44a0766be7a6, type: 2}
@@ -6048,19 +6030,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1840892761}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 1778372768}
-        m_TargetAssemblyTypeName: RushNDestroy.ShopManager, Assembly-CSharp
-        m_MethodName: LoadArenaDeck
-        m_Mode: 3
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 1
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
 --- !u!114 &1840892761
 MonoBehaviour:
   m_ObjectHideFlags: 0

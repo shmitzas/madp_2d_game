@@ -16,7 +16,12 @@ namespace RushNDestroy
         [Header("Arena Buttons")]
         public GameObject arenaSelectionContainer;
         public Button backToArenaDeckMenu;
+        public Button[] arenaSelectionButtons;
         private int arenaIndex;
+
+        [Header("Game menu Buttons")]
+        public Button gameMenuArenaButton;
+        public Button gameMenuDecksButton;
 
         [Header("Upgrade and Buy system components")]
         public GameObject upgradeCard;
@@ -33,9 +38,11 @@ namespace RushNDestroy
             upgradableCardsList = new List<RectTransform>();
             buyableCardsList = new List<RectTransform>();
             cardPositions = new List<Vector2>();
+            OnShopLoad();
             LoadCardPositions();
-            LoadUpgradableCards();
-            LoadBuyableCards();
+        }
+        private void OnShopLoad()
+        {
             upgradeMenu.gameObject.SetActive(false);
             buyMenu.gameObject.SetActive(false);
             upgradeButton.gameObject.SetActive(false);
@@ -43,19 +50,28 @@ namespace RushNDestroy
             backToArenaDeckMenu.gameObject.SetActive(false);
             arenaSelectionContainer.gameObject.SetActive(true);
             upgradeButton.onClick.AddListener(EnableUpgradableCards);
+            gameMenuArenaButton.onClick.AddListener(ShowOnlyArenaDeckSelection);
+            gameMenuDecksButton.onClick.AddListener(ShowOnlyArenaDeckSelection);
             buyButton.onClick.AddListener(EnableBuyableCards);
             backToArenaDeckMenu.onClick.AddListener(ShowOnlyArenaDeckSelection);
+
+            for (int i = 0; i < arenaSelectionButtons.Length; i++)
+            {
+                int x = i;
+                arenaSelectionButtons[i].onClick.AddListener(delegate { LoadArenaDeck(x); });
+            }
         }
         public void LoadArenaDeck(int arenaNum)
         {
-            arenaIndex = arenaNum - 1;
+            arenaIndex = arenaNum;
             arenaSelectionContainer.gameObject.SetActive(false);
             backToArenaDeckMenu.gameObject.SetActive(true);
             upgradeMenu.gameObject.SetActive(true);
             buyButton.gameObject.SetActive(true);
             upgradeButton.gameObject.SetActive(true);
+            LoadUpgradableCards();
+            LoadBuyableCards();
         }
-
         private void LoadUpgradableCards()
         {
             int cardPosIndex = 0;
@@ -94,10 +110,10 @@ namespace RushNDestroy
                     BuyCard bCard = newCard.GetComponent<BuyCard>();
                     bCard.SetUpBuyableCard(entity, buyableCardsList[cardPosIndex]);
                     cardPosIndex++;
+                    bCard.OnBuy += ReloadBuyMenu;
                 }
             }
         }
-
         private void EnableBuyableCards()
         {
             ClearShopMenu();
@@ -107,6 +123,7 @@ namespace RushNDestroy
         }
         private void ShowOnlyArenaDeckSelection()
         {
+            ClearShopMenu();
             upgradeButton.gameObject.SetActive(false);
             buyButton.gameObject.SetActive(false);
             backToArenaDeckMenu.gameObject.SetActive(false);
@@ -157,11 +174,20 @@ namespace RushNDestroy
                 posIndex++;
             }
         }
-        private void ClearShopMenu(){
-            for(int i=0; i<upgradableCardsList.Count; i++)
-            Destroy(upgradableCardsList[i].gameObject);
-            for(int i=0; i<buyableCardsList.Count; i++)
-            Destroy(buyableCardsList[i].gameObject);
+        private void ReloadBuyMenu(bool signal)
+        {
+            if (signal == true)
+            {
+                ClearShopMenu();
+                LoadBuyableCards();
+            }
+        }
+        private void ClearShopMenu()
+        {
+            for (int i = 0; i < upgradableCardsList.Count; i++)
+                Destroy(upgradableCardsList[i].gameObject);
+            for (int i = 0; i < buyableCardsList.Count; i++)
+                Destroy(buyableCardsList[i].gameObject);
             upgradableCardsList.Clear();
             buyableCardsList.Clear();
         }
