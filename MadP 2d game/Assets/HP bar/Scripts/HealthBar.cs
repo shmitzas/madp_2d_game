@@ -11,17 +11,23 @@ namespace RushNDestroy
         public Gradient gradient; //set a color
         public Image fill;
         private float health;
+        private Transform transformToFollow;
 
-        public void StartHealthBar(float health)
+        public void StartHealthBar(EntityEvents entity)
         {
-            slider.maxValue = health;
-            slider.value = health;
+            slider.maxValue = entity.healthRemaining;
+            slider.value = entity.healthRemaining;
             fill.color = gradient.Evaluate(1f); //set this color at max
         }
         public void SetHealth(float health)
         {
             slider.value = health;
             fill.color = gradient.Evaluate(slider.normalizedValue); //color and value depends, so we use normalized(ussualy from zero to 1)
+        }
+        public void Move()
+        {
+            if(transformToFollow != null)
+                transform.position = transformToFollow.position;
         }
     }
 }

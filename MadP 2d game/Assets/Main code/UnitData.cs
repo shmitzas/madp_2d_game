@@ -22,7 +22,7 @@ namespace RushNDestroy
         private void Update()
         {
             if (Input.GetKeyDown(KeyCode.Space))
-                SufferDamage(5);
+                SufferDamage(5f);
         }
         protected override void Die()
         {

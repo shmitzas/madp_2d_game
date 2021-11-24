@@ -6,18 +6,18 @@ namespace RushNDestroy
 {
     public class GameManager : MonoBehaviour
     {
-        public GameObject entityPrefab;
         private List<EntityEvents> playerUnits, enemyUnits;
         private List<EntityEvents> playerStructures, enemyStructures;
         private List<EntityEvents> allPlayers, allEnemies;
         private List<EntityEvents> allEntities;
-        public EntityData entityData;
         private CardManager cardManager;
+        private UIManager uiManager;
         public ManaRefill mana;
         public UpdateRewards rewards;
 
         private void Awake()
         {
+            uiManager = GetComponent<UIManager>();
             cardManager = GetComponent<CardManager>();
             playerUnits = new List<EntityEvents>();
             playerStructures = new List<EntityEvents>();
@@ -41,7 +41,7 @@ namespace RushNDestroy
             GameObject character = Instantiate<GameObject>(entity.playerPrefab, position, Quaternion.identity);
             SetupEntity(character, entity, pFaction);
             mana.mana -= entity.cost;
-            rewards.UpdateRewardsAmount(2, 4);
+            //rewards.UpdateRewardsAmount(2, 4);
             //updateAllPlaceables = true;
         }
         private void SetupEntity(GameObject gameObject, EntityData entity, EntityEnums.Faction faction)
@@ -52,8 +52,7 @@ namespace RushNDestroy
                     UnitData unitData = gameObject.GetComponent<UnitData>();
                     unitData.Activate(faction, entity);
                     AddEntityToList(unitData);
-                    HealthBar healthBar = gameObject.GetComponentInChildren<HealthBar>();
-                    healthBar.StartHealthBar(entity.health);
+                    uiManager.AddHealthUI(unitData);
                     break;
             }
         }

@@ -16,6 +16,7 @@ namespace RushNDestroy
         [HideInInspector] public CardData cardData;
         public Text manaCost;
         public Image cardImage;
+        public Text upgradeLevel;
 
         public void UpdateCardUI(float cost, Sprite newImage)
         {
@@ -28,22 +29,20 @@ namespace RushNDestroy
             cardData = cData;
             manaCost.text = cData.entityData.cost.ToString();
             cardImage.sprite = cData.entityData.artwork;
+            upgradeLevel.text = cData.entityData.upgradeLevel.ToString();
             this.gameObject.SetActive(true);
         }
-        public void OnPointerDown(PointerEventData eventData){}
-        public void OnBeginDrag(PointerEventData eventData)
-        {
-            Debug.Log("OnBeginDrag");
-        }
+        public void OnPointerDown(PointerEventData eventData) { }
+        public void OnBeginDrag(PointerEventData eventData) { }
         public void OnEndDrag(PointerEventData eventData)
         {
-            if(OnCardRelease != null)
+            if (OnCardRelease != null)
                 OnCardRelease(cardId);
             //rectTransform.anchoredPosition = defaultCardPosition;
         }
         public void OnDrag(PointerEventData eventData)
         {
-            if(OnCardDrag != null)
+            if (OnCardDrag != null)
                 OnCardDrag(cardId, eventData.delta);
         }
     }

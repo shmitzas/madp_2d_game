@@ -36,7 +36,8 @@ namespace RushNDestroy
         }
         private void Awake()
         {
-            healthBar = GetComponentInChildren<HealthBar>();
+            healthBar = this.gameObject.GetComponentInChildren<HealthBar>();
+            if(healthBar == null) Debug.Log("healtbar null");
         }
 
         public virtual void SetTarget(EntityEvents t)
@@ -63,7 +64,7 @@ namespace RushNDestroy
             state = States.Seeking;
         }
 
-        public void SufferDamage(int damage)
+        public void SufferDamage(float damage)
         {
             healthRemaining -= damage;
             healthBar.SetHealth(healthRemaining);

@@ -24,7 +24,7 @@ MonoBehaviour:
   health: 255
   cost: 4
   speed: 6.399998
-  upgradeLevel: 4
-  upgradeCost: 5400
+  upgradeLevel: 0
+  upgradeCost: 150
   owned: 1
   buyCost: 200
