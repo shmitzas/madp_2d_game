@@ -1,28 +1,25 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
 namespace RushNDestroy
 {
-
     public class BuildingData : EntityEvents
     {
-        public void Activate(Faction pFaction, EntityData pData)
+        public void Activate(Faction pFaction, EntityData entity)
         {
-            entityType = pData.entityType;
+            entityType = entity.entityType;
             faction = pFaction;
-            healthRemaining = pData.health;
-            targetType = pData.targetType;
-            //TODO: add more as necessary
-
+            healthRemaining = entity.health;
+            targetType = entity.targetType;
         }
-
         protected override void Die()
         {
             base.Die();
-            //audioSource.PlayOneShot(dieAudioClip, 1f);
-
-            //Debug.Log("Building is dead", gameObject);
+        }
+        private void Update()
+        {
+            if (Input.GetKeyDown(KeyCode.Space))
+                SufferDamage(5);
         }
     }
 }

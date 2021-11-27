@@ -17,7 +17,7 @@ MonoBehaviour:
   artwork: {fileID: 21300000, guid: 3eda543a2423783498fe922cf7dd996d, type: 3}
   entityType: 0
   attackType: 0
-  targetType: 2
+  targetType: 1
   attackRatio: 1
   attackDamage: 27
   attackRange: 1

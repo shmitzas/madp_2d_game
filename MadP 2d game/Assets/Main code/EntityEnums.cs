@@ -11,7 +11,7 @@ namespace RushNDestroy
         public Type entityType;
 
         public UnityAction<EntityEnums> OnDie; //HOW DOES THIS WORK (Brackeys Discord)
-
+        
         public enum Type
         {
             Unit,
