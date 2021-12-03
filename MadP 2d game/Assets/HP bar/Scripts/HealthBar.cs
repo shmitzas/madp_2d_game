@@ -18,12 +18,6 @@ namespace RushNDestroy
             slider.value = health;
             fill.color = gradient.Evaluate(1f); //set this color at max
         }
-        public void StartHealthBarUI(EntityEvents entity)
-        {
-            slider.maxValue = entity.healthRemaining;
-            slider.value = entity.healthRemaining;
-            fill.color = gradient.Evaluate(1f); //set this color at max
-        }
         public void SetHealth(float health)
         {
             slider.value = health;

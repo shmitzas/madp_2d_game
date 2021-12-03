@@ -19,17 +19,12 @@ MonoBehaviour:
   attackType: 1
   targetType: 1
   attackRatio: 1
-  attackDamage: 23
+  attackDamage: 19
   attackRange: 5
-  health: 100
+  health: 90
   cost: 3
-  speed: 7.999996
+  speed: 7.199997
   upgradeLevel: 4
-<<<<<<< Updated upstream
-  upgradeCost: 1800
-  owned: 1
-=======
   upgradeCost: 1080
   owned: 0
->>>>>>> Stashed changes
   buyCost: 50

@@ -9,11 +9,14 @@ namespace RushNDestroy
         public Slider slider;
         public Text manaCounter;
         public float mana { get; set; }
-        public float addMana;
+        [HideInInspector] public float addMana;
         public int setManaCounter { get; private set; }
         private void FixedUpdate()
         {
             UpdateMana();
+        }
+        private void Awake() {
+            addMana = 0.015f;
         }
 
         private void UpdateMana()

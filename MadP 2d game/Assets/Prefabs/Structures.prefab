@@ -343,6 +343,8 @@ MonoBehaviour:
   attackRatio: 0
   attackRange: 0
   attackType: 0
+  lastAttackTime: -1000
+  timeNextStep: 0
 --- !u!114 &7238540202093057834
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -495,6 +497,8 @@ MonoBehaviour:
   attackRatio: 0
   attackRange: 0
   attackType: 0
+  lastAttackTime: -1000
+  timeNextStep: 0
 --- !u!114 &2069789573232320065
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -647,6 +651,8 @@ MonoBehaviour:
   attackRatio: 0
   attackRange: 0
   attackType: 0
+  lastAttackTime: -1000
+  timeNextStep: 0
 --- !u!114 &3483599517096752128
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -31,8 +31,8 @@ namespace RushNDestroy
                 entity.attackDamage += 1;
                 entity.health += 2.5f;
                 entity.speed += 0.2f;
-                if (entity.upgradeLevel == 0)
-                    entity.upgradeCost += entity.upgradeCost * 2;
+                if (entity.upgradeLevel == 1)
+                    entity.upgradeCost += entity.upgradeCost * (entity.upgradeLevel + 1);
                 else
                     entity.upgradeCost += entity.upgradeCost * entity.upgradeLevel;
                 rewards.coins -= entity.upgradeCost;

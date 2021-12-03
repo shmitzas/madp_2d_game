@@ -10,7 +10,7 @@ namespace RushNDestroy
         [HideInInspector] public TargetType targetType;
         public Type entityType;
 
-        public UnityAction<EntityEnums> OnDie; //HOW DOES THIS WORK (Brackeys Discord)
+        public UnityAction<EntityEnums> OnDie;
         
         public enum Type
         {

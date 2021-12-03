@@ -10,7 +10,7 @@ namespace RushNDestroy
         private float speed;
 
         private NavMeshAgent agent;
-        
+
         void Start()
         {
             agent.updateRotation = false; //disables 3d rotation cause this is 2d game 
@@ -20,10 +20,10 @@ namespace RushNDestroy
         public void Awake()
         {
             entityType = EntityEnums.Type.Unit;
-            
-             agent = GetComponent<NavMeshAgent>(); //disabled until Activate() is called
+
+            agent = GetComponent<NavMeshAgent>(); //disabled until Activate() is called
         }
-        
+
         public void Activate(Faction pFaction, EntityData entity)
         {
             faction = pFaction;  //for AI to know if this entity is friendly or enemy
@@ -33,8 +33,9 @@ namespace RushNDestroy
             attackRatio = entity.attackRatio;
             speed = entity.speed;
             damage = entity.attackDamage;
+            healthBar = GetComponentInChildren<HealthBar>();
+            healthBar.StartHealthBar(healthRemaining);
 
-            
             agent.speed = speed;
             //Debug.Log(agent.speed + " DA SPED");
 
@@ -45,30 +46,26 @@ namespace RushNDestroy
         {
             if (Input.GetKeyDown(KeyCode.Space))
                 SufferDamage(5);
-        }
 
-        public override void SetTarget(EntityEvents t)
-        {
-            base.SetTarget(t);
+            switch (state)
+            {
+                case States.Seeking:
+                    if (target == null)
+                        return;
+                    base.Seek();
+                    agent.SetDestination(target.transform.position);
+                    agent.isStopped = false;
+                    break;
+                case States.Fighting:
+                    base.Stop();
+                    agent.isStopped = true;
+                    base.StartFighting();
+                    break;
+                case States.Dead:
+                    base.Die();
+                    agent.enabled = false;
+                    break;
+            }
         }
-        //Warrior starts moving to the target
-        public override void Seek()
-        {
-            //if(target == null) Debug.Log("no target");
-            if(target == null)
-                return;
-            base.Seek();
-
-            agent.SetDestination(target.transform.position);
-            //agent.isStopped = false; 
-        }
-        public override void Stop()
-        {
-            base.Stop();
-
-            //agent.isStopped = true;
-        }
-
     }
-
 }

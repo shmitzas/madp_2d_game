@@ -22,7 +22,7 @@ namespace RushNDestroy
         {
             GameObject newUIObject = Instantiate<GameObject>(healthBarPrefab, p.transform.position, Quaternion.identity, healthBarContainer);
             p.healthBar = newUIObject.GetComponent<HealthBar>(); //store the reference in the ThinkingPlaceable itself
-            p.healthBar.StartHealthBarUI(p);
+            //p.healthBar.StartHealthBarUI(p);
 			
 			healthBar.Add(p.healthBar);
         }

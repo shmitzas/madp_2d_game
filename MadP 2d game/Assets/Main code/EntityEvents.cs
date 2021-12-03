@@ -7,7 +7,6 @@ namespace RushNDestroy
 {
     public class EntityEvents : EntityEnums
     {
-
         [HideInInspector] public States state = States.Dragged;
         public enum States
         {
@@ -18,6 +17,7 @@ namespace RushNDestroy
             Dead
         }
 
+        public UnityAction<EntityEvents> OnDoDamage;
 
         [HideInInspector] public EntityEvents target;
 
@@ -29,57 +29,67 @@ namespace RushNDestroy
         [HideInInspector] public float attackRange;
         [HideInInspector] public AttackType attackType;
 
+        [HideInInspector] public float lastAttackTime = -1000f;
+
+        [HideInInspector] public float timeNextStep = 0f;
+
         public enum AttackType
         {
             Close,
             Ranged
         }
-
-        public virtual void SetTarget(EntityEvents t)
+        public void SetTarget(EntityEvents t)
         {
             target = t;
             t.OnDie += TargetIsDead;
         }
-
-        public bool TargetInRange()
+        public void Seek()
         {
-            return (transform.position - target.transform.position).sqrMagnitude <= attackRange;
-        }
+            state = States.Seeking;
 
+        }
+        public void StartFighting()
+        {
+            state = States.Fighting;
+        }
+        public void DoDamage()
+        {
+            lastAttackTime = Time.time;
+            if(OnDoDamage != null)
+				OnDoDamage(this);
+        }
+        public void Stop()
+        {
+            state = States.Idle;
+        }
+        public void Die()
+        {
+            state = States.Dead;
+            if (OnDie != null)
+                OnDie(this);
+        }
+        public bool TargetInRange()
+        {   
+            return (transform.position-target.transform.position).sqrMagnitude <= attackRange*attackRange;
+        }
         protected void TargetIsDead(EntityEnums p)
         {
             state = States.Idle;
 
             target.OnDie -= TargetIsDead;
 
-        }
+            timeNextStep = lastAttackTime;
 
-        public virtual void Seek()
-        {
-            state = States.Seeking;
         }
-
-        public void SufferDamage(int damage)
+        public float SufferDamage(float damage)
         {
-            healthBar = GetComponentInChildren<HealthBar>();
             healthRemaining -= damage;
-            healthBar.SetHealth(healthRemaining);
-
-            if (healthRemaining <= 0)
+            if (healthRemaining <= 0f && state != States.Dead)
+            {
                 Die();
-        }
+            }
 
-        public virtual void Stop()
-        {
-            state = States.Idle;
-        }
-
-        protected virtual void Die()
-        {
-            state = States.Dead;
-
-            if (OnDie != null)
-                OnDie(this);
+            return healthRemaining;
         }
     }
 }

@@ -256,6 +256,7 @@ SpriteRenderer:
   m_CastShadows: 0
   m_ReceiveShadows: 0
   m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
@@ -367,6 +368,7 @@ MonoBehaviour:
   attackRatio: 0
   attackRange: 0
   attackType: 0
+  attackTime: -1000
 --- !u!114 &1096973137453930626
 MonoBehaviour:
   m_ObjectHideFlags: 0
