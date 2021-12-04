@@ -301,7 +301,7 @@ namespace RushNDestroy
             {
                 Time.timeScale = 0;
 
-                if (gameWon == 2)
+                if (gameWon == 2) //game was won
                 {
                     gameOverMenu.coinsAmount.text = "+" + 10;
                     gameOverMenu.trophiesAmount.text = "+" + 10;
@@ -309,7 +309,7 @@ namespace RushNDestroy
                     gameOverMenu.tieText.SetActive(false);
                     gameOverMenu.gameObject.SetActive(true);
                 }
-                else if (gameWon == 1)
+                else if (gameWon == 1) //game was lost
                 {
                     gameOverMenu.coinsAmount.text = "-" + 10;
                     gameOverMenu.trophiesAmount.text = "-" + 10;
@@ -317,7 +317,7 @@ namespace RushNDestroy
                     gameOverMenu.tieText.SetActive(false);
                     gameOverMenu.gameObject.SetActive(true);
                 }
-                else
+                else //neither side won
                 {
                     gameOverMenu.rewardsMenu.SetActive(false);
                     gameOverMenu.tieText.SetActive(true);
