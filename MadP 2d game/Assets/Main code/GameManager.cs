@@ -22,10 +22,13 @@ namespace RushNDestroy
         private CardManager cardManager;
         private AISpawning aiSpawning;
         public ManaRefill mana;
+        public GameOverMenu gameOverMenu;
         [HideInInspector] public bool gameOver = false;
+        private int gameWon = 0;
 
         private void Awake()
         {
+            gameOverMenu.gameObject.SetActive(false);
             aiSpawning = GetComponent<AISpawning>();
             cardManager = GetComponent<CardManager>();
             playerUnits = new List<EntityEvents>();
@@ -84,8 +87,7 @@ namespace RushNDestroy
                             bool targetFound = FindClosestInList(p.transform.position, GetAttackList(p.faction, p.targetType), out targetToPass);
                             if (!targetToPass)
                             {
-                                gameOver = true;
-                                GameOver();
+                                Debug.Log("No enemy left");
                             }
                         } //this should only happen on Game Over
                         else if (p.TargetInRange())
@@ -119,7 +121,7 @@ namespace RushNDestroy
             GameObject prefabToSpawn = (pFaction == EntityEnums.Faction.Player) ? entity.playerPrefab : ((entity.enemyPrefab == null) ? entity.playerPrefab : entity.enemyPrefab);
             GameObject character = Instantiate<GameObject>(entity.playerPrefab, position, Quaternion.identity);
             SetupEntity(character, entity, pFaction);
-            if(pFaction == EntityEnums.Faction.Player)
+            if (pFaction == EntityEnums.Faction.Player)
                 mana.mana -= entity.cost;
         }
         private void SetupEntity(GameObject gameObject, EntityData entity, EntityEnums.Faction faction)
@@ -167,7 +169,12 @@ namespace RushNDestroy
         private void OnCastleDead(EntityEnums castle)
         {
             castle.OnDie -= OnCastleDead;
+            if (castle.faction == EntityEnums.Faction.Enemy)
+                gameWon = 2;
+            else
+                gameWon = 1;
             gameOver = true;
+            GameOver();
         }
 
         private void AddEntityToList(EntityEvents entity)
@@ -293,7 +300,29 @@ namespace RushNDestroy
             if (gameOver)
             {
                 Time.timeScale = 0;
-                Debug.Log("Game Over!");
+
+                if (gameWon == 2)
+                {
+                    gameOverMenu.coinsAmount.text = "+" + 10;
+                    gameOverMenu.trophiesAmount.text = "+" + 10;
+                    gameOverMenu.rewardsMenu.SetActive(true);
+                    gameOverMenu.tieText.SetActive(false);
+                    gameOverMenu.gameObject.SetActive(true);
+                }
+                else if (gameWon == 1)
+                {
+                    gameOverMenu.coinsAmount.text = "-" + 10;
+                    gameOverMenu.trophiesAmount.text = "-" + 10;
+                    gameOverMenu.rewardsMenu.SetActive(true);
+                    gameOverMenu.tieText.SetActive(false);
+                    gameOverMenu.gameObject.SetActive(true);
+                }
+                else
+                {
+                    gameOverMenu.rewardsMenu.SetActive(false);
+                    gameOverMenu.tieText.SetActive(true);
+                    gameOverMenu.gameObject.SetActive(true);
+                }
             }
         }
 
