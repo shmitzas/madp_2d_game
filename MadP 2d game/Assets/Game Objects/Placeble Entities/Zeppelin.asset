@@ -18,13 +18,13 @@ MonoBehaviour:
   entityType: 0
   attackType: 0
   targetType: 1
-  attackRatio: 1
-  attackDamage: 42
+  attackRatio: 3
+  attackDamage: 60
   attackRange: 1
-  health: 255
+  health: 200
   cost: 4
   speed: 1
   upgradeLevel: 0
   upgradeCost: 150
-  owned: 0
+  owned: 1
   buyCost: 200

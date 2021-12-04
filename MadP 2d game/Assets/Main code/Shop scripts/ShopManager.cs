@@ -21,7 +21,6 @@ namespace RushNDestroy
 
         [Header("Game menu Buttons")]
         public Button gameMenuArenaButton;
-        public Button gameMenuDecksButton;
 
         [Header("Upgrade and Buy system components")]
         public GameObject upgradeCard;
@@ -51,7 +50,6 @@ namespace RushNDestroy
             arenaSelectionContainer.gameObject.SetActive(true);
             upgradeButton.onClick.AddListener(EnableUpgradableCards);
             gameMenuArenaButton.onClick.AddListener(ShowOnlyArenaDeckSelection);
-            gameMenuDecksButton.onClick.AddListener(ShowOnlyArenaDeckSelection);
             buyButton.onClick.AddListener(EnableBuyableCards);
             backToArenaDeckMenu.onClick.AddListener(ShowOnlyArenaDeckSelection);
 

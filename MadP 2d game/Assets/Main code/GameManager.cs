@@ -12,6 +12,8 @@ namespace RushNDestroy
         public GameObject[] playerTowers;
         public GameObject[] enemyTowers;
         public EntityData towerData;
+        public Timer timer;
+        public RewardsData rewardsData;
 
 
         private List<EntityEvents> playerUnits, enemyUnits;
@@ -25,6 +27,9 @@ namespace RushNDestroy
         public GameOverMenu gameOverMenu;
         [HideInInspector] public bool gameOver = false;
         private int gameWon = 0;
+        private int killCount = 0;
+        private int coins;
+        private int trophies;
 
         private void Awake()
         {
@@ -87,7 +92,8 @@ namespace RushNDestroy
                             bool targetFound = FindClosestInList(p.transform.position, GetAttackList(p.faction, p.targetType), out targetToPass);
                             if (!targetToPass)
                             {
-                                Debug.Log("No enemy left");
+                                gameOver = true;
+                                GameOver();
                             }
                         } //this should only happen on Game Over
                         else if (p.TargetInRange())
@@ -103,6 +109,8 @@ namespace RushNDestroy
                         break;
 
                     case EntityEvents.States.Dead:
+                        if(p.entityType == EntityEnums.Type.Unit && p.faction == EntityEnums.Faction.Enemy)
+                            killCount++;
                         if (p.TargetInRange() == false) Debug.Log(p.name + " | is dead");
                         p.gameObject.SetActive(false);
                         RemoveEntityFromList(p);
@@ -119,7 +127,7 @@ namespace RushNDestroy
         {
             //Prefab to spawn is the associatedPrefab if it's the Player faction, otherwise it's alternatePrefab. But if alternatePrefab is null, then first one is taken
             GameObject prefabToSpawn = (pFaction == EntityEnums.Faction.Player) ? entity.playerPrefab : ((entity.enemyPrefab == null) ? entity.playerPrefab : entity.enemyPrefab);
-            GameObject character = Instantiate<GameObject>(entity.playerPrefab, position, Quaternion.identity);
+            GameObject character = Instantiate<GameObject>(prefabToSpawn, position, Quaternion.identity);
             SetupEntity(character, entity, pFaction);
             if (pFaction == EntityEnums.Faction.Player)
                 mana.mana -= entity.cost;
@@ -303,16 +311,30 @@ namespace RushNDestroy
 
                 if (gameWon == 2) //game was won
                 {
-                    gameOverMenu.coinsAmount.text = "+" + 10;
-                    gameOverMenu.trophiesAmount.text = "+" + 10;
+                    trophies = (int)timer.timeRemaining + killCount / 10;
+                    coins = (int)timer.timeRemaining + killCount / 3;
+                    rewardsData.coins += coins;
+                    rewardsData.trophies += trophies;
+
+                    gameOverMenu.coinsAmount.text = "+" + coins;
+                    gameOverMenu.trophiesAmount.text = "+" + trophies;
                     gameOverMenu.rewardsMenu.SetActive(true);
                     gameOverMenu.tieText.SetActive(false);
                     gameOverMenu.gameObject.SetActive(true);
                 }
                 else if (gameWon == 1) //game was lost
                 {
-                    gameOverMenu.coinsAmount.text = "-" + 10;
-                    gameOverMenu.trophiesAmount.text = "-" + 10;
+                    if((int)timer.timeRemaining >20)
+                    {
+                       trophies = (int)timer.timeRemaining / 10;
+                       Debug.Log(trophies);
+                    }
+                    else trophies = (int)timer.timeRemaining;
+
+                    rewardsData.trophies -= trophies;
+
+                    gameOverMenu.coinsAmount.text = "0";
+                    gameOverMenu.trophiesAmount.text = "-" + trophies;
                     gameOverMenu.rewardsMenu.SetActive(true);
                     gameOverMenu.tieText.SetActive(false);
                     gameOverMenu.gameObject.SetActive(true);
@@ -323,6 +345,7 @@ namespace RushNDestroy
                     gameOverMenu.tieText.SetActive(true);
                     gameOverMenu.gameObject.SetActive(true);
                 }
+                enabled = false;
             }
         }
 

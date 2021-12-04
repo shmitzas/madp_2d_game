@@ -18,12 +18,6 @@ namespace RushNDestroy
             trophiesImage.sprite = rewards.trophiesArtwork;
             coinsImage.sprite = rewards.coinsArtwork;
         }
-        public void UpdateRewardsAmount(int trophies, int coins)
-        {
-            rewards.trophies += trophies;
-            rewards.coins += coins;
-        }
-
         private void Update()
         {
             trophiesAmount.text = rewards.trophies.ToString();

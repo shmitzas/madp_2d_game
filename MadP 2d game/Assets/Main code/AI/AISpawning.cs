@@ -27,17 +27,21 @@ namespace RushNDestroy
         }
         private void FixedUpdate()
         {
-            aiMana += manaRefill.addMana;
+            
+            if(aiMana <10)
+                aiMana += manaRefill.addMana;
 
-            if(aiMana >= card.cost*2){
+            if(aiMana >= card.cost*1.5){
                 Vector2 randomPos = new Vector2( Random.Range(5.7f, 10.4f), Random.Range(3.4f, -4.3f));
                 SpawnAIUnit(card, randomPos, EntityEnums.Faction.Enemy);
                 aiMana -= card.cost;
+                LoadAICard();
             }
         }
         private void LoadAICard()
         {
             int cardIndex = Random.Range(0, deckData.Count);
+            Debug.Log(cardIndex);
             card = deckData[cardIndex].entityData;
         }
     }
