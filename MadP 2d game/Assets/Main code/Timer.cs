@@ -41,6 +41,7 @@ public class Timer : MonoBehaviour
                 timeRemaining = 0;
                 timerIsRunning = false;
                 gameManager.gameOver = true;
+                gameManager.GameOver();
             }
         }
     }

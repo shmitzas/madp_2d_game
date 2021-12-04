@@ -20,11 +20,13 @@ namespace RushNDestroy
         private List<EntityEvents> allEntities;
 
         private CardManager cardManager;
+        private AISpawning aiSpawning;
         public ManaRefill mana;
-        public bool gameOver = false;
+        [HideInInspector] public bool gameOver = false;
 
         private void Awake()
         {
+            aiSpawning = GetComponent<AISpawning>();
             cardManager = GetComponent<CardManager>();
             playerUnits = new List<EntityEvents>();
             playerStructures = new List<EntityEvents>();
@@ -37,9 +39,11 @@ namespace RushNDestroy
 
             //Setup all necessary listeners
             cardManager.OnCardUsed += SpawnEntity;
+            aiSpawning.SpawnAIUnit += SpawnEntity;
         }
         private void Start()
         {
+            Time.timeScale = 1;
             SetupEntity(enemyCastle, castleData, EntityEnums.Faction.Enemy);
             SetupEntity(playerCastle, castleData, EntityEnums.Faction.Player);
             for (int i = 0; i < playerTowers.Length; i++)
@@ -49,7 +53,6 @@ namespace RushNDestroy
         }
         private void Update()
         {
-            GameOver();
             EntityEvents targetToPass; //ref
             EntityEvents p; //ref
 
@@ -64,21 +67,28 @@ namespace RushNDestroy
                             break;
 
                         bool foundTarget = FindClosestInList(p.transform.position, GetAttackList(p.faction, p.targetType), out targetToPass);
-                        if (!targetToPass){
+                        if (!targetToPass)
+                        {
                             gameOver = true;
                             GameOver();
-                            } //this should only happen on Game Over
-                        p.SetTarget(targetToPass);
-                        p.Seek();
+                        } //this should only happen on Game Over
+                        else
+                        {
+                            p.SetTarget(targetToPass);
+                            p.Seek();
+                        }
                         break;
                     case EntityEvents.States.Seeking:
                         if (p.entityType == EntityEnums.Type.Structure || p.entityType == EntityEnums.Type.Castle)
                         {
                             bool targetFound = FindClosestInList(p.transform.position, GetAttackList(p.faction, p.targetType), out targetToPass);
-                            p.SetTarget(targetToPass);
-                        }
-                        //Debug.Log(p.name + " faction: " + p.faction + " | target: " + p.target.name + " faction: " + p.target.faction);
-                        if (p.TargetInRange())
+                            if (!targetToPass)
+                            {
+                                gameOver = true;
+                                GameOver();
+                            }
+                        } //this should only happen on Game Over
+                        else if (p.TargetInRange())
                             p.StartFighting();
                         break;
 
@@ -109,7 +119,8 @@ namespace RushNDestroy
             GameObject prefabToSpawn = (pFaction == EntityEnums.Faction.Player) ? entity.playerPrefab : ((entity.enemyPrefab == null) ? entity.playerPrefab : entity.enemyPrefab);
             GameObject character = Instantiate<GameObject>(entity.playerPrefab, position, Quaternion.identity);
             SetupEntity(character, entity, pFaction);
-            mana.mana -= entity.cost;
+            if(pFaction == EntityEnums.Faction.Player)
+                mana.mana -= entity.cost;
         }
         private void SetupEntity(GameObject gameObject, EntityData entity, EntityEnums.Faction faction)
         {
@@ -277,7 +288,8 @@ namespace RushNDestroy
             Destroy(e.gameObject);
         }
 
-        private void GameOver(){
+        public void GameOver()
+        {
             if (gameOver)
             {
                 Time.timeScale = 0;

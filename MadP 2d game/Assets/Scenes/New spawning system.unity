@@ -1142,6 +1142,20 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 7981764106809223640, guid: 68ed4ad8f9520164db9c37d0f53d465d, type: 3}
   m_PrefabInstance: {fileID: 7981764106051758011}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &897453668
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 897453667}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f17917487f6af7428427bd49959aef0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  aiDeck: {fileID: 11400000, guid: e52cfc5bb50d4804693b606e05dbf617, type: 2}
+  manaRefill: {fileID: 1641714361}
 --- !u!114 &897453670 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 7981764106809223647, guid: 68ed4ad8f9520164db9c37d0f53d465d, type: 3}
@@ -1209,7 +1223,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   manarefill: {fileID: 1641714361}
-  timeRemaining: 130
+  timeRemaining: 122
   timerIsRunning: 1
   gameManager: {fileID: 897453670}
 --- !u!114 &921652883
