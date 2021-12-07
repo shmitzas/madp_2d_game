@@ -5,7 +5,6 @@ namespace RushNDestroy
 {
     public class movement : MonoBehaviour
     {
-
         Rigidbody2D body;
 
         private float horizontal;

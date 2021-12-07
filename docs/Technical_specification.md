@@ -8,19 +8,45 @@
 
 ## Table of Contents
 
+- [2D GAME](#2d-game)
+- [Technical Specification](#technical-specification)
+  - [Table of Contents](#table-of-contents)
 - [Introduction](#introduction)
   - [Purpose of this Document](#purpose-of-this-document)
-- [High Level Overview](#high-level-overview)
+- [High-Level Overview](#high-level-overview)
   - [Structural Aspects](#structural-aspects)
   - [Dynamic Aspects](#dynamic-aspects)
     - [Health system](#health-system)
-    - [Visual entity health bar](#visual-entity-health-bar)
+      - [**Object purpose**](#object-purpose)
+      - [**Entity health scripting**](#entity-health-scripting)
+        - [**Entity**](#entity)
+        - [**Health bar**](#health-bar)
+      - [**Health with object collision**](#health-with-object-collision)
     - [Tilemap system](#tilemap-system)
+      - [**Properties of used tiles**](#properties-of-used-tiles)
     - [AI system](#ai-system)
-    - [State machine](#state-machine)
+    - [State Machine](#state-machine)
+      - [**Properties of each state**](#properties-of-each-state)
     - [Entity Combat](#entity-combat)
-- [UML Deployement Diagrams](#uml-deployement-diagram)
+      - [**Overall idea**](#overall-idea)
+- [UML Deployement Diagrams](#uml-deployement-diagrams)
 - [Technologies and tools used](#technologies-and-tools-used)
+  - [Game engine](#game-engine)
+    - [Unity Game Development Engine](#unity-game-development-engine)
+  - [IDE](#ide)
+    - [VS Code](#vs-code)
+  - [For task management](#for-task-management)
+    - [Gitkraken](#gitkraken)
+  - [For creating wireframes, brainstorming](#for-creating-wireframes-brainstorming)
+    - [Miro](#miro)
+  - [Version control for our codebase](#version-control-for-our-codebase)
+    - [Gitlab](#gitlab)
+  - [Time tracking for weekly reports](#time-tracking-for-weekly-reports)
+    - [Toggl](#toggl)
+  - [For creating graphical assets](#for-creating-graphical-assets)
+    - [Illustrator](#illustrator)
+  - [For connecting to VU MIF Gitlab](#for-connecting-to-vu-mif-gitlab)
+    - [Cisco AnyConnect](#cisco-anyconnect)
 
 </br>
 
@@ -42,17 +68,13 @@ Our 2D game consists of many parts and modules in order to make the game as easy
 - Game characters
 - Visuals
   - Character textures
-  - Arena textures
+  - Level textures
   - Card deck
     <br>
     ![Deck](images/deck.png)
-  - Deck editor
-    <br>
-    ![CardDeck](images/cardDeck.png)
-  - Arena selection
+  - Level selection
     <br>
     ![Arenas](images/arenaSelection.png)
-  - Level selection
 - Sound efects
   - Spawn sound
   - Fighting sound
@@ -68,8 +90,8 @@ Our 2D game consists of many parts and modules in order to make the game as easy
   - Attack type
     - Close
     - Ranged
-    - OnlyAir
   - Attack range
+  - Attack rate
   - Attack damage
 - Particle effects
   - Spawn effect
@@ -77,26 +99,7 @@ Our 2D game consists of many parts and modules in order to make the game as easy
   - Structure collapse effect
 
 ## Dynamic Aspects
-
-### Unity Entity Component System
-
-- Entity pool
-  - Constant entity amount is 10
-  - On entity spawn, entity gets deducted from entity pool
-  - Once entity gets deducted from the pool, it has to be instatnly reffiled
-  <br>
-
-  **Note:** Structures can't be respawned, hence they can't be in the entity pool
-
-- Structures pool
-- Particles pool
-  - Constant particle amount is 10
-    - On particle spawn, particle gets deducted from particle pool
-    - Once particle gets deducted from the pool, it has to be instatnly reffiled
-</br>
-
 ### Health system
-
 #### **Object purpose**
 
 - *Canvas* object purpose is to collect all child objects and scale it to pleasing size also ensuring that the health bar is visually shown in a world space above entities
@@ -125,26 +128,20 @@ At start a spawned entity recieves a full maximum health it is provided with and
       public Slider slider;
       public Gradient gradient; 
       public Image fill; 
-  Variables. To be added...
+      private float health;
 
-      public void SetMaxHealth(int health)
+      public void SetMaxHealth(float health)
         {
         slider.maxValue = health;
         slider.value = health;
         fill.color = gradient.Evaluate(1f);                     
         }
-  To be added...
 
-     public void SetHealth(int health)
+     public void SetHealth(float health)
         {
         slider.value = health;
         fill.color = gradient.Evaluate(slider.normalizedValue);
         }
-  To be added...
-
-
-
-
 </br>
 
 #### **Health with object collision**
@@ -191,6 +188,7 @@ Game entities are provided with their own thinking system. The system is like a 
 
 State machine will split different jobs an unit has to do regarding to its actions or position in the field. The states will allow to change what the unit is supposed to do at certain points of the game. The states are split into following:
 
+- Dragged
 - Idle
 - Seeking
 - Fighting
@@ -236,36 +234,22 @@ In the game when entities of different teams detect each other, they will start 
 
 # Technologies and tools used
 
-## [Unity Game Development Engine](https://unity.com)
+## Game engine
+### [Unity Game Development Engine](https://unity.com)
+## IDE
+### [VS Code](https://code.visualstudio.com)
+## For task management
+### [Gitkraken](https://www.gitkraken.com)
+## For creating wireframes, brainstorming
+### [Miro](https://miro.com/)
+## Version control for our codebase
+### [Gitlab](https://about.gitlab.com)
+## Time tracking for weekly reports
+### [Toggl](https://toggl.com)
+## For creating graphical assets
+### [Illustrator](https://www.adobe.com/products/photoshop.html)
+## For connecting to VU MIF Gitlab
+### [Cisco AnyConnect](https://www.cisco.com/c/en/us/products/security/anyconnect-secure-mobility-client/index.html)
 
-Creating interface of the game, game objects, manipulating them with scripts.
-
-## [VS Code](https://code.visualstudio.com)
-
-Writing and editing scripts.
-
-## [Gitkraken](https://www.gitkraken.com)
-
-This tool is used for task management in our team.
-
-## [Miro](https://miro.com/)
-
-Used for creating wireframes, brainstorming.
-
-## [Gitlab](https://about.gitlab.com)
-
-Version control for our codebase.
-
-## [Toggl](https://toggl.com)
-
-Time tracking for weekly reports.
-
-## [Photoshop](https://www.adobe.com/products/photoshop.html)
-
-For creating graphical assets (sprites, tilesets).
-
-## [Cisco AnyConnect](https://www.cisco.com/c/en/us/products/security/anyconnect-secure-mobility-client/index.html)
-
-Used to connect to VU VPN.
 
 </br>
