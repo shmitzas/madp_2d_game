@@ -6,6 +6,27 @@
 
 </br>
 
+<!-- General comments:
+- The fact that Unity is used is mentioned only in passing. I think that is a central piece of information. Another key piece of info - an overview of which aspects of the game are handled by Unity, and which parts are provided by your code. This is currently missing. From that an explanation how each of your parts should be/is implemented could follow.
+- A good part of the document could be considered functional requirements (how things should function), while this document should explain how things should be implemented in Unity.
+- I think a good deal of information could be extracted from the diagrams, but it would be important to: 1) use a clear and consistent notation; 2) introduce a higher-level diagram/text explaining the high-level view (that hides some details). For example, that the key concepts in the game's implementation are: a character, a structure, an attribute, a map, a difficulty, a reward, a resource, etc. And then lower-level diagrams could explain each concept further, e.g. what types of structures are there, which parts of their implementation are shared, etc.
+- The approach of describing UI components is also a possible one, but it should be consistent - e.g. take a full window screenshot, then highlight what components are seen on it, and then go down into details explaining how each component is implemented. Now it only shows a tile map and health bar, but I believe there are many more components in the UI.
+
+ 
+
+Specific comments:
+- List of components used for game's structure - what is a component in this context? Somehow "Game world", "Spawn sound" and "Hit marker" do not seem to be things at the same level of abstraction. "Spawn sound" or "Hit marker" seems more like a graphical/audio asset, while "Game world" sounds like something bigger?
+- Unity Entity Component System - it's difficult to understand the significance of this section without knowing what role the pools play/how they are used in the game. Also, the note about strctures appears before structures pool is mentioned. Shouldn't that be a lower-level bullet point?
+- "Health system" - the first paragraph and "Visual entity health bar" section looks more like the description of the functional requirements for the health system (and therefore should be in the other specification).
+- "Health system > Object purpose" - this seems like an explanation of how some Health Bar UI component should be implemented (i.e. that it is composed of multiple lower-level UI components (slider, border, etc.). This is useful. A way to improve it could be to be explicit about that by naming a section "Component: Health Bar" (or similar) and in it explaining everything about this component - what it should look like, what lower-level components it composes, etc.
+- "State Machine" - UML State Diagram could have been used here (or any kind of an image, really). The problem with textual description is that it does not cover all state transitions. For example, for "Idle" it is said that "the next state is set" - but which state is "next"? Also, if a unit is in a "Fighting" state and kills its target, would it remain in "Fighting" state or go back to "Seeking" state?
+- "Entity combat > Overall idea" - it's said that "when entities of different teams detect each other, they will start fighting to reach enemy’s castle", but previously it was said that "After being spawned the unit is targeting the enemy tower and moving forward to it. If interupted by opponent unit, the secondary target is set to the newly detected unit." - that seems to be inconsistent.
+- "Entity combat > Overall idea" - "Cool additional feature that we are currently working ..." - that is something to track in project tasks lists, and maybe mention in weekly report, but not in the technical specification.
+- "Entity combat > How it works" - that sounds more like functional requirements
+- "UML Deployement Diagrams" - there are no UML deployment diagrams here, or even any UML diagrams for that matter :( If using your own notation, then you should explain what does a box mean, what does an arrow and its direction mean, etc.
+- "UML Deployement Diagrams > Overview of whole diagram" - the image is not readable - the image quality is too low.
+- "UML Deployement Diagrams > Rewards" - it's not clear why Resources and Rewards are grouped into one -->
+
 ## Table of Contents
 
 - [2D GAME](#2d-game)
