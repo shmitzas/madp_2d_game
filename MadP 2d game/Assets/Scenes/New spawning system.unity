@@ -109,7 +109,7 @@ NavMeshSettings:
     agentRadius: 0.5
     agentHeight: 2
     agentSlope: 45
-    agentClimb: 0.4
+    agentClimb: 0.2
     ledgeDropHeight: 0
     maxJumpAcrossDistance: 0
     minRegionArea: 2
@@ -2859,7 +2859,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1453522900
 RectTransform:
   m_ObjectHideFlags: 0
@@ -13552,15 +13552,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7981764106809223644, guid: 68ed4ad8f9520164db9c37d0f53d465d, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 271.09238
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7981764106809223644, guid: 68ed4ad8f9520164db9c37d0f53d465d, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 43.00097
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7981764106809223644, guid: 68ed4ad8f9520164db9c37d0f53d465d, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -50.118507
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7981764106809223644, guid: 68ed4ad8f9520164db9c37d0f53d465d, type: 3}
       propertyPath: m_LocalRotation.w
@@ -13694,5 +13694,6 @@ PrefabInstance:
       propertyPath: playerTowers.Array.data[1]
       value: 
       objectReference: {fileID: 1253545587}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 7981764106809223646, guid: 68ed4ad8f9520164db9c37d0f53d465d, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 68ed4ad8f9520164db9c37d0f53d465d, type: 3}

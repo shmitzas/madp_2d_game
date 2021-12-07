@@ -13,7 +13,6 @@ GameObject:
   - component: {fileID: 9217861241977969608}
   - component: {fileID: 8077823822349188994}
   - component: {fileID: 9187652649999036560}
-  - component: {fileID: 9034444632814694841}
   - component: {fileID: 3534421484715951452}
   m_Layer: 0
   m_Name: DragonPrefab
@@ -159,19 +158,8 @@ MonoBehaviour:
   attackRatio: 0
   attackRange: 0
   attackType: 0
---- !u!114 &9034444632814694841
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1701336801711938774}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 326a1b86f4215e64fa415d6fcdf5c44a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  entity: {fileID: 11400000, guid: 7365e0b16bb7ba2479abb4106104d438, type: 2}
+  lastAttackTime: -1000
+  timeNextStep: 0
 --- !u!195 &3534421484715951452
 NavMeshAgent:
   m_ObjectHideFlags: 0

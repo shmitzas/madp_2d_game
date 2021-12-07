@@ -113,7 +113,6 @@ GameObject:
   - component: {fileID: 8682128445172529699}
   - component: {fileID: 9057973553766741582}
   - component: {fileID: 8834322627964100946}
-  - component: {fileID: -8737217860230332439}
   - component: {fileID: 8591499080700588262}
   m_Layer: 0
   m_Name: ArcherPrefab
@@ -260,19 +259,8 @@ MonoBehaviour:
   attackRatio: 0
   attackRange: 0
   attackType: 0
---- !u!114 &-8737217860230332439
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5439693028118651042}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 326a1b86f4215e64fa415d6fcdf5c44a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  entity: {fileID: 11400000, guid: 5e7dd417ed6d0a3419a595ed3226a983, type: 2}
+  lastAttackTime: -1000
+  timeNextStep: 0
 --- !u!195 &8591499080700588262
 NavMeshAgent:
   m_ObjectHideFlags: 0

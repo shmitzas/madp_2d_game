@@ -396,7 +396,6 @@ GameObject:
   - component: {fileID: 4784911887812155211}
   - component: {fileID: 1517547330258226457}
   - component: {fileID: 1267630864066417305}
-  - component: {fileID: 6060758623316347420}
   - component: {fileID: -5489979091749765261}
   m_Layer: 0
   m_Name: ZeppelinPrefab
@@ -542,19 +541,8 @@ MonoBehaviour:
   attackRatio: 0
   attackRange: 0
   attackType: 0
---- !u!114 &6060758623316347420
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 9187763448752479213}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 326a1b86f4215e64fa415d6fcdf5c44a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  entity: {fileID: 11400000, guid: da7d71d79e0dd1f41a7518b75ccef0a7, type: 2}
+  lastAttackTime: -1000
+  timeNextStep: 0
 --- !u!195 &-5489979091749765261
 NavMeshAgent:
   m_ObjectHideFlags: 0

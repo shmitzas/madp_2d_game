@@ -29,6 +29,11 @@ namespace RushNDestroy
         public bool owned = false;
         public int buyCost = 0;
 
+        [Header("Chance range")]
+
+        public int minChance;
+        public int maxChance;
+
         /* ---- Spells (if we decide to add them)
         [Header("Obstacles and Spells")]
         public float lifeTime = 5f; //the maximum lifetime of the Placeable. Especially important for obstacle types, so they are removed after a while

@@ -13,57 +13,37 @@ namespace RushNDestroy
         public Button buyButton;
         public RectTransform buyMenu;
 
-        [Header("Arena Buttons")]
-        public GameObject arenaSelectionContainer;
-        public Button backToArenaDeckMenu;
-        public Button[] arenaSelectionButtons;
-        private int arenaIndex;
-
         [Header("Game menu Buttons")]
         public Button gameMenuArenaButton;
 
         [Header("Upgrade and Buy system components")]
         public GameObject upgradeCard;
         public GameObject buyCard;
-        public DecksList decksList;
+        public DeckData deckData;
         public int maxUpgradeLevel = 4;
         private RectTransform newCard;
         private List<Vector2> cardPositions;
         private List<RectTransform> upgradableCardsList;
         private List<RectTransform> buyableCardsList;
 
-        private void Start()
+        private void Awake()
         {
             upgradableCardsList = new List<RectTransform>();
             buyableCardsList = new List<RectTransform>();
             cardPositions = new List<Vector2>();
-            OnShopLoad();
             LoadCardPositions();
+            OnShopLoad();
         }
         private void OnShopLoad()
         {
-            upgradeMenu.gameObject.SetActive(false);
             buyMenu.gameObject.SetActive(false);
-            upgradeButton.gameObject.SetActive(false);
-            buyButton.gameObject.SetActive(false);
-            backToArenaDeckMenu.gameObject.SetActive(false);
-            arenaSelectionContainer.gameObject.SetActive(true);
             upgradeButton.onClick.AddListener(EnableUpgradableCards);
-            gameMenuArenaButton.onClick.AddListener(ShowOnlyArenaDeckSelection);
+            gameMenuArenaButton.onClick.AddListener(EnableUpgradableCards);
             buyButton.onClick.AddListener(EnableBuyableCards);
-            backToArenaDeckMenu.onClick.AddListener(ShowOnlyArenaDeckSelection);
-
-            for (int i = 0; i < arenaSelectionButtons.Length; i++)
-            {
-                int x = i;
-                arenaSelectionButtons[i].onClick.AddListener(delegate { LoadArenaDeck(x); });
-            }
+            LoadArenaDeck();
         }
-        public void LoadArenaDeck(int arenaNum)
+        public void LoadArenaDeck()
         {
-            arenaIndex = arenaNum;
-            arenaSelectionContainer.gameObject.SetActive(false);
-            backToArenaDeckMenu.gameObject.SetActive(true);
             upgradeMenu.gameObject.SetActive(true);
             buyButton.gameObject.SetActive(true);
             upgradeButton.gameObject.SetActive(true);
@@ -73,9 +53,9 @@ namespace RushNDestroy
         private void LoadUpgradableCards()
         {
             int cardPosIndex = 0;
-            for (int i = 0; i < decksList.deckData[arenaIndex].cardData.Length; i++)
+            for (int i = 0; i < deckData.cardData.Length; i++)
             {
-                EntityData entity = decksList.deckData[arenaIndex].cardData[i].entityData;
+                EntityData entity = deckData.cardData[i].entityData;
                 if (entity.owned == true)
                 {
                     newCard = Instantiate<GameObject>(upgradeCard, upgradeMenu).GetComponent<RectTransform>();
@@ -97,9 +77,9 @@ namespace RushNDestroy
         private void LoadBuyableCards()
         {
             int cardPosIndex = 0;
-            for (int i = 0; i < decksList.deckData[arenaIndex].cardData.Length; i++)
+            for (int i = 0; i < deckData.cardData.Length; i++)
             {
-                EntityData entity = decksList.deckData[arenaIndex].cardData[i].entityData;
+                EntityData entity = deckData.cardData[i].entityData;
                 if (entity.owned == false)
                 {
                     newCard = Instantiate<GameObject>(buyCard, buyMenu).GetComponent<RectTransform>();
@@ -118,16 +98,6 @@ namespace RushNDestroy
             LoadBuyableCards();
             upgradeMenu.gameObject.SetActive(false);
             buyMenu.gameObject.SetActive(true);
-        }
-        private void ShowOnlyArenaDeckSelection()
-        {
-            ClearShopMenu();
-            upgradeButton.gameObject.SetActive(false);
-            buyButton.gameObject.SetActive(false);
-            backToArenaDeckMenu.gameObject.SetActive(false);
-            upgradeMenu.gameObject.SetActive(false);
-            buyMenu.gameObject.SetActive(false);
-            arenaSelectionContainer.gameObject.SetActive(true);
         }
         private void LoadCardPositions()
         {

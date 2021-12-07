@@ -41,7 +41,7 @@ namespace RushNDestroy
         private void LoadAICard()
         {
             int cardIndex = Random.Range(0, deckData.Count);
-            Debug.Log(cardIndex);
+            //Debug.Log(cardIndex);
             card = deckData[cardIndex].entityData;
         }
     }

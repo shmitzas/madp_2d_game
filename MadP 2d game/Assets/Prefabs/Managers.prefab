@@ -10,7 +10,6 @@ GameObject:
   m_Component:
   - component: {fileID: 7981764106809223644}
   - component: {fileID: 7981764106809223647}
-  - component: {fileID: 7981764106809223646}
   - component: {fileID: 7981764106809223645}
   m_Layer: 0
   m_Name: Managers
@@ -45,23 +44,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 70d8162eb0b2e2146a7ac3f8a6b0a269, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  entityPrefab: {fileID: 4417234784500471922, guid: 435f84f5c37f75f4ea5fed11d3a5cdbe, type: 3}
-  entityData: {fileID: 11400000, guid: 668d9599ae456014ebc35248843274da, type: 2}
+  playerCastle: {fileID: 0}
+  enemyCastle: {fileID: 0}
+  castleData: {fileID: 0}
+  playerTowers: []
+  enemyTowers: []
+  towerData: {fileID: 0}
+  timer: {fileID: 0}
+  rewardsData: {fileID: 0}
   mana: {fileID: 0}
---- !u!114 &7981764106809223646
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7981764106809223640}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1811bbcf32bc43141b9ace6996e274f6, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  targetDeck:
-  - {fileID: 11400000, guid: e52cfc5bb50d4804693b606e05dbf617, type: 2}
+  gameOverMenu: {fileID: 0}
+  gameOver: 0
 --- !u!114 &7981764106809223645
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -84,4 +77,6 @@ MonoBehaviour:
   activeCards: {fileID: 0}
   cardsDeck: {fileID: 0}
   playersDeck: {fileID: 11400000, guid: e52cfc5bb50d4804693b606e05dbf617, type: 2}
+  SpawnZone: {fileID: 0}
+  mana: {fileID: 0}
   cardPrefab: {fileID: 354331265473919809, guid: 88b7e9d00e8a5414bb527fa27ce4dbc9, type: 3}
