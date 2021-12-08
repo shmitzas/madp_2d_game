@@ -26,5 +26,7 @@ MonoBehaviour:
   speed: 2.8000002
   upgradeLevel: 4
   upgradeCost: 10800
-  owned: 1
+  owned: 0
   buyCost: 300
+  minChance: 0
+  maxChance: 0

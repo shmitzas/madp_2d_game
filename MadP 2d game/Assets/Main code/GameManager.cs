@@ -327,11 +327,12 @@ namespace RushNDestroy
                     if((int)timer.timeRemaining >20)
                     {
                        trophies = (int)timer.timeRemaining / 10;
-                       Debug.Log(trophies);
                     }
                     else trophies = (int)timer.timeRemaining;
 
                     rewardsData.trophies -= trophies;
+                    if(rewardsData.trophies <0)
+                        rewardsData.trophies = 0;
 
                     gameOverMenu.coinsAmount.text = "0";
                     gameOverMenu.trophiesAmount.text = "-" + trophies;

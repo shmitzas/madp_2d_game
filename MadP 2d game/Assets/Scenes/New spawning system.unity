@@ -261,6 +261,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4731967960876678537, guid: a0810fc6216e8164cb460657b7b86d3c, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 593eac32712d2114cbe39d29b83c1dfc, type: 3}
+    - target: {fileID: 5826445667417835791, guid: a0810fc6216e8164cb460657b7b86d3c, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 593eac32712d2114cbe39d29b83c1dfc, type: 3}
     - target: {fileID: 5885730996971836553, guid: a0810fc6216e8164cb460657b7b86d3c, type: 3}
       propertyPath: m_AnchorMax.x
       value: 0
@@ -285,6 +293,10 @@ PrefabInstance:
       propertyPath: m_AnchorMax.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7594113275222168726, guid: a0810fc6216e8164cb460657b7b86d3c, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: de591b31bdad3014d899393db9109637, type: 3}
     - target: {fileID: 9145269761586026712, guid: a0810fc6216e8164cb460657b7b86d3c, type: 3}
       propertyPath: m_Name
       value: Structures Enemy
