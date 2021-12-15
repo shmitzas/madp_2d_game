@@ -8,3 +8,13 @@ How to download the game?
 
 Source code can be found in:
     https://github.com/shmitzas/madp_uni_project/tree/main/MadP%202d%20game/Assets
+
+In order to open our project for deeper dive in Unity, you need to:
+    1. Download Full source files from: https://github.com/shmitzas/madp_uni_project/tree/main/MadP%202d%20game
+    2. Extract downloaded files to an empty folder
+    3. Install "Unity Hub" and "Unity 2020.3.19f1"
+    4. Open Unity Hub
+    5. Select "Add"
+    6. Navigate to the location where you downloaded Full source files and select folder named "MadP 2d game"
+    7. In Unity Hub select Unity version "2020.3.19f1"
+    8. Launch the project
