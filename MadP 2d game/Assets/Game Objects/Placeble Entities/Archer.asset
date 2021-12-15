@@ -16,14 +16,13 @@ MonoBehaviour:
   enemyPrefab: {fileID: 5439693028118651042, guid: 17da20f9c423b754f9aeedee4bfbe0ea, type: 3}
   artwork: {fileID: 21300000, guid: 14cc7e2ba7cef6441a666aed91bc1423, type: 3}
   entityType: 0
-  attackType: 1
   targetType: 1
-  attackRatio: 2
+  attackRatio: 3
   attackDamage: 5
-  attackRange: 4
-  health: 30
+  attackRange: 2.5
+  health: 20
   cost: 3
-  speed: 2.5
+  speed: 1.6
   upgradeLevel: 0
   upgradeCost: 50
   owned: 1

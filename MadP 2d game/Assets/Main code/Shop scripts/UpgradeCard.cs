@@ -34,12 +34,12 @@ namespace RushNDestroy
         {
             if (entity.upgradeLevel < maxUpgradeLevel && rewards.coins >= entity.upgradeCost)
             {
-                entity.attackDamage += 1;
-                entity.attackRatio -= 0.1f;
-                entity.health += 2.5f;
-                entity.speed += 0.1f;
-                entity.upgradeCost += entity.upgradeCost * 2;
+                entity.attackDamage += entity.attackDamage*1.1f;
+                entity.attackRatio -= entity.attackRatio * 1.1f;
+                entity.health += entity.health *1.2f;
+                entity.speed += entity.speed *1.1f;
                 rewards.coins -= entity.upgradeCost;
+                entity.upgradeCost += entity.upgradeCost * 2;
                 entity.upgradeLevel++;
                 upgradeCounter.text = entity.upgradeLevel.ToString();
                 upgradeCost.text = "Cost: " + entity.upgradeCost.ToString();

@@ -24,20 +24,13 @@ namespace RushNDestroy
         [HideInInspector] public float timeToActNext = 0f;
         [HideInInspector] public HealthBar healthBar;
         [HideInInspector] public float healthRemaining;
-        [HideInInspector] public int damage;
+        [HideInInspector] public float damage;
         [HideInInspector] public float attackRatio;
         [HideInInspector] public float attackRange;
-        [HideInInspector] public AttackType attackType;
 
         [HideInInspector] public float lastAttackTime = -1000f;
 
         [HideInInspector] public float timeNextStep = 0f;
-
-        public enum AttackType
-        {
-            Close,
-            Ranged
-        }
         public void SetTarget(EntityEvents t)
         {
             target = t;

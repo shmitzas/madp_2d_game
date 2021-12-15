@@ -110,7 +110,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8194647613905237980}
   - component: {fileID: 2773738327761903179}
-  - component: {fileID: 7090940159968502450}
+  - component: {fileID: 2119905300889035418}
   - component: {fileID: 3359190495068581854}
   - component: {fileID: 5273471873099375722}
   - component: {fileID: 3034104801277990282}
@@ -130,7 +130,7 @@ Transform:
   m_GameObject: {fileID: 3405140086849034787}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.8, y: 0.8, z: 1}
   m_Children:
   - {fileID: 6241583584034215642}
   m_Father: {fileID: 0}
@@ -187,7 +187,7 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!50 &7090940159968502450
+--- !u!50 &2119905300889035418
 Rigidbody2D:
   serializedVersion: 4
   m_ObjectHideFlags: 0
@@ -221,7 +221,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.1619478, y: -0.4440894}
+  m_Offset: {x: -0.17873326, y: -0.4440894}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -232,7 +232,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.3400893, y: 0.32946646}
+  m_Size: {x: 0.3736602, y: 0.32946646}
   m_EdgeRadius: 0
 --- !u!114 &5273471873099375722
 MonoBehaviour:
@@ -257,7 +257,6 @@ MonoBehaviour:
   damage: 0
   attackRatio: 0
   attackRange: 0
-  attackType: 0
   lastAttackTime: -1000
   timeNextStep: 0
 --- !u!195 &3034104801277990282
@@ -280,7 +279,7 @@ NavMeshAgent:
   m_AutoRepath: 1
   m_Height: 1.28
   m_BaseOffset: 0.64
-  m_WalkableMask: 4294967295
+  m_WalkableMask: 5
   m_ObstacleAvoidanceType: 4
 --- !u!1001 &2846455420694180209
 PrefabInstance:
