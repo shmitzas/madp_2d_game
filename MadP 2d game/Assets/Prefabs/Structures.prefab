@@ -12,7 +12,6 @@ GameObject:
   - component: {fileID: 7594113275222168726}
   - component: {fileID: 2003656508792232792}
   - component: {fileID: 6300197797423001578}
-  - component: {fileID: 5476235677850240337}
   m_Layer: 0
   m_Name: Castle
   m_TagString: Untagged
@@ -28,8 +27,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 964481510227590590}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -10.37, y: 0, z: 0}
-  m_LocalScale: {x: 0.9, y: 0.9, z: 1}
+  m_LocalPosition: {x: -10.52, y: -0.273, z: 0}
+  m_LocalScale: {x: 0.45, y: 0.5, z: 1}
   m_Children:
   - {fileID: 7210819513430720003}
   m_Father: {fileID: 837752735608729058}
@@ -164,22 +163,6 @@ MonoBehaviour:
   attackType: 0
   lastAttackTime: -1000
   timeNextStep: 0
---- !u!114 &5476235677850240337
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 964481510227590590}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 35e95dc5ff2b64380880dd7ac5922847, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Size: {x: 2.3762345, y: 1.7176399, z: 4}
-  m_Center: {x: 0.0041646957, y: -0.40726542, z: 0}
-  m_Area: 1
-  m_AffectedAgents: ffffffff
 --- !u!1 &5070294625864686051
 GameObject:
   m_ObjectHideFlags: 0
@@ -192,7 +175,6 @@ GameObject:
   - component: {fileID: 5826445667417835791}
   - component: {fileID: 8334869071293171247}
   - component: {fileID: 6419157183302991939}
-  - component: {fileID: 3909177611344719376}
   m_Layer: 0
   m_Name: Tower
   m_TagString: Untagged
@@ -208,8 +190,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5070294625864686051}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -7.68, y: 1.79, z: 0}
-  m_LocalScale: {x: 0.3, y: 0.3, z: 1}
+  m_LocalPosition: {x: -7.52, y: 1.95, z: 0}
+  m_LocalScale: {x: 0.25, y: 0.25, z: 1}
   m_Children:
   - {fileID: 1076248544265699600}
   m_Father: {fileID: 837752735608729058}
@@ -318,22 +300,6 @@ MonoBehaviour:
   attackType: 0
   lastAttackTime: -1000
   timeNextStep: 0
---- !u!114 &3909177611344719376
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5070294625864686051}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 35e95dc5ff2b64380880dd7ac5922847, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Size: {x: 2.5874612, y: 3.994009, z: 4}
-  m_Center: {x: -0.026156783, y: -0.77875465, z: 0}
-  m_Area: 1
-  m_AffectedAgents: ffffffff
 --- !u!1 &7863140291698660667
 GameObject:
   m_ObjectHideFlags: 0
@@ -346,7 +312,6 @@ GameObject:
   - component: {fileID: 4731967960876678537}
   - component: {fileID: 4589273162917951268}
   - component: {fileID: 2696888665789514684}
-  - component: {fileID: 1656236918239357224}
   m_Layer: 0
   m_Name: Tower (1)
   m_TagString: Untagged
@@ -362,8 +327,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7863140291698660667}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -7.7, y: -2.36, z: 0}
-  m_LocalScale: {x: 0.3, y: 0.3, z: 1}
+  m_LocalPosition: {x: -7.51, y: -2.03, z: 0}
+  m_LocalScale: {x: 0.25, y: 0.25, z: 1}
   m_Children:
   - {fileID: 6087363277977198937}
   m_Father: {fileID: 837752735608729058}
@@ -472,22 +437,6 @@ MonoBehaviour:
   attackType: 0
   lastAttackTime: -1000
   timeNextStep: 0
---- !u!114 &1656236918239357224
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7863140291698660667}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 35e95dc5ff2b64380880dd7ac5922847, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Size: {x: 2.6058195, y: 3.8937073, z: 4}
-  m_Center: {x: 0.0073047876, y: -0.82296944, z: 0}
-  m_Area: 1
-  m_AffectedAgents: ffffffff
 --- !u!1 &9145269761586026712
 GameObject:
   m_ObjectHideFlags: 0

@@ -164,10 +164,11 @@ namespace RushNDestroy
             upgradableCardsList.Clear();
             buyableCardsList.Clear();
         }
-        private void ShowInfoAboutCard(EntityData entity){
+        private void ShowInfoAboutCard(EntityData entity)
+        {
             infoTexts[0].text = entity.health.ToString();
             infoTexts[1].text = entity.attackDamage.ToString();
-            infoTexts[2].text = entity.attackRatio.ToString();
+            infoTexts[2].text = entity.attackRatio.ToString() + "s";
             infoTexts[3].text = entity.speed.ToString();
             infoTexts[4].text = entity.cost.ToString();
             infoMenu.gameObject.SetActive(true);

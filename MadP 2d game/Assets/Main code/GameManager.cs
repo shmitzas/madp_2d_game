@@ -2,19 +2,19 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
+using UnityEngine.UI;
 namespace RushNDestroy
 {
     public class GameManager : MonoBehaviour
     {
-
+        [Header("Structures, rewards and resouces data")]
         public GameObject playerCastle, enemyCastle;
         public EntityData castleData;
         public GameObject[] playerTowers;
         public GameObject[] enemyTowers;
         public EntityData towerData;
-        public Timer timer;
         public RewardsData rewardsData;
-
+        public ManaRefill mana;
 
         private List<EntityEvents> playerUnits, enemyUnits;
         private List<EntityEvents> playerStructures, enemyStructures;
@@ -23,8 +23,12 @@ namespace RushNDestroy
 
         private CardManager cardManager;
         private AISpawning aiSpawning;
-        public ManaRefill mana;
+
+        [Header("UI components")]
+        public Timer timer;
         public GameOverMenu gameOverMenu;
+        public GameObject alerts;
+        private Text aletrsText;
         [HideInInspector] public bool gameOver = false;
         private int gameWon = 0;
         private int killCount = 0;
@@ -51,6 +55,8 @@ namespace RushNDestroy
         }
         private void Start()
         {
+            alerts.gameObject.SetActive(false);
+            aletrsText = alerts.GetComponentInChildren<Text>();
             Time.timeScale = 1;
             SetupEntity(enemyCastle, castleData, EntityEnums.Faction.Enemy);
             SetupEntity(playerCastle, castleData, EntityEnums.Faction.Player);
@@ -109,8 +115,6 @@ namespace RushNDestroy
                         break;
 
                     case EntityEvents.States.Dead:
-                        if(p.entityType == EntityEnums.Type.Unit && p.faction == EntityEnums.Faction.Enemy)
-                            killCount++;
                         if (p.TargetInRange() == false) Debug.Log(p.name + " | is dead");
                         p.gameObject.SetActive(false);
                         RemoveEntityFromList(p);
@@ -120,6 +124,23 @@ namespace RushNDestroy
                         Debug.Log("This entity has no state!");
                         break;
                 }
+            }
+            switch ((int)timer.timeRemaining)
+            {
+                case 59:
+                    aletrsText.text = "Mana generation increased!";
+                    alerts.gameObject.SetActive(true);
+                    break;
+                case 55:
+                    alerts.gameObject.SetActive(false);
+                    break;
+                case 29:
+                    aletrsText.text = "Sudden death!";
+                    alerts.gameObject.SetActive(true);
+                    break;
+                case 25:
+                    alerts.gameObject.SetActive(false);
+                    break;
             }
         }
 
@@ -220,7 +241,10 @@ namespace RushNDestroy
                 if (entity.entityType == EntityEnums.Type.Unit)
                     playerUnits.Remove(entity);
                 else
+                {
                     playerStructures.Remove(entity);
+
+                }
             }
             else if (entity.faction == EntityEnums.Faction.Enemy)
             {
@@ -271,6 +295,20 @@ namespace RushNDestroy
         private void EntityDead(EntityEnums entity)
         {
             entity.OnDie -= EntityDead; //Remove the listener
+            if (entity.entityType == EntityEnums.Type.Unit && entity.faction == EntityEnums.Faction.Enemy)
+                killCount++;
+            else if (entity.entityType == EntityEnums.Type.Structure && entity.faction == EntityEnums.Faction.Enemy && timer.timeRemaining < 30)
+            {
+                gameWon = 2;
+                gameOver = true;
+                GameOver();
+            }
+            else if (entity.entityType == EntityEnums.Type.Structure && entity.faction == EntityEnums.Faction.Player && timer.timeRemaining < 30)
+            {
+                gameWon = 1;
+                gameOver = true;
+                GameOver();
+            }
 
             switch (entity.entityType)
             {
@@ -324,14 +362,14 @@ namespace RushNDestroy
                 }
                 else if (gameWon == 1) //game was lost
                 {
-                    if((int)timer.timeRemaining >20)
+                    if ((int)timer.timeRemaining > 20)
                     {
-                       trophies = (int)timer.timeRemaining / 10;
+                        trophies = (int)timer.timeRemaining / 10;
                     }
                     else trophies = (int)timer.timeRemaining;
 
                     rewardsData.trophies -= trophies;
-                    if(rewardsData.trophies <0)
+                    if (rewardsData.trophies < 0)
                         rewardsData.trophies = 0;
 
                     gameOverMenu.coinsAmount.text = "0";

@@ -4,56 +4,51 @@ using UnityEngine;
 using UnityEngine.UI;
 namespace RushNDestroy
 {
-public class Timer : MonoBehaviour
-{   
-    public ManaRefill manarefill;
-    public float timeRemaining = 10;
-    public bool timerIsRunning = false;
-    private Text timeText;
-    public GameManager gameManager;
-
-    private void Start()
+    public class Timer : MonoBehaviour
     {
-        // Starts the timer automatically
-        timeText = GetComponent<Text>();
-        timerIsRunning = true;
-    }
+        public ManaRefill manarefill;
+        public float timeRemaining;
+        public bool timerIsRunning;
+        private Text timeText;
+        public GameManager gameManager;
 
-    private void FixedUpdate()
-    {
-        if (timerIsRunning)
+        private void Start()
         {
-            if (timeRemaining > 120)
-            {
-                timeRemaining -= Time.deltaTime;
-                DisplayTime(timeRemaining);
-            }
+            // Starts the timer automatically
+            timeText = GetComponent<Text>();
+            timerIsRunning = true;
+        }
 
-            else if (timeRemaining <120 && timeRemaining >0)
+        private void FixedUpdate()
+        {
+            if (timerIsRunning)
             {
                 timeRemaining -= Time.deltaTime;
                 DisplayTime(timeRemaining);
-                manarefill.addMana = 0.025f;
-            }
-            else
-            {
-                Debug.Log("Time has run out!");
-                timeRemaining = 0;
-                timerIsRunning = false;
-                gameManager.gameOver = true;
-                gameManager.GameOver();
+
+                if (timeRemaining <= 60)
+                {
+                    manarefill.addMana = 0.025f;
+                }
+                if (timeRemaining <= 0)
+                {
+                    Debug.Log("Time has run out!");
+                    timeRemaining = 0;
+                    timerIsRunning = false;
+                    gameManager.gameOver = true;
+                    gameManager.GameOver();
+                }
             }
         }
+
+        void DisplayTime(float timeToDisplay)
+        {
+            timeToDisplay += 1;
+
+            float minutes = Mathf.FloorToInt(timeToDisplay / 60);
+            float seconds = Mathf.FloorToInt(timeToDisplay % 60);
+
+            timeText.text = string.Format("{0:00}:{1:00}", minutes, seconds);
+        }
     }
-
-    void DisplayTime(float timeToDisplay)
-    {
-        timeToDisplay += 1;
-
-        float minutes = Mathf.FloorToInt(timeToDisplay / 60); 
-        float seconds = Mathf.FloorToInt(timeToDisplay % 60);
-
-        timeText.text = string.Format("{0:00}:{1:00}", minutes, seconds);
-    }
-}
 }
