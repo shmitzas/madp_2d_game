@@ -26,6 +26,9 @@ namespace RushNDestroy
         private List<RectTransform> upgradableCardsList;
         private List<RectTransform> buyableCardsList;
 
+        [Header("Info menu components")]
+        public GameObject infoMenu;
+        public Text[] infoTexts;
         private void Awake()
         {
             upgradableCardsList = new List<RectTransform>();
@@ -64,6 +67,7 @@ namespace RushNDestroy
                     UpgradeCard uCard = newCard.GetComponent<UpgradeCard>();
                     uCard.SetUpCard(entity, maxUpgradeLevel);
                     cardPosIndex++;
+                    uCard.OnShowInfo += ShowInfoAboutCard;
                 }
             }
         }
@@ -89,6 +93,7 @@ namespace RushNDestroy
                     bCard.SetUpBuyableCard(entity, buyableCardsList[cardPosIndex]);
                     cardPosIndex++;
                     bCard.OnBuy += ReloadBuyMenu;
+                    bCard.OnShowInfo += ShowInfoAboutCard;
                 }
             }
         }
@@ -158,6 +163,14 @@ namespace RushNDestroy
                 Destroy(buyableCardsList[i].gameObject);
             upgradableCardsList.Clear();
             buyableCardsList.Clear();
+        }
+        private void ShowInfoAboutCard(EntityData entity){
+            infoTexts[0].text = entity.health.ToString();
+            infoTexts[1].text = entity.attackDamage.ToString();
+            infoTexts[2].text = entity.attackRatio.ToString();
+            infoTexts[3].text = entity.speed.ToString();
+            infoTexts[4].text = entity.cost.ToString();
+            infoMenu.gameObject.SetActive(true);
         }
     }
 }

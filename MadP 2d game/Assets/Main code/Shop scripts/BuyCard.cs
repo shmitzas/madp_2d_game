@@ -9,14 +9,19 @@ namespace RushNDestroy
 {
     public class BuyCard : MonoBehaviour
     {
+        public UnityAction<EntityData> OnShowInfo;
         public UnityAction<bool> OnBuy;
         public RewardsData rewards;
         public Image artowrk;
         public Text buyCost;
         public Button buyButton;
+
+        [Header("Info components")]
+        public Button infoButton;
         public void SetUpBuyableCard(EntityData entity, RectTransform card)
         {
             buyButton.onClick.AddListener(delegate{Buy(entity, card);});
+            infoButton.onClick.AddListener(delegate { ShowInfo(entity); });
             artowrk.sprite = entity.artwork;
             buyCost.text = "Cost: " + entity.buyCost.ToString();
         }
@@ -30,7 +35,10 @@ namespace RushNDestroy
                 if(OnBuy != null)
                     OnBuy(true);
             }
-
+        }
+        private void ShowInfo(EntityData entity)
+        {
+            OnShowInfo(entity);
         }
     }
 }

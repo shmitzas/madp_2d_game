@@ -9,6 +9,7 @@ TagManager:
   - CardImage
   - spawn-card-image
   - PlayableCard
+  - InfoButton
   layers:
   - Default
   - TransparentFX
