@@ -31,6 +31,7 @@ namespace RushNDestroy
         public Text[] infoTexts;
         private void Awake()
         {
+            infoMenu.gameObject.SetActive(false);
             upgradableCardsList = new List<RectTransform>();
             buyableCardsList = new List<RectTransform>();
             cardPositions = new List<Vector2>();
