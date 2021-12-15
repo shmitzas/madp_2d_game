@@ -18,3 +18,5 @@ In order to open our project for deeper dive in Unity, you need to:
     6. Navigate to the location where you downloaded Full source files and select folder named "MadP 2d game"
     7. In Unity Hub select Unity version "2020.3.19f1"
     8. Launch the project
+
+NOTE: Save files are not implemented yet.
