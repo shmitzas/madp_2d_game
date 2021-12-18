@@ -1073,6 +1073,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 3081169600971300914, guid: 68ed4ad8f9520164db9c37d0f53d465d, type: 3}
+        m_TargetAssemblyTypeName: RushNDestroy.SaveManager, Assembly-CSharp
+        m_MethodName: LoadSave
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1146645748
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1285,6 +1297,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 3081169600971300914, guid: 68ed4ad8f9520164db9c37d0f53d465d, type: 3}
+        m_TargetAssemblyTypeName: RushNDestroy.SaveManager, Assembly-CSharp
+        m_MethodName: NewGame
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1194309054
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1389,7 +1413,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 275966f3047b77d4fa456d8a76521b61, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  newGameButton: {fileID: 1194309053}
   continueButton: {fileID: 1146645747}
 --- !u!1 &1360717195
 GameObject:

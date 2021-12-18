@@ -9,7 +9,7 @@ namespace RushNDestroy
     {
         public RewardsData rewardsData;
         public DeckData deckData;
-        public UpdateRewards updateRewards;
+        //public UpdateRewards updateRewards;
         [SerializeField] private EntityDataToClassList entities;
         public void Save()
         {
@@ -23,8 +23,8 @@ namespace RushNDestroy
                 EntityDataToClass tempEntity = new EntityDataToClass(deckData.cardData[i].entityData);
                 entities.list.Add(tempEntity);
             }
-            if(entities.list.Count == deckData.cardData.Length)
-                SaveSystem.SaveData("entities", entities);
+            SaveSystem.SaveData("entities", entities);
+            entities.list.Clear();
         }
         public void LoadSave()
         {
@@ -43,8 +43,58 @@ namespace RushNDestroy
             RewardsDataToClass rewardsSave = SaveSystem.LoadRewards("rewards");
             rewardsData.coins = rewardsSave.coins;
             rewardsData.trophies = rewardsSave.trophies;
-            updateRewards.coinsAmount.text = rewardsData.coins.ToString();
-            updateRewards.trophiesAmount.text = rewardsData.trophies.ToString();
+        }
+        public void NewGame()
+        {
+            rewardsData.coins = 100;
+            rewardsData.trophies = 0;
+            for (int i = 0; i < deckData.cardData.Length; i++)
+            {
+                switch (i)
+                {
+                    case 0: //Default Warrior data
+                        deckData.cardData[i].entityData.health = 30;
+                        deckData.cardData[i].entityData.attackDamage = 2;
+                        deckData.cardData[i].entityData.attackRatio = 1;
+                        deckData.cardData[i].entityData.speed = 1.8f;
+                        deckData.cardData[i].entityData.upgradeCost = 30;
+                        deckData.cardData[i].entityData.upgradeLevel = 0;
+                        deckData.cardData[i].entityData.buyCost = 30;
+                        deckData.cardData[i].entityData.owned = true;
+                        break;
+                    case 1: //Default Archer data
+                        deckData.cardData[i].entityData.health = 20;
+                        deckData.cardData[i].entityData.attackDamage = 5;
+                        deckData.cardData[i].entityData.attackRatio = 2;
+                        deckData.cardData[i].entityData.speed = 1.6f;
+                        deckData.cardData[i].entityData.upgradeCost = 30;
+                        deckData.cardData[i].entityData.upgradeLevel = 0;
+                        deckData.cardData[i].entityData.buyCost = 50;
+                        deckData.cardData[i].entityData.owned = true;
+                        break;
+                    case 2: //Default Zeppelin data
+                        deckData.cardData[i].entityData.health = 100;
+                        deckData.cardData[i].entityData.attackDamage = 60;
+                        deckData.cardData[i].entityData.attackRatio = 4;
+                        deckData.cardData[i].entityData.speed = 1.2f;
+                        deckData.cardData[i].entityData.upgradeCost = 150;
+                        deckData.cardData[i].entityData.upgradeLevel = 0;
+                        deckData.cardData[i].entityData.buyCost = 200;
+                        deckData.cardData[i].entityData.owned = false;
+                        break;
+                    case 3: //Default Dragon data
+                        deckData.cardData[i].entityData.health = 200;
+                        deckData.cardData[i].entityData.attackDamage = 20;
+                        deckData.cardData[i].entityData.attackRatio = 3;
+                        deckData.cardData[i].entityData.speed = 1;
+                        deckData.cardData[i].entityData.upgradeCost = 250;
+                        deckData.cardData[i].entityData.upgradeLevel = 0;
+                        deckData.cardData[i].entityData.buyCost = 300;
+                        deckData.cardData[i].entityData.owned = false;
+                        break;
+                }
+            }
+            Save();
         }
     }
 }

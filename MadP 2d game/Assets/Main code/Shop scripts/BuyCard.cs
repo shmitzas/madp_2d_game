@@ -15,6 +15,7 @@ namespace RushNDestroy
         public Image artowrk;
         public Text buyCost;
         public Button buyButton;
+        public SaveManager saveManager;
 
         [Header("Info components")]
         public Button infoButton;
@@ -35,6 +36,7 @@ namespace RushNDestroy
                 if(OnBuy != null)
                     OnBuy(true);
             }
+            saveManager.Save();
         }
         private void ShowInfo(EntityData entity)
         {

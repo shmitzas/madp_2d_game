@@ -23,6 +23,7 @@ namespace RushNDestroy
 
         private CardManager cardManager;
         private AISpawning aiSpawning;
+        private SaveManager saveManager;
 
         [Header("UI components")]
         public Timer timer;
@@ -37,6 +38,7 @@ namespace RushNDestroy
 
         private void Awake()
         {
+            saveManager = GetComponent<SaveManager>();
             gameOverMenu.gameObject.SetActive(false);
             aiSpawning = GetComponent<AISpawning>();
             cardManager = GetComponent<CardManager>();
@@ -384,6 +386,7 @@ namespace RushNDestroy
                     gameOverMenu.tieText.SetActive(true);
                     gameOverMenu.gameObject.SetActive(true);
                 }
+                saveManager.Save();
                 enabled = false;
             }
         }

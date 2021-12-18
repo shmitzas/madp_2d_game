@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 7981764106809223644}
   - component: {fileID: 7981764106809223647}
   - component: {fileID: 7981764106809223645}
+  - component: {fileID: 3081169600971300914}
   m_Layer: 0
   m_Name: Managers
   m_TagString: Untagged
@@ -50,10 +51,11 @@ MonoBehaviour:
   playerTowers: []
   enemyTowers: []
   towerData: {fileID: 0}
-  timer: {fileID: 0}
   rewardsData: {fileID: 0}
   mana: {fileID: 0}
+  timer: {fileID: 0}
   gameOverMenu: {fileID: 0}
+  alerts: {fileID: 0}
   gameOver: 0
 --- !u!114 &7981764106809223645
 MonoBehaviour:
@@ -80,3 +82,20 @@ MonoBehaviour:
   SpawnZone: {fileID: 0}
   mana: {fileID: 0}
   cardPrefab: {fileID: 354331265473919809, guid: 88b7e9d00e8a5414bb527fa27ce4dbc9, type: 3}
+--- !u!114 &3081169600971300914
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7981764106809223640}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 220ea0c92c02ab7428307033ea6ffdb2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rewardsData: {fileID: 11400000, guid: a1b099e48242b764ca4ef5162a7da3f1, type: 2}
+  deckData: {fileID: 11400000, guid: e52cfc5bb50d4804693b606e05dbf617, type: 2}
+  updateRewards: {fileID: 0}
+  entities:
+    list: []

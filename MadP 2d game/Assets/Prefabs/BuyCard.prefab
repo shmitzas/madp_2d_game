@@ -136,6 +136,7 @@ MonoBehaviour:
   artowrk: {fileID: 8533464641442380735}
   buyCost: {fileID: 2159669722077602250}
   buyButton: {fileID: 3066293233045520093}
+  saveManager: {fileID: 3081169600971300914, guid: 68ed4ad8f9520164db9c37d0f53d465d, type: 3}
   infoButton: {fileID: 8816008824022054217}
 --- !u!1 &2324832665672177138
 GameObject:

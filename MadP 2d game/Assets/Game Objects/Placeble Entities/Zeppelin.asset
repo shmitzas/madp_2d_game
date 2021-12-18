@@ -17,12 +17,12 @@ MonoBehaviour:
   artwork: {fileID: 21300000, guid: c2b65033d8701a345842f01a0281122a, type: 3}
   entityType: 0
   targetType: 1
-  attackRatio: 3
+  attackRatio: 4
   attackDamage: 60
   attackRange: 1
-  health: 200
+  health: 100
   cost: 4
-  speed: 1
+  speed: 1.2
   upgradeLevel: 0
   upgradeCost: 150
   owned: 0

@@ -14,6 +14,7 @@ namespace RushNDestroy
         public Text upgradeCounter;
         public Text upgradeCost;
         public Button upgradeButton;
+        public SaveManager saveManager;
         [Header("Info components")]
         public Button infoButton;
 
@@ -39,7 +40,6 @@ namespace RushNDestroy
                 entity.health += entity.health *1.05f;
                 entity.speed += entity.speed *1.01f;
                 rewards.coins -= entity.upgradeCost;
-                Debug.Log(entity.name +" | "+entity.upgradeCost);
                 entity.upgradeCost += entity.upgradeCost * 2;
                 entity.upgradeLevel++;
                 upgradeCounter.text = entity.upgradeLevel.ToString();
@@ -51,6 +51,7 @@ namespace RushNDestroy
                 upgradeButton.gameObject.SetActive(false);
                 upgradeCost.gameObject.SetActive(false);
             }
+            saveManager.Save();
         }
         private void ShowInfo(EntityData entity)
         {

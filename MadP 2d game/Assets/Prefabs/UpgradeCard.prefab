@@ -288,6 +288,7 @@ MonoBehaviour:
   upgradeCounter: {fileID: 4706026310294825669}
   upgradeCost: {fileID: 6858795193417254159}
   upgradeButton: {fileID: 8730172270017712116}
+  saveManager: {fileID: 3081169600971300914, guid: 68ed4ad8f9520164db9c37d0f53d465d, type: 3}
   infoButton: {fileID: 318521210762511507}
 --- !u!1 &5233194234659437236
 GameObject:
