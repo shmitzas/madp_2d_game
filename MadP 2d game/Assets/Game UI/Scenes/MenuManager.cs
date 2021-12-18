@@ -2,7 +2,6 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
-
 namespace RushNDestroy
 {
     public class MenuManager : MonoBehaviour

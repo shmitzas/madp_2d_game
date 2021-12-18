@@ -15,30 +15,46 @@ namespace RushNDestroy
         [Header("Data")]
         public EntityEnums.Type entityType;
         public EntityEnums.TargetType targetType = EntityEnums.TargetType.All;
-        public float attackRatio = 1f; //time between attacks
-        public float attackDamage = 2; //damage each attack deals
-        public float attackRange = 1f;
-        public float health = 200; //when units or buildings suffer damage, they lose hitpoints
-        public float cost = 0;
-        public float speed = 2f; //movement speed
+        public float attackRatio; //time between attacks
+        public float attackDamage; //damage each attack deals
+        public float attackRange;
+        public float health; //when units or buildings suffer damage, they lose hitpoints
+        public float cost;
+        public float speed; //movement speed
 
         [Header("Upgrades")]
-        public int upgradeLevel = 0;
-        public int upgradeCost = 10;
+        public int upgradeLevel;
+        public int upgradeCost;
         public bool owned = false;
-        public int buyCost = 0;
-
-        [Header("Chance range")]
-
-        public int minChance;
-        public int maxChance;
-
-        /* ---- Spells (if we decide to add them)
-        [Header("Obstacles and Spells")]
-        public float lifeTime = 5f; //the maximum lifetime of the Placeable. Especially important for obstacle types, so they are removed after a while
-
-        [Header("Spells")]
-        public float damagePerSecond = 1f; //damage per second for non-instantaneous spells
-        */
+        public int buyCost;
     }
+    [System.Serializable]
+    public class EntityDataToClassList
+    {
+        public List<EntityDataToClass> list;
+    }
+    [System.Serializable]
+    public class EntityDataToClass
+    {
+        public float attackRatio;
+        public float attackDamage;
+        public float health;
+        public float speed;
+        public int upgradeLevel;
+        public int upgradeCost;
+        public bool owned;
+        public int buyCost;
+        public EntityDataToClass(EntityData entity)
+        {
+            attackRatio = entity.attackRatio;
+            attackDamage = entity.attackDamage;
+            health = entity.health;
+            speed = entity.speed;
+            upgradeLevel = entity.upgradeLevel;
+            upgradeCost = entity.upgradeCost;
+            owned = entity.owned;
+            buyCost = entity.buyCost;
+        }
+    }
+
 }

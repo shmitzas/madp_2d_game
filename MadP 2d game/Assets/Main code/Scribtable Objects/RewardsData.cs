@@ -12,7 +12,23 @@ namespace RushNDestroy
         public Sprite coinsArtwork;
 
         [Header("Data")]
-        public int trophies = 0;
-        public int coins = 0;
+        public int trophies;
+        public int coins;
+    }
+    // [System.Serializable]
+    // public class RewardsDataToClassList
+    // {
+    //     public List<RewardsDataToClass> list;
+    // }
+    [System.Serializable]
+    public class RewardsDataToClass
+    {
+        public int coins;
+        public int trophies;
+        public RewardsDataToClass(RewardsData rewardsData)
+        {
+            coins = rewardsData.coins;
+            trophies = rewardsData.trophies;
+        }
     }
 }
