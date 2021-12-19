@@ -117,7 +117,6 @@ Grading:
     - [Unity User Manual](#unity-user-manual)
   - [For using built-in features of Unity game engine](#for-using-built-in-features-of-unity-game-engine)
     - [Unity Scripting API](#unity-scripting-api)
-    
 
 </br>
 

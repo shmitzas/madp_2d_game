@@ -129,7 +129,8 @@ We are working on a 2D strategy game in which the user can have fun and at the s
 
 - The characters should start acting accordingly after being sucessfully spawned.
 - The character should seek for enemy characters or structures after being spawned and change its position accordingly.
-- T
+- The character should start inflicting damage if it approached enemy entity within its attack range.
+- The character should start receiving damage if it is approached by enemy entity
 
 
 ## Non-Functional Requirements
