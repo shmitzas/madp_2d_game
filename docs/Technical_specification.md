@@ -1,10 +1,4 @@
-# 2D GAME
-
-# Technical Specification
-
-> Made by MAD_P Team
-
-</br>
+<!-- GEDIMINO KOMENTARAI IŠ FEEDBACKO -->
 
 <!-- General comments:
 - The fact that Unity is used is mentioned only in passing. I think that is a central piece of information. Another key piece of info - an overview of which aspects of the game are handled by Unity, and which parts are provided by your code. This is currently missing. From that an explanation how each of your parts should be/is implemented could follow.
@@ -25,7 +19,72 @@ Specific comments:
 - "Entity combat > How it works" - that sounds more like functional requirements
 - "UML Deployement Diagrams" - there are no UML deployment diagrams here, or even any UML diagrams for that matter :( If using your own notation, then you should explain what does a box mean, what does an arrow and its direction mean, etc.
 - "UML Deployement Diagrams > Overview of whole diagram" - the image is not readable - the image quality is too low.
-- "UML Deployement Diagrams > Rewards" - it's not clear why Resources and Rewards are grouped into one -->
+- "UML Deployement Diagrams > Rewards" - it's not clear why Resources and Rewards are grouped into one 
+- "Technologies and tools used" - Some of these are not really mandatory for implementing the game. For example, another team could use Notepad, some other VCS, or another time tracking tool, but still be able to create an equivalent game. Because of that, these tools are more of a team's convention, rather than a hard requirement for the development of this/such game.
+-->
+
+<!-- REIKALAVIMAI IŠ EMOKYMAI PUSLAPIO -->
+
+<!-- Purpose:
+Build a shared understanding of how your system will be implemented
+Communicate the architecture/design of your system to people outside of your team (imagine that you will e.g. give the requirements specification and the technical specification to a different team which will then have to build the system for you)
+
+Process:
+  Work together to prepare a technical specification
+  Grant us (Gediminas and Virgilijus) access to the living technical specification document and inform us of it
+  This means we need to have access to the place where an up to date specification can be found at any time
+  The place should allow seeing the history of changes in the specification over time
+  The way how we should be informed about granted access will be explained during exercises
+
+Essential
+An overview of the whole system
+  System context diagram - to show what integrations with external systems your system will have (only if your system interacts with external systems)
+  UML deployment diagram - to show what artifacts your system will consist of, and what infrastructure nodes they will be deployed on
+A high-level overview of the system internals
+  Structural aspects - to explain what are the main parts/modules/components and how they all connect together
+  Dynamic aspects (interactions) - to explain how these components work together to achieve some larger goal
+Technologies and tools that will be used to implement the system
+Other notes
+  The way how the internals of the system are explained depends a lot on the nature of the system that you are building. Because of that, it's not possible to say "to communicate your architecture and design, draw 1 diagram of this type, 2 diagrams of this type, and create a table like this". Instead, you should think along the lines of "what are the toughest problems/most complicated areas in our system?" and then focus on explaining those parts. For example:
+  If your system has just two simple components that interact in many different ways, then maybe you'll want to focus mostly on explaining the nuances of all those different interactions using e.g. UML activity diagrams and/or UML sequence diagrams.
+  If your system has a rich domain model, then maybe you'll want to focus mostly on explaining the static structure of the system - what entities you have, what are their responsibilities (operations), and how do they relate to other entities - e.g. using a UML class diagram.
+  If your system is built around a complicated algorithm, then the most important thing would be to explain how this algorithm should be implemented - how exactly would it work, what parts would it have, etc.
+  (These are just a few examples - your system may require a combined (or an entirely different) approach. What would be a good approach for your system can be discussed during exercises.)
+  A good way to sanity-check your technical specifications is to answer the following questions to yourself:
+  Is it clear what the main parts of the system are and how they fit together?
+  Do I have enough details so I could go and just code the right solution, without having to think about how to solve the problem, which solution would be better, etc.?
+  If a new developer joined your team and they read the requirements and technical specifications, would they be able to immediately start working on the system (i.e. would they know in which place of the codebase to look if they want to fix a bug related to feature X)?
+  If you had this document at the beginning of your project, would it have made your work so much easier?
+  If you see anything else that would help improve the shared understanding of the system - by all means, add it to the specification as well.
+  Notes specific to student groups
+  For the 1st group
+  Each team prepares the technical specification for the whole system being created in the PBL project
+  For the 2nd and 3rd groups
+  The whole group must prepare a single technical specification document covering the whole system
+  The whole group is responsible for the high-level description of the whole system
+  Each team is responsible for describing the technical aspects of their module/area and making sure they are consistent with the specifications of both the whole system and the modules/areas of the other teams
+Grading:
+
+  Point distribution
+  Up to 0.75 points will be granted upon delivery. Criteria:
+  Primary:
+    It is clear what are the main parts of the system, how they will fit together, and how each of those should be implemented
+  Secondary:
+    The document is written in clear language, the style is consistent and professional
+  Missing the deadline for the initial delivery means 0 points for the whole team
+  Your team will know how many points it got shortly after submitting the delivery.
+  Up to 0.25 points will be granted at the end of the semester.
+  Criteria:
+    Primary:
+      The specification is up to date - i.e. it reflects the current understanding of the technical aspects of the system
+    Secondary:
+      All of the requirements for the initial delivery - they are still valid -->
+
+# 2D GAME
+
+# Technical Specification
+
+> Made by MAD_P Team
 
 ## Table of Contents
 
@@ -34,30 +93,16 @@ Specific comments:
   - [Table of Contents](#table-of-contents)
 - [Introduction](#introduction)
   - [Purpose of this Document](#purpose-of-this-document)
+- [System overview](#system-overview)
+  - [UML Deployement Diagrams](#uml-deployement-diagrams)
 - [High-Level Overview](#high-level-overview)
   - [Structural Aspects](#structural-aspects)
-  - [Dynamic Aspects](#dynamic-aspects)
-    - [Health system](#health-system)
-      - [**Object purpose**](#object-purpose)
-      - [**Entity health scripting**](#entity-health-scripting)
-        - [**Entity**](#entity)
-        - [**Health bar**](#health-bar)
-      - [**Health with object collision**](#health-with-object-collision)
-    - [Tilemap system](#tilemap-system)
-      - [**Properties of used tiles**](#properties-of-used-tiles)
-    - [AI system](#ai-system)
-    - [State Machine](#state-machine)
-      - [**Properties of each state**](#properties-of-each-state)
-    - [Entity Combat](#entity-combat)
+    - [Data of entities](#data-of-entities)
+    - [Character data](#character-data)
       - [**Overall idea**](#overall-idea)
-- [UML Deployement Diagrams](#uml-deployement-diagrams)
 - [Technologies and tools used](#technologies-and-tools-used)
   - [Game engine](#game-engine)
     - [Unity Game Development Engine](#unity-game-development-engine)
-  - [IDE](#ide)
-    - [VS Code](#vs-code)
-  - [For task management](#for-task-management)
-    - [Gitkraken](#gitkraken)
   - [For creating wireframes, brainstorming](#for-creating-wireframes-brainstorming)
     - [Miro](#miro)
   - [Version control for our codebase](#version-control-for-our-codebase)
@@ -68,6 +113,11 @@ Specific comments:
     - [Illustrator](#illustrator)
   - [For connecting to VU MIF Gitlab](#for-connecting-to-vu-mif-gitlab)
     - [Cisco AnyConnect](#cisco-anyconnect)
+  - [For figuring out how to use Unity game engine](#for-figuring-out-how-to-use-unity-game-engine)
+    - [Unity User Manual](#unity-user-manual)
+  - [For using built-in features of Unity game engine](#for-using-built-in-features-of-unity-game-engine)
+    - [Unity Scripting API](#unity-scripting-api)
+    
 
 </br>
 
@@ -77,200 +127,78 @@ Specific comments:
 
 The purpose of this document is to provide the necessary technical information about this project for the up-keep and improving the 2D game.
 
-<br>
+# System overview
+## UML Deployement Diagrams
 
+1. Characters and Structures
+  <br>
+  ![Entities](images/entities.jpg)
+2. Menu UI
+  <br>
+  ![UI](images/menu_ui.jpg)
+3. AI
+  <br>
+  ![AI](images/ai.jpg)
+4. Rewards
+  <br>
+  ![Rewards](images/rewards.jpg)
+  <br>
+5. Resources
+  <br>
+  ![Resources](images/resources.jpg)
+6. Arenas
+  <br>
+  ![Levels](images/levels.jpg)
+  
 # High-Level Overview
+
+In this document, inner workings of Unity game engine will not be explained as it is a very broad topic and understading of the inner workings is **essential** in order to work on this project.
 
 ## Structural Aspects
 
-Our 2D game consists of many parts and modules in order to make the game as easy as possible to maintain in the future. Here is the list of components used for game's structure:
-
-- Game world
-- Game characters
-- Visuals
-  - Character textures
-  - Level textures
-  - Card deck
-    <br>
-    ![Deck](images/deck.png)
-  - Level selection
-    <br>
-    ![Arenas](images/arenaSelection.png)
-- Sound efects
-  - Spawn sound
-  - Fighting sound
-  - Death sound
-  - Structure destruction sound
-- Entity data
-  - Health
-  - Speed
-  - Type
-    - Structure
-    - Ground
-    - Air
-  - Attack type
-    - Close
-    - Ranged
-  - Attack range
-  - Attack rate
-  - Attack damage
-- Particle effects
-  - Spawn effect
-  - Hit marker
-  - Structure collapse effect
-
-## Dynamic Aspects
-### Health system
-#### **Object purpose**
-
-- *Canvas* object purpose is to collect all child objects and scale it to pleasing size also ensuring that the health bar is visually shown in a world space above entities
-- *Health bar* object purpose is to store Fill and Border objects, has a slider component, which lets to configure health value and visually display it. HealthBar script is pinned with this object for functionality
-- *Fill* object is a UI image of inner bar, which values are driven by the Slider component
-  - Slider is a class in UnityEngine.UI. This slider controls the fill from minimum value to maximum when used. To use this slider as a health bar it is made non-interactive, with no navigation and no transition, with direction selected from left to right.
-- *Border* object is a UI image, it represents the outer image of the health bar
-
-
-#### **Entity health scripting**
-
-##### **Entity**
-        public int maxHealth = Value;
-        public int currentHealth;
-Variables. A certain maxHealth value is given to entities depending on it's type and characteristics. CurrentHealth is a constantly updating value, when interacted with. 
-
-      void Start()
-      {
-        currentHealth = maxHealth;
-        healthBar.SetMaxHealth(maxHealth);
-      }
-At start a spawned entity recieves a full maximum health it is provided with and sets it to currentHealth. Visual representation of a health bar is set to maxHealth in current visual state.
-
-##### **Health bar**
-
-      public Slider slider;
-      public Gradient gradient; 
-      public Image fill; 
-      private float health;
-
-      public void SetMaxHealth(float health)
-        {
-        slider.maxValue = health;
-        slider.value = health;
-        fill.color = gradient.Evaluate(1f);                     
-        }
-
-     public void SetHealth(float health)
-        {
-        slider.value = health;
-        fill.color = gradient.Evaluate(slider.normalizedValue);
-        }
-</br>
-
-#### **Health with object collision**
-
-One of the classic fighting principles are based on collision between entities. When entities are provided with corresponding tags, it is easier to determine, which entities belong to a player and which to an enemy.
-To make the object collide with other objects, components are added
-
-- RigidBody 2D, puts the sprites under control of physics engine
-- Box Collider 2D, collider interacts with 2D physics engine
-
-When a collider contacts the current object, OnCollision2D(Collision2D) message is sent from MonoBehaviour class. When this function is inwoked, opponent tag is recognised and attack function is called to deal damage to an opponent entity.
-
-![EntityDamageOnCollision](images/EntityDamageOnCollision.png)
-
-This way damage and health is modified by alternating values for game entities.
-
-![EntityHealthOnCollision](images/EntityHealthOnCollision.png)
-
-</br>
-
-### Tilemap system
-
-The video game is based on a 2D tilemap, which lets to create an enviroment for characters in action. A collection of each individual tile forms a tileset, which is later customized for unique scenes.
-
-#### **Properties of used tiles**
-
-- seamless distinction between tiles
-- 128x128 pixel tile size
-- colors and paterns based on texture imitation
-- vertical and horizontal directions for scene variation
-- using layer 0 to imitate base grounds
-
-![TileMap](images/TileMapVer1.1.png)
-
-</br>
-
-### AI system
-
-Game entities are provided with their own thinking system. The system is like a brain to a placeable unit. Every placeable character is unique and independent unit, with it's own AI system. The AI system has several different features. Primary feature is fidning the path (Pathfinding). After being spawned the unit is targeting the enemy tower and moving forward to it. If interupted by opponent unit, the secondary target is set to the newly detected unit. Upon arrival to the secondary target, the units will inflict damage to each other, with the help of Health System (see above). Until one of the units is killed, the pathfinding to the primary target is continued. The changes of what the unit is doing is regulated by a State Machine.
-
-</br>
-
-### State Machine
-
-State machine will split different jobs an unit has to do regarding to its actions or position in the field. The states will allow to change what the unit is supposed to do at certain points of the game. The states are split into following:
-
-- Dragged
-- Idle
-- Seeking
-- Fighting
-- Dead
-
-#### **Properties of each state**
-
-- Idle. Idle state happens right after the unit is spawned into the field. As the name reffers, in this state the unit does not do anything. The unit is added to the game hierarchy and according to the current situation in the field, the next state is set.
-- Seeking. In this state, the unit is moving towards a target. Whether it is a primary target (The Tower), or a secondary target (A detected opponent unit).
-- Fighting. This state is triggered after Seeking state is sucessfully completed (The unit arrived to the location or is within range to attack its target). During this state, damage is inflicted to the opponent unit (character or structure).
-- Dead. This state occurs when the unit runs out of health points that are inflicted during Fighting state. The unit is immediately removed from the field and no longer exists in the hierarchy of the game.
-
-### Entity Combat
+### Data of entities
+In this document **entities** are used to describe characters and structures in one word.
+### Character data
+- Prefab
+  - Contains:
+    - Unity built-in components:
+      - Sprite renderer
+      - Rigidbody2D
+      - BoxCollider2D
+      - NavMesh Agent
+    - Custom created components:
+      - UnitData script:
+        - This script contains data constructors that are used for every character to store their data (found in EntityData script) as well as AI states and targets.
+      - Health bar component:
+        - A rectangle shaped container to represent character's health:
+          - Slider
 
 #### **Overall idea**
 
 In the game when entities of different teams detect each other, they will start fighting to reach enemie’s castle. For this to work, these game objects need to be able to receive and deal damage to other objects. Different enemy entities will not have the same responses to start attacking. By design some entities are more agile and will perform the attack quicker than others. By design, their attacks will deal slightly less damage than standard numbers. On the other hand, entites with slower reflexes will deal increased damage.
 
-
-# UML Deployement Diagrams
-
-1. Overview of whole diagram
-    <br>
-    ![Diagram](images/diagram.jpg)
-2. Characters
-    <br>
-    ![Characters](images/characters.jpg)
-3. Structures
-    <br>
-    ![Structures](images/structures.jpg)
-4. Menu UI
-    <br>
-    ![UI](images/ui.jpg)
-5. AI
-    <br>
-    ![AI](images/ai.jpg)
-6. Rewards
-    <br>
-    ![Rewards](images/rewards.jpg)
-7. Arenas
-    <br>
-    ![Arenas](images/arenas.jpg)
-
 # Technologies and tools used
 
 ## Game engine
 ### [Unity Game Development Engine](https://unity.com)
-## IDE
-### [VS Code](https://code.visualstudio.com)
-## For task management
-### [Gitkraken](https://www.gitkraken.com)
+
 ## For creating wireframes, brainstorming
 ### [Miro](https://miro.com/)
+
 ## Version control for our codebase
 ### [Gitlab](https://about.gitlab.com)
+
 ## Time tracking for weekly reports
 ### [Toggl](https://toggl.com)
+
 ## For creating graphical assets
 ### [Illustrator](https://www.adobe.com/products/photoshop.html)
+
 ## For connecting to VU MIF Gitlab
 ### [Cisco AnyConnect](https://www.cisco.com/c/en/us/products/security/anyconnect-secure-mobility-client/index.html)
 
+## For figuring out how to use Unity game engine
+### [Unity User Manual](https://docs.unity3d.com/Manual/index.html)
 
-</br>
+## For using built-in features of Unity game engine
+### [Unity Scripting API](https://docs.unity3d.com/ScriptReference/)

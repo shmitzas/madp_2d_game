@@ -4,7 +4,7 @@
 3. Pick your platform
 4. Download archived file
 5. Extract it in your prefered destination directory
-6. Run the game by opening a file named "MadP 2d game"
+6. Run the game by opening a file named "RushNDestroy"
 
 ## Source code can be found in:
 [Source code](https://github.com/shmitzas/madp_uni_project/tree/main/MadP%202d%20game/Assets)
@@ -18,5 +18,3 @@
 6. Navigate to the location where you downloaded Full source files and select folder named "MadP 2d game"
 7. In Unity Hub select Unity version "2020.3.19f1"
 8. Launch the project
-
-# NOTE: Save files are not implemented yet.
