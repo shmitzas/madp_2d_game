@@ -56,8 +56,10 @@ namespace RushNDestroy
             newCard = Instantiate<GameObject>(cardPrefab, cardsDeck).GetComponent<RectTransform>();
 
             // newCard.SetParent(cardsDeck, true); //once card is created, it is set as child to CardDeck GameObject in Canvas
-
-            Vector2 newStartPos = new Vector2(defCardPositions[0].anchoredPosition.x, defCardPositions[0].anchoredPosition.y - 300f);
+            newCard.pivot = defCardPositions[0].pivot;
+            newCard.anchorMax = defCardPositions[0].anchorMax;
+            newCard.anchorMin = defCardPositions[0].anchorMin;
+            Vector2 newStartPos = new Vector2(defCardPositions[0].anchoredPosition.x, defCardPositions[0].anchoredPosition.y - 100f);
             Vector2 newDestinationPos = new Vector2(defCardPositions[0].anchoredPosition.x, defCardPositions[0].anchoredPosition.y);
             StartCoroutine(CardGenerationAnimation(newCard, newStartPos, newDestinationPos, 0.4f));
             newCard.localScale = defCardPositions[0].localScale;
@@ -70,12 +72,14 @@ namespace RushNDestroy
         {
             yield return new WaitForSeconds(delay);
             newCard.SetParent(activeCards, true); //once card is brought to deck, it is set as child to ActiveCards GameObject in Canvas
-
-            Vector2 newStartPos = new Vector2(-257.3f, -15.3f);
+            newCard.pivot = defCardPositions[position+1].pivot;
+            newCard.anchorMax = defCardPositions[position+1].anchorMax;
+            newCard.anchorMin = defCardPositions[position+1].anchorMin;
+            Vector2 newStartPos = new Vector2(-260f, -10f);
             Vector2 newDestinationPos = new Vector2(defCardPositions[position + 1].anchoredPosition.x, defCardPositions[position + 1].anchoredPosition.y);
             StartCoroutine(CardGenerationAnimation(newCard, newStartPos, newDestinationPos, 0.4f));
             newCard.localScale = defCardPositions[position + 1].localScale;
-            newCard.anchoredPosition3D = newDestinationPos;
+            newCard.anchoredPosition = defCardPositions[position + 1].anchoredPosition;
 
             //store a reference to the CardEvents script in the array
             CardEvents cardEvents = newCard.GetComponent<CardEvents>();
