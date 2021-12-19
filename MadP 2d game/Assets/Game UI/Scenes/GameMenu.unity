@@ -1013,6 +1013,10 @@ PrefabInstance:
       value: -320
       objectReference: {fileID: 0}
     - target: {fileID: 1015928750912283419, guid: 89739d66890728c46902985032e03805, type: 3}
+      propertyPath: m_Text
+      value: 9999999
+      objectReference: {fileID: 0}
+    - target: {fileID: 1015928750912283419, guid: 89739d66890728c46902985032e03805, type: 3}
       propertyPath: m_FontData.m_VerticalOverflow
       value: 1
       objectReference: {fileID: 0}
@@ -1087,6 +1091,10 @@ PrefabInstance:
     - target: {fileID: 8070403897827437662, guid: 89739d66890728c46902985032e03805, type: 3}
       propertyPath: m_Name
       value: Rewards
+      objectReference: {fileID: 0}
+    - target: {fileID: 8373821910674946214, guid: 89739d66890728c46902985032e03805, type: 3}
+      propertyPath: m_Text
+      value: 9999
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 89739d66890728c46902985032e03805, type: 3}

@@ -386,6 +386,8 @@ namespace RushNDestroy
                     gameOverMenu.tieText.SetActive(true);
                     gameOverMenu.gameObject.SetActive(true);
                 }
+                if (rewardsData.trophies > 9999) rewardsData.trophies = 9999;
+                if (rewardsData.coins > 9999999) rewardsData.coins = 9999999;
                 saveManager.Save();
                 enabled = false;
             }
