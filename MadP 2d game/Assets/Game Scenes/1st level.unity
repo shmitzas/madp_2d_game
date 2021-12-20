@@ -1603,7 +1603,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   manarefill: {fileID: 1641714361}
-  timeRemaining: 180
+  timeRemaining: 70
   timerIsRunning: 1
   gameManager: {fileID: 897453670}
 --- !u!114 &921652883
