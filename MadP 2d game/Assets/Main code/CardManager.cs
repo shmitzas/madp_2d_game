@@ -17,6 +17,7 @@ namespace RushNDestroy
         public RectTransform activeCards; //the UI panel that contains the actual playable cards
         public RectTransform cardsDeck; //the UI panel that contains all cards, the deck, and the dashboard (center aligned)
         private CardEvents[] cards;
+        private List<CardEvents> cardsList;
         public DeckData playersDeck;
         public GameObject SpawnZone;
         public ManaRefill mana;
@@ -27,6 +28,7 @@ namespace RushNDestroy
 
         private void Awake()
         {
+            cardsList = new List<CardEvents>();
             cards = new CardEvents[4];
             LoadDeck();
         }
@@ -56,13 +58,13 @@ namespace RushNDestroy
             newCard = Instantiate<GameObject>(cardPrefab, cardsDeck).GetComponent<RectTransform>();
 
             // newCard.SetParent(cardsDeck, true); //once card is created, it is set as child to CardDeck GameObject in Canvas
-            newCard.pivot = defCardPositions[0].pivot;
             newCard.anchorMax = defCardPositions[0].anchorMax;
             newCard.anchorMin = defCardPositions[0].anchorMin;
             Vector2 newStartPos = new Vector2(defCardPositions[0].anchoredPosition.x, defCardPositions[0].anchoredPosition.y - 100f);
             Vector2 newDestinationPos = new Vector2(defCardPositions[0].anchoredPosition.x, defCardPositions[0].anchoredPosition.y);
             StartCoroutine(CardGenerationAnimation(newCard, newStartPos, newDestinationPos, 0.4f));
             newCard.localScale = defCardPositions[0].localScale;
+            newCard.anchoredPosition = defCardPositions[0].anchoredPosition;
 
             CardEvents cEvents = newCard.GetComponent<CardEvents>();
             int cardIndex = Random.Range(0, deckData.Count);
@@ -71,16 +73,14 @@ namespace RushNDestroy
         private IEnumerator BringCardToDeck(int position, float delay)
         {
             yield return new WaitForSeconds(delay);
-            newCard.SetParent(activeCards, true); //once card is brought to deck, it is set as child to ActiveCards GameObject in Canvas
-            newCard.pivot = defCardPositions[position+1].pivot;
+            newCard.SetParent(activeCards); //once card is brought to deck, it is set as child to ActiveCards GameObject in Canvas
             newCard.anchorMax = defCardPositions[position+1].anchorMax;
             newCard.anchorMin = defCardPositions[position+1].anchorMin;
             Vector2 newStartPos = new Vector2(-260f, -10f);
             Vector2 newDestinationPos = new Vector2(defCardPositions[position + 1].anchoredPosition.x, defCardPositions[position + 1].anchoredPosition.y);
-            StartCoroutine(CardGenerationAnimation(newCard, newStartPos, newDestinationPos, 0.4f));
+            StartCoroutine(CardGenerationAnimation(newCard, newStartPos, defCardPositions[position + 1].anchoredPosition, 0.4f));
             newCard.localScale = defCardPositions[position + 1].localScale;
-            newCard.anchoredPosition = defCardPositions[position + 1].anchoredPosition;
-
+            
             //store a reference to the CardEvents script in the array
             CardEvents cardEvents = newCard.GetComponent<CardEvents>();
             cardEvents.cardId = position;
@@ -115,7 +115,7 @@ namespace RushNDestroy
             else
             {
                 //Returns unused card back to it's place
-                cards[cardId].GetComponent<RectTransform>().anchoredPosition = defCardPositions[cardId + 1].anchoredPosition3D;
+                cards[cardId].GetComponent<RectTransform>().anchoredPosition = defCardPositions[cardId + 1].anchoredPosition;
             }
             SpawnZone.gameObject.GetComponent<SpriteRenderer>().enabled = false;
         }
@@ -129,7 +129,7 @@ namespace RushNDestroy
                 timer += Time.deltaTime;
                 yield return null;
             }
-            transform.position = destination;
+            obj.anchoredPosition = destination;
         }
     }
 }
