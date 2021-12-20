@@ -64,7 +64,6 @@ namespace RushNDestroy
             Vector2 newDestinationPos = new Vector2(defCardPositions[0].anchoredPosition.x, defCardPositions[0].anchoredPosition.y);
             StartCoroutine(CardGenerationAnimation(newCard, newStartPos, newDestinationPos, 0.4f));
             newCard.localScale = defCardPositions[0].localScale;
-            newCard.anchoredPosition = defCardPositions[0].anchoredPosition;
 
             CardEvents cEvents = newCard.GetComponent<CardEvents>();
             int cardIndex = Random.Range(0, deckData.Count);
