@@ -29,7 +29,7 @@ namespace RushNDestroy
         {
             
             if(aiMana <10)
-                aiMana += manaRefill.addMana;
+                aiMana += manaRefill.addMana/2;
 
             if(aiMana >= card.cost*1.5){
                 Vector2 randomPos = new Vector2( Random.Range(5.7f, 10.4f), Random.Range(3.4f, -4.3f));

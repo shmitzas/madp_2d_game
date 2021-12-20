@@ -110,6 +110,7 @@ namespace RushNDestroy
                 Destroy(cards[cardId].gameObject);
                 StartCoroutine(BringCardToDeck(cardId, 0f));
                 StartCoroutine(GenerateCards(0f));
+                mana.mana -= entity.cost;
             }
             else
             {

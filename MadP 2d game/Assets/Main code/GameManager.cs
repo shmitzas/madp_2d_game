@@ -152,8 +152,6 @@ namespace RushNDestroy
             GameObject prefabToSpawn = (pFaction == EntityEnums.Faction.Player) ? entity.playerPrefab : ((entity.enemyPrefab == null) ? entity.playerPrefab : entity.enemyPrefab);
             GameObject character = Instantiate<GameObject>(prefabToSpawn, position, Quaternion.identity);
             SetupEntity(character, entity, pFaction);
-            if (pFaction == EntityEnums.Faction.Player)
-                mana.mana -= entity.cost;
         }
         private void SetupEntity(GameObject gameObject, EntityData entity, EntityEnums.Faction faction)
         {
