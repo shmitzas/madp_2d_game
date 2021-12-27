@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 6380894696544799971}
   - component: {fileID: 5396364965604138229}
   m_Layer: 5
-  m_Name: Canvas (1)
+  m_Name: HealthBarCanvas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -82,7 +82,7 @@ MonoBehaviour:
   m_FallbackScreenDPI: 96
   m_DefaultSpriteDPI: 96
   m_DynamicPixelsPerUnit: 1
-  m_PresetInfoIsWorld: 0
+  m_PresetInfoIsWorld: 1
 --- !u!114 &5396364965604138229
 MonoBehaviour:
   m_ObjectHideFlags: 0

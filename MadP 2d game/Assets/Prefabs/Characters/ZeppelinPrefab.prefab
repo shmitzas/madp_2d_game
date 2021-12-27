@@ -413,7 +413,7 @@ Transform:
   m_GameObject: {fileID: 9187763448752479213}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.8, y: 0.8, z: 1}
+  m_LocalScale: {x: 0.7, y: 0.7, z: 1}
   m_Children:
   - {fileID: 2422169436671706884}
   m_Father: {fileID: 0}
@@ -504,7 +504,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.04232788, y: -0.17614746}
+  m_Offset: {x: 0.020545984, y: -0.012988657}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -515,7 +515,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.30908203, y: 0.24898529}
+  m_Size: {x: 0.11920957, y: 0.3402226}
   m_EdgeRadius: 0
 --- !u!114 &1267630864066417305
 MonoBehaviour:
@@ -562,5 +562,5 @@ NavMeshAgent:
   m_AutoRepath: 1
   m_Height: 0.6
   m_BaseOffset: 0.3
-  m_WalkableMask: 5
+  m_WalkableMask: 1
   m_ObstacleAvoidanceType: 4
