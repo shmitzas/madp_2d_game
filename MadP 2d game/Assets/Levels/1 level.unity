@@ -838,7 +838,7 @@ GameObject:
   - component: {fileID: 401740467}
   - component: {fileID: 401740466}
   m_Layer: 0
-  m_Name: NewSampleArena
+  m_Name: Tilemaps
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1791,7 +1791,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   manarefill: {fileID: 1641714361}
-  timeRemaining: 70
+  timeRemaining: 180
   timerIsRunning: 1
   gameManager: {fileID: 897453670}
 --- !u!114 &921652883

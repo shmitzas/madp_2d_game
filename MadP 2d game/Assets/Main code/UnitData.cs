@@ -41,6 +41,8 @@ namespace RushNDestroy
 
             state = States.Idle;
             agent.enabled = true;
+            agent.stoppingDistance = attackRange;
+            agent.acceleration = speed*10;
         }
         private void Update()
         {

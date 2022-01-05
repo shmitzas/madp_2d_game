@@ -11,10 +11,10 @@ NavMeshProjectSettings:
     cost: 1
   - name: Jump
     cost: 2
-  - name: 
-    cost: 1
-  - name: 
-    cost: 1
+  - name: BrokenBridge
+    cost: 6
+  - name: ShateredBridge
+    cost: 2
   - name: 
     cost: 1
   - name: 

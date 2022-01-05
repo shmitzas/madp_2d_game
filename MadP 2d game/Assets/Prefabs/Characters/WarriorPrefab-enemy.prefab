@@ -329,7 +329,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.11347987, y: 0.03797637}
+  m_Offset: {x: 0.11347987, y: -0.07126234}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -340,7 +340,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.075681806, y: 0.7485013}
+  m_Size: {x: 0.075681806, y: 0.48739403}
   m_EdgeRadius: 0
 --- !u!114 &4425516125211466072
 MonoBehaviour:
@@ -376,9 +376,9 @@ NavMeshAgent:
   m_GameObject: {fileID: 5046119255622841216}
   m_Enabled: 1
   m_AgentTypeID: 0
-  m_Radius: 0.425
+  m_Radius: 0.3
   m_Speed: 3.5
-  m_Acceleration: 8
+  m_Acceleration: 10
   avoidancePriority: 50
   m_AngularSpeed: 120
   m_StoppingDistance: 0
@@ -387,7 +387,7 @@ NavMeshAgent:
   m_AutoRepath: 1
   m_Height: 1.28
   m_BaseOffset: 0.64
-  m_WalkableMask: 1
+  m_WalkableMask: 25
   m_ObstacleAvoidanceType: 4
 --- !u!1 &5663513315329251077
 GameObject:
