@@ -945,6 +945,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   aiDeck: {fileID: 11400000, guid: e52cfc5bb50d4804693b606e05dbf617, type: 2}
   manaRefill: {fileID: 1908871314}
+  levelID: 2
 --- !u!1 &327902770
 GameObject:
   m_ObjectHideFlags: 0
@@ -1873,9 +1874,10 @@ GameObject:
   - component: {fileID: 672888768}
   - component: {fileID: 672888767}
   - component: {fileID: 672888766}
+  - component: {fileID: 672888769}
   m_Layer: 0
-  m_Name: Shatered bridge parts
-  m_TagString: Untagged
+  m_Name: Shattered bridge parts
+  m_TagString: ShatteredBridge
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1997,16 +1999,6 @@ Tilemap:
       m_TileObjectToInstantiateIndex: 65535
       dummyAlignment: 0
       m_AllTileFlags: 1073741825
-  - first: {x: 1, y: -3, z: 0}
-    second:
-      serializedVersion: 2
-      m_TileIndex: 0
-      m_TileSpriteIndex: 0
-      m_TileMatrixIndex: 0
-      m_TileColorIndex: 0
-      m_TileObjectToInstantiateIndex: 65535
-      dummyAlignment: 0
-      m_AllTileFlags: 1073741825
   - first: {x: -2, y: 3, z: 0}
     second:
       serializedVersion: 2
@@ -2029,17 +2021,17 @@ Tilemap:
       m_AllTileFlags: 1073741825
   m_AnimatedTiles: {}
   m_TileAssetArray:
-  - m_RefCount: 3
+  - m_RefCount: 2
     m_Data: {fileID: 11400000, guid: be5981ac97cda7a469298263e0460965, type: 2}
   - m_RefCount: 3
     m_Data: {fileID: 11400000, guid: 1c195a94c08eaec459f0d67eadf0dc30, type: 2}
   m_TileSpriteArray:
-  - m_RefCount: 3
+  - m_RefCount: 2
     m_Data: {fileID: 1084334562674014327, guid: 544dee6b6189678498b4b077242b9a38, type: 3}
   - m_RefCount: 3
     m_Data: {fileID: -2285504729751820738, guid: 544dee6b6189678498b4b077242b9a38, type: 3}
   m_TileMatrixArray:
-  - m_RefCount: 6
+  - m_RefCount: 5
     m_Data:
       e00: 1
       e01: 0
@@ -2058,7 +2050,7 @@ Tilemap:
       e32: 0
       e33: 1
   m_TileColorArray:
-  - m_RefCount: 6
+  - m_RefCount: 5
     m_Data: {r: 1, g: 1, b: 1, a: 1}
   m_TileObjectToInstantiateArray: []
   m_AnimationFrameRate: 1
@@ -2084,6 +2076,22 @@ Tilemap:
     e31: 0
     e32: 0
     e33: 1
+--- !u!19719996 &672888769
+TilemapCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 672888764}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_MaximumTileChangeCount: 1000
+  m_ExtrusionFactor: 0.00001
 --- !u!1 &674435843
 GameObject:
   m_ObjectHideFlags: 0
@@ -2596,7 +2604,7 @@ MonoBehaviour:
   m_VoxelSize: 0.05
   m_BuildHeightMesh: 0
   m_HideEditorLogs: 0
-  m_NavMeshData: {fileID: 23800000, guid: 9a856f41e42907f4b81d8838469192bd, type: 2}
+  m_NavMeshData: {fileID: 23800000, guid: b8000bb993386164084b9bccf0a16cbf, type: 2}
 --- !u!4 &1043270126
 Transform:
   m_ObjectHideFlags: 0
@@ -2838,7 +2846,7 @@ Transform:
   - {fileID: 672888765}
   - {fileID: 1909943779}
   m_Father: {fileID: 0}
-  m_RootOrder: 9
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1273520316
 GameObject:
@@ -3778,6 +3786,16 @@ Tilemap:
       serializedVersion: 2
       m_TileIndex: 36
       m_TileSpriteIndex: 33
+      m_TileMatrixIndex: 0
+      m_TileColorIndex: 0
+      m_TileObjectToInstantiateIndex: 65535
+      dummyAlignment: 0
+      m_AllTileFlags: 1073741825
+  - first: {x: 1, y: -3, z: 0}
+    second:
+      serializedVersion: 2
+      m_TileIndex: 38
+      m_TileSpriteIndex: 38
       m_TileMatrixIndex: 0
       m_TileColorIndex: 0
       m_TileObjectToInstantiateIndex: 65535
@@ -4971,6 +4989,8 @@ Tilemap:
     m_Data: {fileID: 11400000, guid: 5b3d52048c8a0c342ae83ba9644587fd, type: 2}
   - m_RefCount: 5
     m_Data: {fileID: 11400000, guid: f4295266134c6764c81f31c754b51681, type: 2}
+  - m_RefCount: 1
+    m_Data: {fileID: 11400000, guid: ff6d994cb6d400f42b6d3e531d5ba116, type: 2}
   m_TileSpriteArray:
   - m_RefCount: 1
     m_Data: {fileID: 1273635340096316446, guid: 81bbd4c3c03003f488f86021d6979ca0, type: 3}
@@ -5048,8 +5068,10 @@ Tilemap:
     m_Data: {fileID: -6260166231791315712, guid: 81bbd4c3c03003f488f86021d6979ca0, type: 3}
   - m_RefCount: 5
     m_Data: {fileID: 7712179249402037345, guid: 81bbd4c3c03003f488f86021d6979ca0, type: 3}
+  - m_RefCount: 1
+    m_Data: {fileID: -7116603957720507781, guid: 81bbd4c3c03003f488f86021d6979ca0, type: 3}
   m_TileMatrixArray:
-  - m_RefCount: 154
+  - m_RefCount: 155
     m_Data:
       e00: 1
       e01: 0
@@ -5068,7 +5090,7 @@ Tilemap:
       e32: 0
       e33: 1
   m_TileColorArray:
-  - m_RefCount: 154
+  - m_RefCount: 155
     m_Data: {r: 1, g: 1, b: 1, a: 1}
   m_TileObjectToInstantiateArray: []
   m_AnimationFrameRate: 1
@@ -5213,7 +5235,7 @@ Transform:
   m_LocalScale: {x: 1.3946862, y: 1.45, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 8
+  m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1428901223
 GameObject:
@@ -6153,9 +6175,10 @@ GameObject:
   - component: {fileID: 1909943782}
   - component: {fileID: 1909943781}
   - component: {fileID: 1909943780}
+  - component: {fileID: 1909943783}
   m_Layer: 0
   m_Name: Broken bridge parts
-  m_TagString: Untagged
+  m_TagString: BrokenBridge
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -6320,6 +6343,22 @@ Tilemap:
     e31: 0
     e32: 0
     e33: 1
+--- !u!19719996 &1909943783
+TilemapCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1909943778}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_MaximumTileChangeCount: 1000
+  m_ExtrusionFactor: 0.00001
 --- !u!1001 &1923660043
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -6531,7 +6570,7 @@ TilemapRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 2
   m_ChunkSize: {x: 32, y: 32, z: 32}
   m_ChunkCullingBounds: {x: 0.00022804737, y: 0.00012207031, z: 0}
   m_MaxChunkCount: 16

@@ -1729,6 +1729,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   aiDeck: {fileID: 11400000, guid: e52cfc5bb50d4804693b606e05dbf617, type: 2}
   manaRefill: {fileID: 1641714361}
+  levelID: 1
 --- !u!114 &897453670 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 7981764106809223647, guid: 68ed4ad8f9520164db9c37d0f53d465d, type: 3}
@@ -5882,7 +5883,7 @@ TilemapRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 2
   m_ChunkSize: {x: 32, y: 32, z: 32}
   m_ChunkCullingBounds: {x: 0.00022804737, y: 0.00012207031, z: 0}
   m_MaxChunkCount: 16

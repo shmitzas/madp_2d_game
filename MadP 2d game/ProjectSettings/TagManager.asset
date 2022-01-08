@@ -10,6 +10,8 @@ TagManager:
   - spawn-card-image
   - PlayableCard
   - InfoButton
+  - BrokenBridge
+  - ShatteredBridge
   layers:
   - Default
   - TransparentFX

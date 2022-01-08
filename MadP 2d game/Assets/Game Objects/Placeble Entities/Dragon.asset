@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Dragon
   m_EditorClassIdentifier: 
   playerPrefab: {fileID: 1701336801711938774, guid: 1a2c280e5fdec7a45b52346c9aa4cc88, type: 3}
-  enemyPrefab: {fileID: 1701336801711938774, guid: 1a2c280e5fdec7a45b52346c9aa4cc88, type: 3}
+  enemyPrefab: {fileID: 1701336801711938774, guid: e36b72489251ec94e8bac19ee39caa9d, type: 3}
   artwork: {fileID: 21300000, guid: 569fe4b707e881f448c59f50ba520934, type: 3}
   entityType: 0
   targetType: 1

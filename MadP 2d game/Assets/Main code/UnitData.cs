@@ -8,7 +8,6 @@ namespace RushNDestroy
     public class UnitData : EntityEvents
     {
         private float speed;
-
         private NavMeshAgent agent;
 
         void Start()
@@ -65,6 +64,16 @@ namespace RushNDestroy
                     agent.enabled = false;
                     break;
             }
+        }
+        private void OnTriggerEnter2D(Collider2D other) {
+            if(entityType == EntityEnums.Type.Unit)
+                if(other.tag == "BrokenBridge") agent.speed *= 0.2f;
+                else if(other.tag == "ShatteredBridge") agent.speed *= 0.5f;
+        }
+        private void OnTriggerExit2D(Collider2D other) {
+            if(entityType == EntityEnums.Type.Unit)
+                if(other.tag == "BrokenBridge") agent.speed = speed;
+                else if(other.tag == "ShatteredBridge") agent.speed = speed;
         }
     }
 }
