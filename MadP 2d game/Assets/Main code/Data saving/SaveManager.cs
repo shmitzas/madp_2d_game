@@ -47,7 +47,7 @@ namespace RushNDestroy
         public void NewGame()
         {
             rewardsData.coins = 100;
-            rewardsData.trophies = 300;
+            rewardsData.trophies = 0;
             for (int i = 0; i < deckData.cardData.Length; i++)
             {
                 switch (i)

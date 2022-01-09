@@ -12,22 +12,14 @@ namespace RushNDestroy
 
         private void Start()
         {
-            for(int i=0; i<levels.Count; i++)
-            {
-                Debug.Log(i);
-                if(rewardsData.trophies>=0 && i==0) 
-                    levels[i].interactable = true;
-                    else levels[i].interactable = false;
-                if(rewardsData.trophies>=100 && i==1) 
-                    levels[i].interactable = true;
-                    else levels[i].interactable = false;
-                if(rewardsData.trophies>=300 && i==2) 
-                    levels[i].interactable = true;
-                    else levels[i].interactable = false;
-                if(rewardsData.trophies>=500 && i==3) 
-                    levels[i].interactable = true;
-                    else levels[i].interactable = false;
-            }
+            if(rewardsData.trophies >= 0) levels[0].interactable = true;
+                else levels[0].interactable = false;
+            if(rewardsData.trophies >= 100) levels[1].interactable = true;
+                else levels[1].interactable = false;
+            if(rewardsData.trophies >= 300) levels[2].interactable = true;
+                else levels[2].interactable = false;
+            if(rewardsData.trophies >= 500) levels[3].interactable = true;
+                else levels[3].interactable = false;
         }
     }
 }
