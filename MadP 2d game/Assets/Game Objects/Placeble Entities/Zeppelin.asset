@@ -12,9 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7ea40b30522901a4fa042bebf3b6f7f4, type: 3}
   m_Name: Zeppelin
   m_EditorClassIdentifier: 
-  playerPrefab: {fileID: 9187763448752479213, guid: ba848ed39ac0a1346b7ced7ae9acd747, type: 3}
-  enemyPrefab: {fileID: 9187763448752479213, guid: ba848ed39ac0a1346b7ced7ae9acd747, type: 3}
-  artwork: {fileID: 21300000, guid: c2b65033d8701a345842f01a0281122a, type: 3}
+  playerPrefab: {fileID: 9187763448752479213, guid: b817873a0d15b1c4c8dadc6376f8ab3d, type: 3}
+  enemyPrefab: {fileID: 9187763448752479213, guid: 663acbc87e33b1448a77474b6850c9ff, type: 3}
+  artwork: {fileID: 21300000, guid: c55fb81f00c6eee41afc279288d140d4, type: 3}
   entityType: 0
   targetType: 1
   attackRatio: 4
