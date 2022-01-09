@@ -6,13 +6,13 @@ namespace RushNDestroy
 {
     public class MenuManager : MonoBehaviour
     {
-        public void PlayGame()
+        public void LoadLevel(int level)
         {
-            SceneManager.LoadScene(1);
+            SceneManager.LoadScene(level);
         }
         public void LoadGameMenu()
         {
-            SceneManager.LoadScene(2);
+            SceneManager.LoadScene(1);
         }
         public void LoadMainMenu()
         {

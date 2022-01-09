@@ -18,10 +18,4 @@ public class PauseMenu : MonoBehaviour
          pauseMenu.SetActive(false);
          Time.timeScale = 1f;   
     }
-
-    public void Home(int sceneID)
-    {
-        Time.timeScale = 1f;
-         SceneManager.LoadScene(sceneID);        
-    }
 }
