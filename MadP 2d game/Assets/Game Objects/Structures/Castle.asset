@@ -12,15 +12,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7ea40b30522901a4fa042bebf3b6f7f4, type: 3}
   m_Name: Castle
   m_EditorClassIdentifier: 
-  playerPrefab: {fileID: 6448662461594074941, guid: 09f751c17f2b49248ac43c2ecbefec07, type: 3}
+  playerPrefab: {fileID: 0}
   enemyPrefab: {fileID: 6448662461594074941, guid: 09f751c17f2b49248ac43c2ecbefec07, type: 3}
-  artwork: {fileID: 21300000, guid: ea5a368dd89dc504dbae2267eb1b2b65, type: 3}
+  artwork: {fileID: 0}
   entityType: 2
-  attackType: 1
   targetType: 1
   attackRatio: 1
-  attackDamage: 5
-  attackRange: 6
+  attackDamage: 0
+  attackRange: 3
   health: 50
   cost: 0
   speed: 0

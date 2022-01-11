@@ -8,6 +8,7 @@ namespace RushNDestroy
     public class UnitData : EntityEvents
     {
         private float speed;
+        
         private NavMeshAgent agent;
 
         void Start()
@@ -40,17 +41,24 @@ namespace RushNDestroy
 
             state = States.Idle;
             agent.enabled = true;
-            agent.stoppingDistance = attackRange;
+            agent.stoppingDistance = attackRange/2;
             agent.acceleration = speed*10;
         }
         private void Update()
         {
             switch (state)
             {
-                case States.Seeking:
+                case States.SeekingUnit:
                     if (target == null)
                         return;
-                    base.Seek();
+                    base.SeekUnit();
+                    agent.SetDestination(target.transform.position);
+                    agent.isStopped = false;
+                    break;
+                case States.SeekingTower:
+                    if (target == null)
+                        return;
+                    base.SeekTower();
                     agent.SetDestination(target.transform.position);
                     agent.isStopped = false;
                     break;

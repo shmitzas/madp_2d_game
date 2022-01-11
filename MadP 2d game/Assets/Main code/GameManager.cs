@@ -16,6 +16,7 @@ namespace RushNDestroy
         public RewardsData rewardsData;
         public ManaRefill mana;
         public GameObject smokeParticles;
+        public float detectRange = 1.5f;
 
         private List<EntityEvents> playerUnits, enemyUnits;
         private List<EntityEvents> playerStructures, enemyStructures;
@@ -71,6 +72,7 @@ namespace RushNDestroy
         private void Update()
         {
             EntityEvents targetToPass; //ref
+            EntityEvents primaryTarget;//ref
             EntityEvents p; //ref
 
             for (int pN = 0; pN < allEntities.Count; pN++)
@@ -83,30 +85,66 @@ namespace RushNDestroy
                         if (p.targetType == EntityEnums.TargetType.None)
                             break;
 
-                        bool foundTarget = FindClosestInList(p.transform.position, GetAttackList(p.faction, p.targetType), out targetToPass);
-                        if (!targetToPass)
+                        bool primaryTargetFound = FindClosestInList(p.transform.position, PrimaryTargetList(p.faction, p.targetType), out primaryTarget);
+
+                        bool towerTargets = FindClosestInList(p.transform.position, UnitTargetList(p.faction, p.targetType), out targetToPass);
+
+                        if (!primaryTarget)
                         {
                             gameOver = true;
                             GameOver();
                         } //this should only happen on Game Over
-                        else
+
+                        if (p.entityType == EntityEnums.Type.Unit)
+                        {
+                            p.SetTarget(primaryTarget);
+                            p.SeekTower();
+                        }
+                        else if (p.entityType == EntityEnums.Type.Structure || p.entityType == EntityEnums.Type.Castle)
+                        {
+                            if (targetToPass == null)
+                            {
+                                Debug.Log("Waitinf for enemy to spawn.");
+                            }
+                            else
+                            {
+                                Debug.Log("This is tower target: " + targetToPass);
+                                p.SetTarget(targetToPass);
+                                p.SeekUnit();
+                            }
+                        }
+                        else Debug.Log("Who am I?");
+                        break;
+
+                    case EntityEvents.States.SeekingTower:
+
+                        bool closerTargetFound = FindClosestInList(p.transform.position, AllTargetList(p.faction, p.targetType), out targetToPass);
+                        if (p.TargetInRange())
+                        {
+                            p.StartFighting();
+                        }
+                        else if (Vector2.Distance(p.transform.position, targetToPass.transform.position) < detectRange)
                         {
                             p.SetTarget(targetToPass);
-                            p.Seek();
+                            p.SeekUnit();
                         }
                         break;
-                    case EntityEvents.States.Seeking:
+
+                    case EntityEvents.States.SeekingUnit:
                         if (p.entityType == EntityEnums.Type.Structure || p.entityType == EntityEnums.Type.Castle)
                         {
-                            bool targetFound = FindClosestInList(p.transform.position, GetAttackList(p.faction, p.targetType), out targetToPass);
+                            bool targetFound = FindClosestInList(p.transform.position, PrimaryTargetList(p.faction, p.targetType), out targetToPass);
                             if (!targetToPass)
                             {
                                 gameOver = true;
                                 GameOver();
                             }
                         } //this should only happen on Game Over
-                        else if (p.TargetInRange())
+
+                        if (p.TargetInRange())
+                        {
                             p.StartFighting();
+                        }
                         break;
 
                     case EntityEvents.States.Fighting:
@@ -115,6 +153,7 @@ namespace RushNDestroy
                             {
                                 p.DoDamage();
                             }
+
                         break;
 
                     case EntityEvents.States.Dead:
@@ -153,7 +192,7 @@ namespace RushNDestroy
             GameObject prefabToSpawn = (pFaction == EntityEnums.Faction.Player) ? entity.playerPrefab : ((entity.enemyPrefab == null) ? entity.playerPrefab : entity.enemyPrefab);
             GameObject character = Instantiate<GameObject>(prefabToSpawn, position, Quaternion.identity);
             SetupEntity(character, entity, pFaction);
-            CreateSmoke(position);            
+            CreateSmoke(position);
         }
         private void SetupEntity(GameObject gameObject, EntityData entity, EntityEnums.Faction faction)
         {
@@ -170,6 +209,8 @@ namespace RushNDestroy
                     bd.Activate(faction, entity);
                     bd.OnDoDamage += OnEntityDidDamge;
                     AddEntityToList(bd);
+                    bd.CreateSmokeOnDeath += CreateSmoke;
+
                     break;
                 case EntityEnums.Type.Castle:
                     BuildingData buildingData = gameObject.GetComponent<BuildingData>();
@@ -177,12 +218,7 @@ namespace RushNDestroy
                     buildingData.OnDoDamage += OnEntityDidDamge;
                     AddEntityToList(buildingData);
                     //special case for castles
-                    if (entity.entityType == EntityEnums.Type.Castle)
-                    {
-                        buildingData.OnDie += OnCastleDead;
-                    }
-                    //To implement later, will rebuild NavMesh after a tower is destroyed so area is walkable
-                    //navMesh.BuildNavMesh();
+                    buildingData.OnDie += OnCastleDead;
                     break;
             }
             gameObject.GetComponent<EntityEnums>().OnDie += EntityDead;
@@ -261,7 +297,7 @@ namespace RushNDestroy
                 Debug.LogError("Error in removing a Placeable from one of the player/opponent lists");
         }
 
-        private List<EntityEvents> GetAttackList(EntityEnums.Faction f, EntityEnums.TargetType t)
+        private List<EntityEvents> AllTargetList(EntityEnums.Faction f, EntityEnums.TargetType t)
         {
             switch (t)
             {
@@ -275,6 +311,31 @@ namespace RushNDestroy
             }
         }
 
+        private List<EntityEvents> PrimaryTargetList(EntityEnums.Faction f, EntityEnums.TargetType t)
+        {
+            switch (t)
+            {
+                case EntityEnums.TargetType.All:
+                    return (f == EntityEnums.Faction.Player) ? enemyStructures : playerStructures;
+                case EntityEnums.TargetType.OnlyBuildings:
+                    return (f == EntityEnums.Faction.Player) ? enemyStructures : playerStructures;
+                default:
+                    Debug.LogError("NOR PLAYER NOR OPPONENT");
+                    return null;
+            }
+        }
+
+        private List<EntityEvents> UnitTargetList(EntityEnums.Faction f, EntityEnums.TargetType t)
+        {
+            switch (t)
+            {
+                case EntityEnums.TargetType.All:
+                    return (f == EntityEnums.Faction.Player) ? enemyUnits : playerUnits;
+                default:
+                    Debug.LogError("NOR PLAYER NOR OPPONENT");
+                    return null;
+            }
+        }
         private bool FindClosestInList(Vector2 p, List<EntityEvents> list, out EntityEvents t)
         {
             t = null;
@@ -325,14 +386,12 @@ namespace RushNDestroy
                     BuildingData tower = (BuildingData)entity;
                     RemoveEntityFromList(tower);
                     tower.OnDoDamage -= OnEntityDidDamge;
-                    StartCoroutine(Delete(tower));
                     break;
 
                 case EntityEnums.Type.Castle:
                     BuildingData castle = (BuildingData)entity;
                     RemoveEntityFromList(castle);
                     castle.OnDoDamage -= OnEntityDidDamge;
-                    StartCoroutine(Delete(castle));
                     break;
             }
         }
@@ -342,7 +401,8 @@ namespace RushNDestroy
 
             Destroy(e.gameObject);
         }
-        private void CreateSmoke(Vector2 position){
+        private void CreateSmoke(Vector2 position)
+        {
             Vector3 pos = new Vector3(position.x, position.y, -2);
             GameObject smoke = Instantiate<GameObject>(smokeParticles, pos, Quaternion.identity);
             StartCoroutine(DeleteSmoke(smoke));

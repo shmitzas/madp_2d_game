@@ -35,7 +35,7 @@ namespace RushNDestroy
             if (aiMana < 10)
                 aiMana += manaRefill.addMana / 2;
 
-            if (aiMana >= card.cost * 1.5)
+            if (aiMana >= card.cost)
             {   int locationID;
                 switch (levelID)
                 {

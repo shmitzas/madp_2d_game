@@ -6,6 +6,8 @@ namespace RushNDestroy
 {
     public class BuildingData : EntityEvents
     {
+        [Header("This will affect only the towers")]
+        public Sprite destroyedTower;
         public void Activate(Faction pFaction, EntityData entity)
         {
             entityType = entity.entityType;
@@ -17,17 +19,20 @@ namespace RushNDestroy
             attackRatio = entity.attackRatio;
             healthBar = GetComponentInChildren<HealthBar>();
             healthBar.StartHealthBar(healthRemaining);
+            sr = GetComponent<SpriteRenderer>();
+            towerDead = destroyedTower;
 
             state = States.Idle;
         }
 
-        private void Update() {
+        private void Update()
+        {
             switch (state)
             {
-                case States.Seeking:
+                case States.SeekingUnit:
                     if (target == null)
                         return;
-                    base.Seek();
+                    base.SeekUnit();
                     break;
                 case States.Fighting:
                     base.Stop();
