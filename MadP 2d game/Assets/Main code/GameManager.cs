@@ -343,7 +343,8 @@ namespace RushNDestroy
             Destroy(e.gameObject);
         }
         private void CreateSmoke(Vector2 position){
-            GameObject smoke = Instantiate<GameObject>(smokeParticles, position, Quaternion.identity);
+            Vector3 pos = new Vector3(position.x, position.y, -2);
+            GameObject smoke = Instantiate<GameObject>(smokeParticles, pos, Quaternion.identity);
             StartCoroutine(DeleteSmoke(smoke));
         }
         private IEnumerator DeleteSmoke(GameObject smoke)
