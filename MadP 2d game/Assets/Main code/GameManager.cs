@@ -85,16 +85,15 @@ namespace RushNDestroy
                         if (p.targetType == EntityEnums.TargetType.None)
                             break;
 
-                        bool primaryTargetFound = FindClosestInList(p.transform.position, PrimaryTargetList(p.faction, p.targetType), out primaryTarget);
+                        bool primaryTargetFound = FindClosestInList(p.targetAirborneEntities, p.transform.position, PrimaryTargetList(p.faction, p.targetType), out primaryTarget);
 
-                        bool towerTargets = FindClosestInList(p.transform.position, UnitTargetList(p.faction, p.targetType), out targetToPass);
+                        bool towerTargets = FindClosestInList(p.targetAirborneEntities, p.transform.position, UnitTargetList(p.faction, p.targetType), out targetToPass);
 
                         if (!primaryTarget)
                         {
                             gameOver = true;
                             GameOver();
                         } //this should only happen on Game Over
-
                         if (p.entityType == EntityEnums.Type.Unit)
                         {
                             p.SetTarget(primaryTarget);
@@ -118,7 +117,7 @@ namespace RushNDestroy
 
                     case EntityEvents.States.SeekingTower:
 
-                        bool closerTargetFound = FindClosestInList(p.transform.position, AllTargetList(p.faction, p.targetType), out targetToPass);
+                        bool closerTargetFound = FindClosestInList(p.targetAirborneEntities, p.transform.position, AllTargetList(p.faction, p.targetType), out targetToPass);
                         if (p.TargetInRange())
                         {
                             p.StartFighting();
@@ -133,7 +132,7 @@ namespace RushNDestroy
                     case EntityEvents.States.SeekingUnit:
                         if (p.entityType == EntityEnums.Type.Structure || p.entityType == EntityEnums.Type.Castle)
                         {
-                            bool targetFound = FindClosestInList(p.transform.position, PrimaryTargetList(p.faction, p.targetType), out targetToPass);
+                            bool targetFound = FindClosestInList(p.targetAirborneEntities, p.transform.position, PrimaryTargetList(p.faction, p.targetType), out targetToPass);
                             if (!targetToPass)
                             {
                                 gameOver = true;
@@ -153,7 +152,6 @@ namespace RushNDestroy
                             {
                                 p.DoDamage();
                             }
-
                         break;
 
                     case EntityEvents.States.Dead:
@@ -167,22 +165,23 @@ namespace RushNDestroy
                         break;
                 }
             }
-            switch ((int)timer.timeRemaining)
+            if(timer.timeRemaining <=60f)
             {
-                case 59:
-                    aletrsText.text = "Mana generation increased!";
-                    alerts.gameObject.SetActive(true);
-                    break;
-                case 55:
-                    alerts.gameObject.SetActive(false);
-                    break;
-                case 29:
-                    aletrsText.text = "Sudden death!";
-                    alerts.gameObject.SetActive(true);
-                    break;
-                case 25:
-                    alerts.gameObject.SetActive(false);
-                    break;
+                aletrsText.text = "Mana generation increased!";
+                alerts.gameObject.SetActive(true);
+            }
+            if(timer.timeRemaining <=55f)
+            {
+                alerts.gameObject.SetActive(false);
+            }
+            if(timer.timeRemaining <=30f)
+            {
+                aletrsText.text = "Sudden death!";
+                alerts.gameObject.SetActive(true);
+            }
+            if(timer.timeRemaining <=25f)
+            {
+                alerts.gameObject.SetActive(false);
             }
         }
 
@@ -279,10 +278,7 @@ namespace RushNDestroy
                 if (entity.entityType == EntityEnums.Type.Unit)
                     playerUnits.Remove(entity);
                 else
-                {
                     playerStructures.Remove(entity);
-
-                }
             }
             else if (entity.faction == EntityEnums.Faction.Enemy)
             {
@@ -330,13 +326,15 @@ namespace RushNDestroy
             switch (t)
             {
                 case EntityEnums.TargetType.All:
-                    return (f == EntityEnums.Faction.Player) ? enemyUnits : playerUnits;
+                    return (f == EntityEnums.Faction.Player) ? enemyStructures : playerStructures;
+                case EntityEnums.TargetType.OnlyBuildings:
+                    return (f == EntityEnums.Faction.Player) ? enemyStructures : playerStructures;
                 default:
                     Debug.LogError("NOR PLAYER NOR OPPONENT");
                     return null;
             }
         }
-        private bool FindClosestInList(Vector2 p, List<EntityEvents> list, out EntityEvents t)
+        private bool FindClosestInList(bool targetAirborneEntities, Vector2 p, List<EntityEvents> list, out EntityEvents t)
         {
             t = null;
             bool foundTarget = false;
@@ -344,12 +342,28 @@ namespace RushNDestroy
 
             for (int i = 0; i < list.Count; i++)
             {
-                float sqrDistance = (p - (Vector2)list[i].transform.position).sqrMagnitude;
-                if (sqrDistance < closestDistanceSqr)
+                if (targetAirborneEntities == false)
                 {
-                    t = list[i];
-                    closestDistanceSqr = sqrDistance;
-                    foundTarget = true;
+                    float sqrDistance = (p - (Vector2)list[i].transform.position).sqrMagnitude;
+                    if (sqrDistance < closestDistanceSqr)
+                    {
+                        if (list[i].extraType == EntityEnums.ExtraType.None)
+                        {
+                            t = list[i];
+                            closestDistanceSqr = sqrDistance;
+                            foundTarget = true;
+                        }
+                    }
+                }
+                else
+                {
+                    float sqrDistance = (p - (Vector2)list[i].transform.position).sqrMagnitude;
+                    if (sqrDistance < closestDistanceSqr)
+                    {
+                        t = list[i];
+                        closestDistanceSqr = sqrDistance;
+                        foundTarget = true;
+                    }
                 }
             }
             return foundTarget;

@@ -32,6 +32,7 @@ namespace RushNDestroy
         [HideInInspector] public float damage;
         [HideInInspector] public float attackRatio;
         [HideInInspector] public float attackRange;
+        [HideInInspector] public bool targetAirborneEntities;
 
         [HideInInspector] public float detectRange = 1.2f;
 

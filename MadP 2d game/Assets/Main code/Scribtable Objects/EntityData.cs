@@ -14,6 +14,7 @@ namespace RushNDestroy
 
         [Header("Data")]
         public EntityEnums.Type entityType;
+        public EntityEnums.ExtraType extraType = EntityEnums.ExtraType.None;
         public EntityEnums.TargetType targetType = EntityEnums.TargetType.All;
         public float attackRatio; //time between attacks
         public float attackDamage; //damage each attack deals
@@ -21,6 +22,7 @@ namespace RushNDestroy
         public float health; //when units or buildings suffer damage, they lose hitpoints
         public float cost;
         public float speed; //movement speed
+        public bool targetAirborneEntities;
 
         [Header("Upgrades")]
         public int upgradeLevel;

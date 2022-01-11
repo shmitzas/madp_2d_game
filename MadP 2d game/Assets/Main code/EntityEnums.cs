@@ -9,9 +9,10 @@ namespace RushNDestroy
         [HideInInspector] public Faction faction;
         [HideInInspector] public TargetType targetType;
         public Type entityType;
+        [HideInInspector] public ExtraType extraType;
 
         public UnityAction<EntityEnums> OnDie;
-        
+
         public enum Type
         {
             Unit,
@@ -25,6 +26,11 @@ namespace RushNDestroy
             All,
             Ground,
             None
+        }
+
+        public enum ExtraType{
+            None,
+            Airborne
         }
 
         public enum Faction

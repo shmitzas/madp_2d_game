@@ -35,6 +35,9 @@ namespace RushNDestroy
             damage = entity.attackDamage;
             healthBar = GetComponentInChildren<HealthBar>();
             healthBar.StartHealthBar(healthRemaining);
+            targetAirborneEntities = entity.targetAirborneEntities;
+            extraType = entity.extraType;
+
 
             agent.speed = speed;
             //Debug.Log(agent.speed + " DA SPED");

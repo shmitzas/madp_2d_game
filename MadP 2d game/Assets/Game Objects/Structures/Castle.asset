@@ -16,6 +16,7 @@ MonoBehaviour:
   enemyPrefab: {fileID: 6448662461594074941, guid: 09f751c17f2b49248ac43c2ecbefec07, type: 3}
   artwork: {fileID: 0}
   entityType: 2
+  extraType: 0
   targetType: 1
   attackRatio: 1
   attackDamage: 0
@@ -23,6 +24,7 @@ MonoBehaviour:
   health: 50
   cost: 0
   speed: 0
+  targetAirborneEntities: 1
   upgradeLevel: 0
   upgradeCost: 10
   owned: 1
