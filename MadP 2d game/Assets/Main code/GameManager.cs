@@ -15,6 +15,7 @@ namespace RushNDestroy
         public EntityData towerData;
         public RewardsData rewardsData;
         public ManaRefill mana;
+        public GameObject smokeParticles;
 
         private List<EntityEvents> playerUnits, enemyUnits;
         private List<EntityEvents> playerStructures, enemyStructures;
@@ -152,6 +153,7 @@ namespace RushNDestroy
             GameObject prefabToSpawn = (pFaction == EntityEnums.Faction.Player) ? entity.playerPrefab : ((entity.enemyPrefab == null) ? entity.playerPrefab : entity.enemyPrefab);
             GameObject character = Instantiate<GameObject>(prefabToSpawn, position, Quaternion.identity);
             SetupEntity(character, entity, pFaction);
+            CreateSmoke(position);            
         }
         private void SetupEntity(GameObject gameObject, EntityData entity, EntityEnums.Faction faction)
         {
@@ -339,6 +341,16 @@ namespace RushNDestroy
             yield return new WaitForSeconds(1f);
 
             Destroy(e.gameObject);
+        }
+        private void CreateSmoke(Vector2 position){
+            GameObject smoke = Instantiate<GameObject>(smokeParticles, position, Quaternion.identity);
+            StartCoroutine(DeleteSmoke(smoke));
+        }
+        private IEnumerator DeleteSmoke(GameObject smoke)
+        {
+            yield return new WaitForSeconds(2f);
+
+            Destroy(smoke);
         }
 
         public void GameOver()
