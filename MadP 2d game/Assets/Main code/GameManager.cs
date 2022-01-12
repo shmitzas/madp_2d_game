@@ -265,7 +265,6 @@ namespace RushNDestroy
                 else
                 {
                     playerStructures.Add(entity);
-                    Debug.Log("Structure: " + entity.name);
                 }
             }
             else if (entity.faction == EntityEnums.Faction.Enemy)
@@ -277,7 +276,6 @@ namespace RushNDestroy
                 else
                 {
                     enemyStructures.Add(entity);
-                    Debug.Log("Structure: " + entity.name);
                 }
             }
             else
@@ -359,7 +357,6 @@ namespace RushNDestroy
 
             for (int i = 0; i < list.Count; i++)
             {
-                Debug.Log(list[i].name + " Target flying ent.? " + targetAirborneEntities);
                 if (targetAirborneEntities)
                 {
                     float sqrDistance = (p - (Vector2)list[i].transform.position).sqrMagnitude;

@@ -17,11 +17,11 @@ MonoBehaviour:
   artwork: {fileID: 21300000, guid: c55fb81f00c6eee41afc279288d140d4, type: 3}
   entityType: 0
   extraType: 1
-  targetType: 1
+  targetType: 0
   attackRatio: 4
-  attackDamage: 60
+  attackDamage: 20
   attackRange: 1
-  health: 10
+  health: 100
   cost: 4
   speed: 1.2
   targetAirborneEntities: 0

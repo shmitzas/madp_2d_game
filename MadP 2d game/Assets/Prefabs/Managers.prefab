@@ -53,6 +53,8 @@ MonoBehaviour:
   towerData: {fileID: 0}
   rewardsData: {fileID: 0}
   mana: {fileID: 0}
+  smokeParticles: {fileID: 3199301540696091925, guid: 59daa498fcb190e4884ad93fc35aabcb, type: 3}
+  detectRange: 1.5
   timer: {fileID: 0}
   gameOverMenu: {fileID: 0}
   alerts: {fileID: 0}
@@ -96,6 +98,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rewardsData: {fileID: 11400000, guid: a1b099e48242b764ca4ef5162a7da3f1, type: 2}
   deckData: {fileID: 11400000, guid: e52cfc5bb50d4804693b606e05dbf617, type: 2}
-  updateRewards: {fileID: 0}
   entities:
     list: []
