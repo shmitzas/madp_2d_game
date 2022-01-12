@@ -49,7 +49,6 @@ namespace RushNDestroy
                         spawnLocation = new Vector2(Random.Range(5.7f, 10.4f), Random.Range(3.4f, -4.3f));
                         break;
                     case 3:
-                        locations.Clear();
                         locations = new List<Vector2>();
                         //spawnzone locations coordinates order (minX, maxX), (minY, maxY)
                         locations.Add(new Vector2(Random.Range(2.44f, 12.6f), Random.Range(6.6f, -2.3f)));
@@ -58,7 +57,6 @@ namespace RushNDestroy
                         spawnLocation = locations[locationID];
                         break;
                     case 4:
-                        locations.Clear();
                         locations = new List<Vector2>();
                         //spawnzone locations coordinates order (minX, maxX), (minY, maxY)
                         locations.Add(new Vector2(Random.Range(-8.38f, 5f), Random.Range(-5.24f, -9.71f)));
@@ -71,7 +69,6 @@ namespace RushNDestroy
                         spawnLocation = locations[locationID];
                         break;
                     case 5:
-                        locations.Clear();
                         locations = new List<Vector2>();
                         //spawnzone locations coordinates order (minX, maxX), (minY, maxY)
                         locations.Add(new Vector2(Random.Range(2.44f, 12.6f), Random.Range(6.6f, -2.3f)));

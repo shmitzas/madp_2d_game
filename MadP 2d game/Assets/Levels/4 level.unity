@@ -1283,11 +1283,11 @@ PrefabInstance:
       objectReference: {fileID: 579412104}
     - target: {fileID: 7981764106809223647, guid: 68ed4ad8f9520164db9c37d0f53d465d, type: 3}
       propertyPath: enemyTowers.Array.size
-      value: 4
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 7981764106809223647, guid: 68ed4ad8f9520164db9c37d0f53d465d, type: 3}
       propertyPath: playerTowers.Array.size
-      value: 2
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 7981764106809223647, guid: 68ed4ad8f9520164db9c37d0f53d465d, type: 3}
       propertyPath: enemyTowers.Array.data[0]
@@ -1306,6 +1306,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 2127855704}
     - target: {fileID: 7981764106809223647, guid: 68ed4ad8f9520164db9c37d0f53d465d, type: 3}
+      propertyPath: enemyTowers.Array.data[4]
+      value: 
+      objectReference: {fileID: 1291233288}
+    - target: {fileID: 7981764106809223647, guid: 68ed4ad8f9520164db9c37d0f53d465d, type: 3}
       propertyPath: playerTowers.Array.data[0]
       value: 
       objectReference: {fileID: 296431186}
@@ -1313,6 +1317,10 @@ PrefabInstance:
       propertyPath: playerTowers.Array.data[1]
       value: 
       objectReference: {fileID: 1518729698}
+    - target: {fileID: 7981764106809223647, guid: 68ed4ad8f9520164db9c37d0f53d465d, type: 3}
+      propertyPath: playerTowers.Array.data[2]
+      value: 
+      objectReference: {fileID: 1995426895}
     m_RemovedComponents:
     - {fileID: 7981764106809223646, guid: 68ed4ad8f9520164db9c37d0f53d465d, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 68ed4ad8f9520164db9c37d0f53d465d, type: 3}
@@ -10742,6 +10750,11 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1277480541}
   m_CullTransparentMesh: 0
+--- !u!1 &1291233288 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 532818334915760956, guid: d67c087d2ddb7a046a009a4936db6657, type: 3}
+  m_PrefabInstance: {fileID: 122528497}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1348629641
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -22209,6 +22222,11 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1931084117}
   m_CullTransparentMesh: 0
+--- !u!1 &1995426895 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 532818334915760956, guid: d67c087d2ddb7a046a009a4936db6657, type: 3}
+  m_PrefabInstance: {fileID: 791272704}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1999788616
 GameObject:
   m_ObjectHideFlags: 0

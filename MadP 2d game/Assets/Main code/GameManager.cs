@@ -148,6 +148,7 @@ namespace RushNDestroy
                             {
                                 p.DoDamage();
                             }
+                        else p.state = EntityEvents.States.Idle;
                         break;
 
                     case EntityEvents.States.Dead:
