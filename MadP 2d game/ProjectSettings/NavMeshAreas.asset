@@ -17,7 +17,7 @@ NavMeshProjectSettings:
     cost: 3
   - name: Swamp
     cost: 7
-  - name: 
+  - name: OnlyForAirborne
     cost: 1
   - name: 
     cost: 1
