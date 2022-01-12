@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Castle
   m_EditorClassIdentifier: 
   playerPrefab: {fileID: 0}
-  enemyPrefab: {fileID: 6448662461594074941, guid: 09f751c17f2b49248ac43c2ecbefec07, type: 3}
+  enemyPrefab: {fileID: 0}
   artwork: {fileID: 0}
   entityType: 2
   extraType: 0
@@ -26,6 +26,6 @@ MonoBehaviour:
   speed: 0
   targetAirborneEntities: 1
   upgradeLevel: 0
-  upgradeCost: 10
+  upgradeCost: 0
   owned: 1
   buyCost: 0

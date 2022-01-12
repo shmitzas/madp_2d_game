@@ -75,7 +75,7 @@ namespace RushNDestroy
         }
         public bool TargetInRange()
         {
-            return (transform.position - target.transform.position).sqrMagnitude <= attackRange;
+            return (transform.position - target.transform.position).sqrMagnitude <= attackRange*attackRange;
         }
 
         protected void TargetIsDead(EntityEnums p)

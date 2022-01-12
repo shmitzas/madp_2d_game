@@ -235,11 +235,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8411629655590608813, guid: d67c087d2ddb7a046a009a4936db6657, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -7.5
+      value: 8.48
       objectReference: {fileID: 0}
     - target: {fileID: 8411629655590608813, guid: d67c087d2ddb7a046a009a4936db6657, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -2
+      value: -2.03
       objectReference: {fileID: 0}
     - target: {fileID: 8411629655590608813, guid: d67c087d2ddb7a046a009a4936db6657, type: 3}
       propertyPath: m_LocalPosition.z
@@ -962,13 +962,17 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1328177489}
     m_Modifications:
+    - target: {fileID: 1340389392050908512, guid: 46cddb9b0328a2e4f9c24359711d6d8e, type: 3}
+      propertyPath: entityType
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2129138847443004306, guid: 46cddb9b0328a2e4f9c24359711d6d8e, type: 3}
       propertyPath: m_RootOrder
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2129138847443004306, guid: 46cddb9b0328a2e4f9c24359711d6d8e, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -10.5
+      value: 11.48
       objectReference: {fileID: 0}
     - target: {fileID: 2129138847443004306, guid: 46cddb9b0328a2e4f9c24359711d6d8e, type: 3}
       propertyPath: m_LocalPosition.y
@@ -1726,7 +1730,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 897453667}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 5f17917487f6af7428427bd49959aef0, type: 3}
   m_Name: 
@@ -2843,8 +2847,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1328177488}
-  m_LocalRotation: {x: 0, y: 1, z: 0, w: 0}
-  m_LocalPosition: {x: 1, y: 0, z: 0}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 494407871}
@@ -2852,7 +2856,7 @@ Transform:
   - {fileID: 2003629921}
   m_Father: {fileID: 0}
   m_RootOrder: 10
-  m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1435827984
 GameObject:
   m_ObjectHideFlags: 0
@@ -2936,10 +2940,10 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1281866086}
-        m_TargetAssemblyTypeName: 
-        m_MethodName: Home
-        m_Mode: 3
+      - m_Target: {fileID: 1281866089}
+        m_TargetAssemblyTypeName: RushNDestroy.MenuManager, Assembly-CSharp
+        m_MethodName: LoadGameMenu
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -11791,7 +11795,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8411629655590608813, guid: d67c087d2ddb7a046a009a4936db6657, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -7.5
+      value: 8.45
       objectReference: {fileID: 0}
     - target: {fileID: 8411629655590608813, guid: d67c087d2ddb7a046a009a4936db6657, type: 3}
       propertyPath: m_LocalPosition.y

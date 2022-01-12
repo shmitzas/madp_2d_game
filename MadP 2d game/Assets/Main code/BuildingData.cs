@@ -21,6 +21,7 @@ namespace RushNDestroy
             healthBar.StartHealthBar(healthRemaining);
             sr = GetComponent<SpriteRenderer>();
             towerDead = destroyedTower;
+            targetAirborneEntities = entity.targetAirborneEntities;
 
             state = States.Idle;
         }

@@ -94,25 +94,20 @@ namespace RushNDestroy
                             gameOver = true;
                             GameOver();
                         } //this should only happen on Game Over
-                        if (p.entityType == EntityEnums.Type.Unit)
+                        if (primaryTarget && p.entityType == EntityEnums.Type.Unit)
                         {
                             p.SetTarget(primaryTarget);
                             p.SeekTower();
                         }
                         else if (p.entityType == EntityEnums.Type.Structure || p.entityType == EntityEnums.Type.Castle)
                         {
-                            if (targetToPass == null)
+                            if (targetToPass != null)
                             {
-                                Debug.Log("Waitinf for enemy to spawn.");
-                            }
-                            else
-                            {
-                                Debug.Log("This is tower target: " + targetToPass);
                                 p.SetTarget(targetToPass);
                                 p.SeekUnit();
                             }
                         }
-                        else Debug.Log("Who am I?");
+                        else Debug.Log("Unassigned entity type for " + p.name);
                         break;
 
                     case EntityEvents.States.SeekingTower:
@@ -124,6 +119,7 @@ namespace RushNDestroy
                         }
                         else if (Vector2.Distance(p.transform.position, targetToPass.transform.position) < detectRange)
                         {
+
                             p.SetTarget(targetToPass);
                             p.SeekUnit();
                         }
@@ -155,31 +151,32 @@ namespace RushNDestroy
                         break;
 
                     case EntityEvents.States.Dead:
-                        if (p.TargetInRange() == false) Debug.Log(p.name + " | is dead");
+                        //if (p.TargetInRange() == false) Debug.Log(p.name + " | is dead");
                         p.gameObject.SetActive(false);
                         RemoveEntityFromList(p);
-                        Debug.Log("He's dead, he shouldn't be here");
+                        //Debug.Log("He's dead, he shouldn't be here");
                         break;
                     default:
                         Debug.Log("This entity has no state!");
                         break;
                 }
             }
-            if(timer.timeRemaining <=60f)
+            // Event alerts
+            if (timer.timeRemaining <= 60f)
             {
                 aletrsText.text = "Mana generation increased!";
                 alerts.gameObject.SetActive(true);
             }
-            if(timer.timeRemaining <=55f)
+            if (timer.timeRemaining <= 55f)
             {
                 alerts.gameObject.SetActive(false);
             }
-            if(timer.timeRemaining <=30f)
+            if (timer.timeRemaining <= 30f)
             {
                 aletrsText.text = "Sudden death!";
                 alerts.gameObject.SetActive(true);
             }
-            if(timer.timeRemaining <=25f)
+            if (timer.timeRemaining <= 25f)
             {
                 alerts.gameObject.SetActive(false);
             }
@@ -187,11 +184,23 @@ namespace RushNDestroy
 
         public void SpawnEntity(EntityData entity, Vector2 position, EntityEnums.Faction pFaction)
         {
-            //Prefab to spawn is the associatedPrefab if it's the Player faction, otherwise it's alternatePrefab. But if alternatePrefab is null, then first one is taken
-            GameObject prefabToSpawn = (pFaction == EntityEnums.Faction.Player) ? entity.playerPrefab : ((entity.enemyPrefab == null) ? entity.playerPrefab : entity.enemyPrefab);
-            GameObject character = Instantiate<GameObject>(prefabToSpawn, position, Quaternion.identity);
-            SetupEntity(character, entity, pFaction);
-            CreateSmoke(position);
+            if (entity.extraType == EntityEnums.ExtraType.Airborne)
+            {
+                Vector3 spawnPosition = new Vector3(position.x, position.y, -2);
+                //Prefab to spawn is the associatedPrefab if it's the Player faction, otherwise it's alternatePrefab. But if alternatePrefab is null, then first one is taken
+                GameObject prefabToSpawn = (pFaction == EntityEnums.Faction.Player) ? entity.playerPrefab : ((entity.enemyPrefab == null) ? entity.playerPrefab : entity.enemyPrefab);
+                GameObject character = Instantiate<GameObject>(prefabToSpawn, spawnPosition, Quaternion.identity);
+                SetupEntity(character, entity, pFaction);
+                CreateSmoke(spawnPosition);
+            }
+            else
+            {
+                //Prefab to spawn is the associatedPrefab if it's the Player faction, otherwise it's alternatePrefab. But if alternatePrefab is null, then first one is taken
+                GameObject prefabToSpawn = (pFaction == EntityEnums.Faction.Player) ? entity.playerPrefab : ((entity.enemyPrefab == null) ? entity.playerPrefab : entity.enemyPrefab);
+                GameObject character = Instantiate<GameObject>(prefabToSpawn, position, Quaternion.identity);
+                SetupEntity(character, entity, pFaction);
+                CreateSmoke(position);
+            }
         }
         private void SetupEntity(GameObject gameObject, EntityData entity, EntityEnums.Faction faction)
         {
@@ -254,7 +263,10 @@ namespace RushNDestroy
                 if (entity.entityType == EntityEnums.Type.Unit)
                     playerUnits.Add(entity);
                 else
+                {
                     playerStructures.Add(entity);
+                    Debug.Log("Structure: " + entity.name);
+                }
             }
             else if (entity.faction == EntityEnums.Faction.Enemy)
             {
@@ -263,7 +275,10 @@ namespace RushNDestroy
                 if (entity.entityType == EntityEnums.Type.Unit)
                     enemyUnits.Add(entity);
                 else
+                {
                     enemyStructures.Add(entity);
+                    Debug.Log("Structure: " + entity.name);
+                }
             }
             else
                 Debug.LogError("Error in adding a Placeable in one of the player/opponent lists");
@@ -326,7 +341,7 @@ namespace RushNDestroy
             switch (t)
             {
                 case EntityEnums.TargetType.All:
-                    return (f == EntityEnums.Faction.Player) ? enemyStructures : playerStructures;
+                    return (f == EntityEnums.Faction.Player) ? enemyUnits : playerUnits;
                 case EntityEnums.TargetType.OnlyBuildings:
                     return (f == EntityEnums.Faction.Player) ? enemyStructures : playerStructures;
                 default:
@@ -340,22 +355,12 @@ namespace RushNDestroy
             bool foundTarget = false;
             float closestDistanceSqr = Mathf.Infinity;
 
+
+
             for (int i = 0; i < list.Count; i++)
             {
-                if (targetAirborneEntities == false)
-                {
-                    float sqrDistance = (p - (Vector2)list[i].transform.position).sqrMagnitude;
-                    if (sqrDistance < closestDistanceSqr)
-                    {
-                        if (list[i].extraType == EntityEnums.ExtraType.None)
-                        {
-                            t = list[i];
-                            closestDistanceSqr = sqrDistance;
-                            foundTarget = true;
-                        }
-                    }
-                }
-                else
+                Debug.Log(list[i].name + " Target flying ent.? " + targetAirborneEntities);
+                if (targetAirborneEntities)
                 {
                     float sqrDistance = (p - (Vector2)list[i].transform.position).sqrMagnitude;
                     if (sqrDistance < closestDistanceSqr)
@@ -363,6 +368,19 @@ namespace RushNDestroy
                         t = list[i];
                         closestDistanceSqr = sqrDistance;
                         foundTarget = true;
+                    }
+                }
+                else
+                {
+                    float sqrDistance = (p - (Vector2)list[i].transform.position).sqrMagnitude;
+                    if (sqrDistance < closestDistanceSqr)
+                    {
+                        if (list[i].extraType != EntityEnums.ExtraType.Airborne)
+                        {
+                            t = list[i];
+                            closestDistanceSqr = sqrDistance;
+                            foundTarget = true;
+                        }
                     }
                 }
             }
@@ -417,7 +435,7 @@ namespace RushNDestroy
         }
         private void CreateSmoke(Vector2 position)
         {
-            Vector3 pos = new Vector3(position.x, position.y, -2);
+            Vector3 pos = new Vector3(position.x, position.y, -4);
             GameObject smoke = Instantiate<GameObject>(smokeParticles, pos, Quaternion.identity);
             StartCoroutine(DeleteSmoke(smoke));
         }
