@@ -22,10 +22,10 @@ MonoBehaviour:
   attackDamage: 20
   attackRange: 2
   health: 1000
-  cost: 1
+  cost: 6
   speed: 3
   targetAirborneEntities: 1
   upgradeLevel: 0
   upgradeCost: 250
-  owned: 1
+  owned: 0
   buyCost: 300

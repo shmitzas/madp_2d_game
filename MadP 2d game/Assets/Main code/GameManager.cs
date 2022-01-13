@@ -16,7 +16,6 @@ namespace RushNDestroy
         public RewardsData rewardsData;
         public ManaRefill mana;
         public GameObject smokeParticles;
-        public float detectRange = 1.5f;
 
         private List<EntityEvents> playerUnits, enemyUnits;
         private List<EntityEvents> playerStructures, enemyStructures;
@@ -117,7 +116,7 @@ namespace RushNDestroy
                         {
                             p.StartFighting();
                         }
-                        else if (Vector2.Distance(p.transform.position, targetToPass.transform.position) < detectRange)
+                        else if (Vector2.Distance(p.transform.position, targetToPass.transform.position) < p.attackRange)
                         {
 
                             p.SetTarget(targetToPass);
@@ -148,7 +147,7 @@ namespace RushNDestroy
                             {
                                 p.DoDamage();
                             }
-                        else p.state = EntityEvents.States.Idle;
+                        //else p.state = EntityEvents.States.Idle;
                         break;
 
                     case EntityEvents.States.Dead:
@@ -196,11 +195,12 @@ namespace RushNDestroy
             }
             else
             {
+                Vector3 spawnPosition = new Vector3(position.x, position.y, 0);
                 //Prefab to spawn is the associatedPrefab if it's the Player faction, otherwise it's alternatePrefab. But if alternatePrefab is null, then first one is taken
                 GameObject prefabToSpawn = (pFaction == EntityEnums.Faction.Player) ? entity.playerPrefab : ((entity.enemyPrefab == null) ? entity.playerPrefab : entity.enemyPrefab);
-                GameObject character = Instantiate<GameObject>(prefabToSpawn, position, Quaternion.identity);
+                GameObject character = Instantiate<GameObject>(prefabToSpawn, spawnPosition, Quaternion.identity);
                 SetupEntity(character, entity, pFaction);
-                CreateSmoke(position);
+                CreateSmoke(spawnPosition);
             }
         }
         private void SetupEntity(GameObject gameObject, EntityData entity, EntityEnums.Faction faction)

@@ -49,6 +49,8 @@ namespace RushNDestroy
         }
         private void Update()
         {
+            if(extraType == EntityEnums.ExtraType.Airborne) this.gameObject.transform.position = new Vector3(this.gameObject.transform.position.x, this.gameObject.transform.position.y, this.gameObject.transform.position.z-1);
+            else if(extraType == EntityEnums.ExtraType.Airborne) this.gameObject.transform.position = new Vector3(this.gameObject.transform.position.x, this.gameObject.transform.position.y, 0);
             switch (state)
             {
                 case States.SeekingUnit:

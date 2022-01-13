@@ -22,7 +22,7 @@ MonoBehaviour:
   attackDamage: 20
   attackRange: 1
   health: 100
-  cost: 4
+  cost: 2
   speed: 1.2
   targetAirborneEntities: 0
   upgradeLevel: 0
