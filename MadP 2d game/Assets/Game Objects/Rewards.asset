@@ -14,5 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   trophiesArtwork: {fileID: 21300000, guid: d6278812bde85374588b7198f9076d07, type: 3}
   coinsArtwork: {fileID: 21300000, guid: 5f09d32bb8553274aac2955050d1da1a, type: 3}
-  trophies: 300
+  trophies: 0
   coins: 100

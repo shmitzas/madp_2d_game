@@ -10,9 +10,12 @@ namespace RushNDestroy
         private float speed;
         
         private NavMeshAgent agent;
+        private Animator animator;
+ 
 
         void Start()
-        {
+        {   
+            animator = GetComponent<Animator>();
             agent.updateRotation = false; //disables 3d rotation cause this is 2d game 
             agent.updateUpAxis = false;
         }
@@ -20,7 +23,6 @@ namespace RushNDestroy
         public void Awake()
         {
             entityType = EntityEnums.Type.Unit;
-
             agent = GetComponent<NavMeshAgent>(); //disabled until Activate() is called
         }
 
@@ -59,6 +61,7 @@ namespace RushNDestroy
                     base.SeekUnit();
                     agent.SetDestination(target.transform.position);
                     agent.isStopped = false;
+                    animator.SetBool("IsMoving", true);
                     break;
                 case States.SeekingTower:
                     if (target == null)
@@ -66,15 +69,19 @@ namespace RushNDestroy
                     base.SeekTower();
                     agent.SetDestination(target.transform.position);
                     agent.isStopped = false;
+                    animator.SetBool("IsMoving", true);
                     break;
                 case States.Fighting:
                     base.Stop();
                     agent.isStopped = true;
                     base.StartFighting();
+                    animator.SetBool("IsMoving", false);
+                    //animator.SetTrigger("Fight");
                     break;
                 case States.Dead:
                     base.Die();
                     agent.enabled = false;
+                    
                     break;
             }
         }

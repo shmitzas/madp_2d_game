@@ -12,18 +12,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7ea40b30522901a4fa042bebf3b6f7f4, type: 3}
   m_Name: Dragon
   m_EditorClassIdentifier: 
-  playerPrefab: {fileID: 1701336801711938774, guid: 1a2c280e5fdec7a45b52346c9aa4cc88, type: 3}
-  enemyPrefab: {fileID: 1701336801711938774, guid: e36b72489251ec94e8bac19ee39caa9d, type: 3}
+  playerPrefab: {fileID: 1701336801711938774, guid: a95f683151edaf844b5e92c8e7974d4c, type: 3}
+  enemyPrefab: {fileID: 1701336801711938774, guid: 4eef225677a6cf845b81e5e61cfaa8c8, type: 3}
   artwork: {fileID: 21300000, guid: 13169b36899aec24b887a897143f4439, type: 3}
   entityType: 0
   extraType: 1
   targetType: 1
   attackRatio: 3
-  attackDamage: 20
+  attackDamage: 15
   attackRange: 2
-  health: 1000
+  health: 150
   cost: 6
-  speed: 3
+  speed: 1.5
   targetAirborneEntities: 1
   upgradeLevel: 0
   upgradeCost: 250

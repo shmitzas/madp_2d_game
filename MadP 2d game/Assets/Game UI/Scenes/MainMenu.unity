@@ -1143,9 +1143,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1909787900}
-        m_TargetAssemblyTypeName: RushNDestroy.MenuManager, Assembly-CSharp
-        m_MethodName: LoadGameMenu
+      - m_Target: {fileID: 3081169600971300914, guid: 68ed4ad8f9520164db9c37d0f53d465d, type: 3}
+        m_TargetAssemblyTypeName: RushNDestroy.SaveManager, Assembly-CSharp
+        m_MethodName: NewGame
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1155,9 +1155,9 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 3081169600971300914, guid: 68ed4ad8f9520164db9c37d0f53d465d, type: 3}
-        m_TargetAssemblyTypeName: RushNDestroy.SaveManager, Assembly-CSharp
-        m_MethodName: NewGame
+      - m_Target: {fileID: 1909787900}
+        m_TargetAssemblyTypeName: RushNDestroy.MenuManager, Assembly-CSharp
+        m_MethodName: LoadGameMenu
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

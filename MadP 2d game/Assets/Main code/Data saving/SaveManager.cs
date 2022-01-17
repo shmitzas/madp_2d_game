@@ -46,26 +46,26 @@ namespace RushNDestroy
         }
         public void NewGame()
         {
-            rewardsData.coins = 100;
-            rewardsData.trophies = 0;
+            rewardsData.coins = 1000;
+            rewardsData.trophies = 100;
             for (int i = 0; i < deckData.cardData.Length; i++)
             {
                 switch (i)
                 {
                     case 0: //Default Warrior data
-                        deckData.cardData[i].entityData.health = 30;
-                        deckData.cardData[i].entityData.attackDamage = 2;
-                        deckData.cardData[i].entityData.attackRatio = 1;
-                        deckData.cardData[i].entityData.speed = 1.8f;
+                        deckData.cardData[i].entityData.health = 30f;
+                        deckData.cardData[i].entityData.attackDamage = 2f;
+                        deckData.cardData[i].entityData.attackRatio = 2f;
+                        deckData.cardData[i].entityData.speed = 2f;
                         deckData.cardData[i].entityData.upgradeCost = 30;
                         deckData.cardData[i].entityData.upgradeLevel = 0;
                         deckData.cardData[i].entityData.buyCost = 30;
                         deckData.cardData[i].entityData.owned = true;
                         break;
                     case 1: //Default Archer data
-                        deckData.cardData[i].entityData.health = 20;
-                        deckData.cardData[i].entityData.attackDamage = 5;
-                        deckData.cardData[i].entityData.attackRatio = 2;
+                        deckData.cardData[i].entityData.health = 20f;
+                        deckData.cardData[i].entityData.attackDamage = 5f;
+                        deckData.cardData[i].entityData.attackRatio = 2f;
                         deckData.cardData[i].entityData.speed = 1.6f;
                         deckData.cardData[i].entityData.upgradeCost = 30;
                         deckData.cardData[i].entityData.upgradeLevel = 0;
@@ -73,9 +73,9 @@ namespace RushNDestroy
                         deckData.cardData[i].entityData.owned = true;
                         break;
                     case 2: //Default Zeppelin data
-                        deckData.cardData[i].entityData.health = 100;
-                        deckData.cardData[i].entityData.attackDamage = 60;
-                        deckData.cardData[i].entityData.attackRatio = 4;
+                        deckData.cardData[i].entityData.health = 80f;
+                        deckData.cardData[i].entityData.attackDamage = 60f;
+                        deckData.cardData[i].entityData.attackRatio = 4f;
                         deckData.cardData[i].entityData.speed = 1.2f;
                         deckData.cardData[i].entityData.upgradeCost = 150;
                         deckData.cardData[i].entityData.upgradeLevel = 0;
@@ -83,10 +83,10 @@ namespace RushNDestroy
                         deckData.cardData[i].entityData.owned = false;
                         break;
                     case 3: //Default Dragon data
-                        deckData.cardData[i].entityData.health = 200;
-                        deckData.cardData[i].entityData.attackDamage = 20;
-                        deckData.cardData[i].entityData.attackRatio = 3;
-                        deckData.cardData[i].entityData.speed = 1;
+                        deckData.cardData[i].entityData.health = 150f;
+                        deckData.cardData[i].entityData.attackDamage = 20f;
+                        deckData.cardData[i].entityData.attackRatio = 3f;
+                        deckData.cardData[i].entityData.speed = 1.2f;
                         deckData.cardData[i].entityData.upgradeCost = 250;
                         deckData.cardData[i].entityData.upgradeLevel = 0;
                         deckData.cardData[i].entityData.buyCost = 300;

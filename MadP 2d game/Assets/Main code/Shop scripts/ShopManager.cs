@@ -167,10 +167,10 @@ namespace RushNDestroy
         }
         private void ShowInfoAboutCard(EntityData entity)
         {
-            infoTexts[0].text = entity.health.ToString();
-            infoTexts[1].text = entity.attackDamage.ToString();
-            infoTexts[2].text = entity.attackRatio.ToString() + "s";
-            infoTexts[3].text = entity.speed.ToString();
+            infoTexts[0].text = entity.health.ToString("F1");
+            infoTexts[1].text = entity.attackDamage.ToString("F2");
+            infoTexts[2].text = entity.attackRatio.ToString("F1") + "s";
+            infoTexts[3].text = entity.speed.ToString("F1");
             infoTexts[4].text = entity.cost.ToString();
             infoMenu.gameObject.SetActive(true);
         }
