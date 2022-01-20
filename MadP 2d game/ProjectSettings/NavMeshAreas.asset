@@ -15,9 +15,9 @@ NavMeshProjectSettings:
     cost: 5
   - name: ShatteredBridge
     cost: 3
-  - name: Swamp
-    cost: 7
-  - name: OnlyForAirborne
+  - name: 
+    cost: 1
+  - name: 
     cost: 1
   - name: 
     cost: 1
