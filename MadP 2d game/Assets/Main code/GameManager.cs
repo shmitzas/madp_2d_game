@@ -116,7 +116,7 @@ namespace RushNDestroy
                         {
                             p.StartFighting();
                         }
-                        else if (Vector2.Distance(p.transform.position, targetToPass.transform.position) < p.attackRange)
+                        else if (Vector2.Distance(p.transform.position, targetToPass.transform.position) < p.detectRange)
                         {
 
                             p.SetTarget(targetToPass);
