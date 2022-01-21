@@ -12,8 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7ea40b30522901a4fa042bebf3b6f7f4, type: 3}
   m_Name: Tower
   m_EditorClassIdentifier: 
-  playerPrefab: {fileID: 0}
-  enemyPrefab: {fileID: 0}
+  playerPrefab: {fileID: 532818334915760956, guid: d67c087d2ddb7a046a009a4936db6657, type: 3}
+  enemyPrefab: {fileID: 532818334915760956, guid: d67c087d2ddb7a046a009a4936db6657, type: 3}
   artwork: {fileID: 0}
   entityType: 1
   extraType: 0
@@ -27,5 +27,5 @@ MonoBehaviour:
   targetAirborneEntities: 1
   upgradeLevel: 0
   upgradeCost: 0
-  owned: 1
+  owned: 0
   buyCost: 0
